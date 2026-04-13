@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日経早報 2026-04-14（火）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:          #0c0e14;
+    --bg-surface:  #13161f;
+    --bg-card:     #181c27;
+    --bg-quote:    #1e2230;
+    --border:      #272c3a;
+    --border-light:#333849;
+    --text:        #c8cad3;
+    --text-dim:    #6b7084;
+    --text-bright: #eceef4;
+    --accent:      #6ea1ff;
+    --link:        #7eaaff;
+    --green:       #4ade80;
+    --red:         #f87171;
+    --orange:      #fb923c;
+    --purple:      #a78bfa;
+    --cyan:        #38bdf8;
+    --yellow:      #facc15;
+    --radius:      8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', 'Noto Sans JP', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Sticky Header ── */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12,14,20,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+  }
+
+  .top-bar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .top-bar .logo {
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: 0.02em;
+  }
+
+  .top-bar .date-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .hero .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 20px 0 32px;
+  }
+
+  .toc a {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .toc a:hover {
+    color: var(--text-bright);
+    border-color: var(--accent);
+    background: rgba(110,161,255,0.08);
+  }
+
+  /* ── Section ── */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0 12px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 24px;
+    position: sticky;
+    top: 49px;
+    z-index: 50;
+    background: var(--bg);
+  }
+
+  .section-head .emoji { font-size: 22px; }
+
+  .section-head h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-bright);
+  }
+
+  /* ── Article Card ── */
+  .article {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .article:hover { border-color: var(--border-light); }
+
+  .article-head {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .article-head .num {
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(110,161,255,0.1);
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin-top: 2px;
+  }
+
+  .article-head h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1.5;
+  }
+
+  .article-body { padding: 20px 24px 24px; }
+
+  /* ── Quote block (Japanese original) ── */
+  .jp-quote {
+    background: var(--bg-quote);
+    border-left: 3px solid var(--border-light);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 6px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #9a9db0;
+  }
+
+  .jp-quote::before {
+    content: "JP";
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #555a70;
+    background: rgba(255,255,255,0.04);
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── Chinese translation ── */
+  .zh-text {
+    padding: 12px 18px 14px;
+    margin-bottom: 16px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--text);
+    border-left: 3px solid transparent;
+  }
+
+  .zh-text::before {
+    content: "CN";
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(110,161,255,0.1);
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .pair { margin-bottom: 4px; }
+
+  .pair:last-of-type { margin-bottom: 0; }
+
+  .article-foot {
+    padding: 0 24px 20px;
+  }
+
+  .article-foot a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 12px;
+    transition: all 0.2s;
+  }
+
+  .article-foot a:hover {
+    color: var(--link);
+    border-color: var(--link);
+  }
+
+  /* ── Section color accents ── */
+  [data-cat="market"] .article  { border-top: 2px solid var(--green); }
+  [data-cat="economy"] .article { border-top: 2px solid var(--accent); }
+  [data-cat="politics"] .article { border-top: 2px solid var(--purple); }
+  [data-cat="tech"] .article    { border-top: 2px solid var(--orange); }
+  [data-cat="intl"] .article    { border-top: 2px solid var(--cyan); }
+
+  [data-cat="market"] .section-head  { border-bottom-color: var(--green); }
+  [data-cat="economy"] .section-head { border-bottom-color: var(--accent); }
+  [data-cat="politics"] .section-head { border-bottom-color: var(--purple); }
+  [data-cat="tech"] .section-head    { border-bottom-color: var(--orange); }
+  [data-cat="intl"] .section-head    { border-bottom-color: var(--cyan); }
+  [data-cat="intl-news"] .section-head { border-bottom-color: var(--red); }
+
+  /* ── Intl News ── */
+  .intl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .intl-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    transition: border-color 0.2s;
+  }
+
+  .intl-card:hover { border-color: var(--border-light); }
+
+  .src-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .src-tag.ft   { color: var(--orange); background: rgba(251,146,60,0.12); }
+  .src-tag.ap   { color: var(--cyan);   background: rgba(56,189,248,0.12); }
+  .src-tag.bbc  { color: var(--red);    background: rgba(248,113,113,0.12); }
+  .src-tag.cnbc { color: var(--yellow); background: rgba(250,204,21,0.12); }
+
+  .intl-card .en {
+    font-size: 12.5px;
+    color: #6b7084;
+    font-style: italic;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .intl-card .zh {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── Note (truncation warnings) ── */
+  .note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    padding: 4px 18px 8px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .hero { padding: 36px 0 28px; }
+    .hero h1 { font-size: 22px; }
+    .article-head { padding: 16px 16px 12px; }
+    .article-body { padding: 14px 16px 18px; }
+    .article-foot { padding: 0 16px 16px; }
+    .jp-quote { padding: 10px 14px; font-size: 13px; }
+    .zh-text  { padding: 10px 14px; font-size: 13.5px; }
+    .intl-grid { grid-template-columns: 1fr; }
+    .section-head { top: 45px; }
+    .toc { gap: 6px; }
+    .toc a { font-size: 12px; padding: 4px 10px; }
+  }
+
+  /* ── Animation ── */
+  .article, .intl-card {
+    animation: fadeUp 0.35s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky top bar -->
+<nav class="top-bar">
+  <div class="container">
+    <span class="logo">日経早報</span>
+    <span class="date-tag">2026-04-14 TUE &middot; JST</span>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Hero -->
+<header class="hero">
+  <h1>日経早報 2026-04-14（火）</h1>
+  <div class="sub">Nikkei Morning Brief &middot; JP-CN Bilingual</div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#market">📈 マーケット</a>
+  <a href="#economy">🌏 経済</a>
+  <a href="#politics">🏛️ 政治</a>
+  <a href="#tech">💻 テクノロジー</a>
+  <a href="#intl">🌐 国際</a>
+  <a href="#intl-news">🌍 国際経済ニュース</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     📈 マーケット
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="market" id="market">
+  <div class="section-head">
+    <span class="emoji">📈</span>
+    <h2>マーケット</h2>
+  </div>
+
+  <!-- Article 1 -->
+  <div class="article">
+    <div class="article-head">
+      <span class="num">01</span>
+      <h3>長引くイラン衝突、米経済の支え「ペトロダラー」に揺らぎ</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">原油取引をドルで決済する「ペトロダラー」への注目が高まっている。米国が安全保障を提供する代わりに、産油国は原油取引で得たドルを米国資産に投資する。米国経済の強さの一因とも言われてきたが、イラン衝突の出口が見えない中、揺らぎが生じ始めた。</div>
+        <div class="zh-text">原油取引用美元结算的"石油美元"受到关注。美国提供安全保障作为交换，产油国将原油取引获得的美元投资于美国资产。这被认为是美国経済强势的原因之一，但イラン衝突看不到出口的情况下，开始出现动摇。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">「イラン情勢はペトロダラー体制にとって正念場になりうる」。ドイツ銀行のリサーチ部門が3月下旬に出したリポートが市場で関心を集めている。</div>
+        <div class="zh-text">"イラン情勢对石油美元体制来说可能是正念場"。德意志銀行的研究部门3月下旬发表的报告在市场引起关注。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ペトロダラーは1974年...</div>
+        <div class="zh-text">石油美元是1974年...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOGN13B2L0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article">
+    <div class="article-head">
+      <span class="num">02</span>
+      <h3>米国株、ダウ反発し301ドル高　米・イランの協議継続を期待　ナスダック9日続伸</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">【NQNニューヨーク=田中俊行】13日の米株式市場でダウ工業株30種平均は反発し、終値は前週末比301ドル68セント（0.62%）高の4万8218ドル25セントと、3月4日以来の高値だった。トランプ米大統領が13日、イラン側が和平協議で合意することを望んでいるとの見方を示した。米国とイランの交渉が水面下で続いているとの期待から買いが優勢になった。</div>
+        <div class="zh-text">13日美股市場道指反発，收盤較前周末上涨301.68美元（0.62%）至48218.25美元，創3月4日以来の高値。Trump 13日表示，伊朗方面希望在和平協議上達成合意。市場対美伊谈判在水面下继续进行的期待推动买盘占优势。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">トランプ氏は13日、記者団に「（イラン側から）連絡があり、彼らは合意を強く望んでいる」と語った。米ニュースサイトのアクシオスは、米政府関係者が「米国とイランの協議は続いており、合意に向けて進展している」と明らかにしたと報じた。中東情勢を巡る不確実性がやや後退し、株式に買いが入った。</div>
+        <div class="zh-text">Trump 13日对記者说："（伊朗方面）有联络，他们强烈希望达成合意。" 美国新闻网站Axios報道，美政府相关人员透露"美伊協議在持续，向合意方向有进展"。中东情势的不確実性稍微后退，股式进入买盘。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">米紙ウォール・ストリート・ジャーナル電子版は13日に「数日以内に米国とイランによる2回目の協議が開催される可能性がある」と報じた。戦闘終結に至るかは不透明だが、両国の話し合いが続く可能性があるとして見直し買いが優勢になった。市場では「11月の米中間選挙を見据えて、トランプ氏は戦闘を早期に終えたいと考えているはずだと見透かす投資家が多い」（Bライリーのアート・ホーガン氏）との声があった。</div>
+        <div class="zh-text">华尔街日报电子版13日報道"数日内可能举行美伊第2次協議"。虽然是否能終結戦闘仍不透明，但两国対话继续的可能性推动見直し买盘占优势。市场有声音称"看向11月美中間選挙，很多投资家看透Trump应该想要早期終結戦闘"（B.Riley的Art Hogan）。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ダウ平均は朝方に410ドル安となる場面があった。米国とイランは11〜12日にパキスタンのイスラマバードで和平交渉に臨んだが、合意に至らなかった。トランプ氏は12日、報復措置として米軍がエネルギー輸送の要衝であるホルムズ海峡を封鎖すると表明した。停戦中に限定的な軍事衝突が起こる可能性も意識され、投資家心理が悪化して売りが先行した。もっとも協議継続への期待で徐々に買いの勢いが増した。</div>
+        <div class="zh-text">道指朝方曾跌410美元。美伊两国11-12日在巴基斯坦伊斯兰堡进行和平交渉但未达成合意。Trump 12日表明，作为報復措施美军将封锁能源运输要冲霍尔木兹海峡。市场意识到停戦中可能发生有限军事冲突，投资家心理恶化，売り先行。不过对協議継続的期待让买盘势头逐渐增强。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">13日の米原油先物市場では、WTI（ウエスト・テキサス・インターミディエット）の期近5月物が前週末比2.6%高の1バレル99.08ドルで終えた。原油供給を巡る不安で米東部時間12日の取引で一時105ドル台まで上昇した。原油高は株式相場の重荷だった。</div>
+        <div class="zh-text">13日美原油先物市场，WTI近月5月合约较前周末上涨2.6%，收在每桶99.08美元。因原油供給不安，美東部時間12日交易中一度上涨至105美元水平。原油高是股式相場的重負。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ダウ平均の構成銘柄では、セールスフォースやマイクロソフト、アメリカン・エキスプレス（アメックス）が上昇した。IBMやユナイテッドヘルス・グループ、ボーイングも上げた。一方、ゴールドマン・サックスが下げた。13日朝発表した四半期決算で債券のトレーディング収益が低調だったのが嫌気された。ウォルマートやコカ・コーラ、ベライゾン・コミュニケーションズが売られた。</div>
+        <div class="zh-text">道指構成銘柄中，Salesforce、Microsoft、美国运通上涨。IBM、联合健康集团、Boeing也上涨。另一方面，Goldman Sachs下跌。13日朝発表的季度財報中債券交易收益低调被嫌気。Walmart、Coca-Cola、Verizon通信被売出。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ハイテク株比率が高いナスダック総合株価指数は9日続伸した。終値は前週末比280.842ポイント（1.22%）高の2万3183.736（速報値）だった。2月9日以来、約2カ月ぶりの高値。9日続伸は2023年12月中旬以来、2年4カ月ぶりだった。</div>
+        <div class="zh-text">高科技股比率高的纳斯达克综合股価指数連續9日上涨。収盤較前周末上涨280.842点（1.22%）至23183.736（速報值）。为2月9日以来约2个月来的高値。連續9日上涨为2023年12月中旬以来2年4个月来首次。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ソフトウエアのアドビやサイバーセキュリティーのクラウドストライク・ホールディングスの上昇が目立った。ブロードコムやインテル、アーム・ホールディングスなど半導体関連も買われた。</div>
+        <div class="zh-text">软件公司Adobe和网络安全公司CrowdStrike Holdings的上涨显眼。Broadcom、Intel、Arm Holdings等半導体関連也被买入。</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOFL13B9O0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article">
+    <div class="article-head">
+      <span class="num">03</span>
+      <h3>NY株ハイライト　勢い増す強気派　米・イラン交渉暗雲も消費に陰りなし</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">【NQNニューヨーク=田中俊行】米株式市場で強気派の勢いが増している。米国とイランの和平交渉が物別れに終わりリスク回避の売りが先行したが、すかさず押し目買いが入った。米国の個人消費は腰折れせず米企業業績の成長も続くといった楽観的な見方が広がり、米原油先物の高騰に対する「耐性」も強まっている。</div>
+        <div class="zh-text">美股市场で強気派的势头正在增强。美伊和平交渉破裂收场，リスク回避的抛售先行，但立即有逢低买盘进入。美国个人消费没有腰折れ，美企业績の成長也持续的乐观見方扩散，对美原油先物高騰的「耐性」也在增强。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">米国とイランは11〜12日にパキスタンのイスラマバードで交渉に臨んだが、イランが核開発の放棄やホルムズ...</div>
+        <div class="zh-text">美国和伊朗在11-12日于巴基斯坦伊斯兰堡进行了交渉，但伊朗在核开发放弃和霍尔木兹...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOFL13B1X0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     🌏 経済
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="economy" id="economy">
+  <div class="section-head">
+    <span class="emoji">🌏</span>
+    <h2>経済</h2>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">01</span>
+      <h3>CO2地下貯留、千葉・九十九里沖の試掘許可へ　国内排出0.5%の容量</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">二酸化炭素（CO2）を回収して地下にためる「CCS」の実用化に向けて、経済産業省は近く千葉県・九十九里沖での試掘調査を許可する。北海道・苫小牧沖に次ぐ全国2例目。将来は国内排出の0.5%分を貯留する。</div>
+        <div class="zh-text">为推进回收CO2并存储到地下的"CCS"实用化，経産省将于近期许可千葉县九十九里沖的試掘調査。这是继北海道苫小牧沖后的全国第2例。将来可貯留国内排出量的0.5%。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">千葉県は都道府県別のCO2排出量が全国1位の東京都に次いで多く、工場など産業部門に限れば最も多い。排出量削減の余地が大きく、実現すれば東京湾沿いの工場や発電所の競争力向上につながる。</div>
+        <div class="zh-text">千葉県按都道府県的CO2排出量，仅次于全国第1位的東京都，如果仅限工場等産業部門則排出最多。排出量削減的余地很大，如果実現，将有助于提升東京湾沿岸工場和発電所的競争力。</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA095PK0Z00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">02</span>
+      <h3>諮問会議の民間議員、財政検証機能を提言　首相「市場の信認を確保」</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">経済財政諮問会議の民間議員は13日、今後の予算編成を巡る基本原則を提言した。財政運営や経済政策に関する「独立的な検証機能のあり方」について検討を求めた。一連の取り組みを通じ、施策効果の確認や財政規律の確保を要請した。</div>
+        <div class="zh-text">经济财政諮問会議的民間議员13日就今后予算编成的基本原则进行了提言。要求就财政運営和经济政策相关的"独立性検証機能のあり方"进行検討。通过一系列举措，要求确认施策效果和确保财政规律。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">高市早苗政権が掲げる「責任ある積極財政」を踏まえ、経団連会長の筒井義信氏ら4人の連名で提言を出した。夏に向けて作る「経済財政運営と改革の基本方針（骨太の方針）」や2027年度の予算...</div>
+        <div class="zh-text">基于高市早苗政権提出的"负责任的积极财政"，经团联会长筒井義信等4人联名提出了提言。面向夏季制定的"经济财政運営与改革基本方针（骨太方针）"和2027年度预算...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA121TX0S6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">03</span>
+      <h3>核ごみ処分候補地に南鳥島　迷走の原子力政策、国主導で立て直し</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">東京都小笠原村にある南鳥島は、高レベル放射性廃棄物（核のごみ）の最終処分場選定に向けて、国が主導して調査地を選ぶ方式の第1号となる。原子力発電所の再稼働を進めながら最終処分場は定まらないという迷走する政策の立て直しにはつながるが、決着には時間がかかりそうだ。</div>
+        <div class="zh-text">东京都小笠原村的南鸟岛，将成为高水平放射性废物（核垃圾）最终处分场选定中，国家主导选择调査地方式的第一号。虽然有助于重建既推进原子力発電所再稼働又没有确定最终処分場的迷走政策，但解决需要时间。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">小笠原村の渋谷正昭村長は13日、処分場の選定に向けた第1段階である「文献調査」を容認する意向を示した。経済産業省の幹部が3月に小笠原村役場を訪問し、文献調査への協力を要請した。</div>
+        <div class="zh-text">小笠原村村長渋谷正昭13日表示，同意处分场选定第一阶段的"文献調査"。経済産業省干部3月访问小笠原村役場，要求协助文献調査。</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA095JQ0Z00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     🏛️ 政治
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="politics" id="politics">
+  <div class="section-head">
+    <span class="emoji">🏛️</span>
+    <h2>政治</h2>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">01</span>
+      <h3>「保守層」は強固か、真正派と穏健派が争う可能性　河野有理法大教授</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">日本政治で長く続いた保守―リベラルの対立軸が変化すると、政党の立ち位置にはどんな影響が出るか。政治学が専門の河野有理・法政大教授に聞いた。</div>
+        <div class="zh-text">日本政治长期持续的保守-自由主义对立轴发生変化后，政党的立场会受到什么影响？我们采访了政治学专业的河野有理法政大教授。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">――保守層が自民党に回帰したといわれています。</div>
+        <div class="zh-text">——据说保守层回归了自民党。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">「高市早苗首相が安倍晋三元首相の継承者とみなされ、参政党や日本保守党に流れていた岩盤支持層を自民党が回収した。一方で、この保守層がどこまで強固かはわからない」</div>
+        <div class="zh-text">"高市早苗首相被视为安倍晋三元首相的继承者，自民党回收了流向参政党和日本保守党的岩盤支持层。但另一方面，这个保守层到底有多强固还不清楚。"</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">――なぜでしょうか。</div>
+        <div class="zh-text">——为什么这么说？</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">「自衛隊違憲論のような立場は</div>
+        <div class="zh-text">"像自卫队违宪论这样的立场</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA077YC0X00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">02</span>
+      <h3>SNS投資詐欺に専用通報サイト　自民党の提言案判明</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">自民党が14日に開く、デジタル社会推進本部や情報通信戦略調査会、消費者問題調査会の合同プロジェクトチーム（PT）の会合で骨子案を提示する。同会合は偽の動画や画像を人工知能（AI）で生成する「ディ...</div>
+        <div class="zh-text">自民党14日召开的数字社会推進本部、情報通信戦略調査会、消費者问题調査会合同项目团队（PT）会议上，将提示骨子案。该会议讨论用人工智能（AI）生成虚假视频和图像的"深度..."</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA13AA60T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">03</span>
+      <h3>高市早苗首相の憲法改正意欲　28年参院選前へ3シナリオ</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">高市早苗首相が憲法改正に関し、2027年春までに発議のめどをつけると意欲を示した。歴代首相の多くは改憲を具体的な政治日程に位置づけておらず、最高機関である党大会での表明は異例といえる。党内には28年夏の参院選前に3つのシナリオが浮かぶ。</div>
+        <div class="zh-text">高市早苗首相关于宪法改正，表示要在2027年春前有発議的眉目。历代首相多数都没有将改宪定位为具体的政治日程，在最高机关党大会上的表明可以说是异例。党内对28年夏参院選前浮现3个剧本。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">首相は12日の党大会で改憲の国会議論に関し「議論のための議論であってはならない。国民の負託に応えるためにおこなうべきは決断のための議論だ」と言及した。「新たなペ...</div>
+        <div class="zh-text">首相在12日的党大会上关于改宪的国会議論提到"不能是为了議論的議論。为了回应国民负託应该进行的是为了決断的議論"。"新的节...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUA137WS0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     💻 テクノロジー
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="tech" id="tech">
+  <div class="section-head">
+    <span class="emoji">💻</span>
+    <h2>テクノロジー</h2>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">01</span>
+      <h3>富士通、米中並ぶAI第三極狙う　ハード一体「日本製」経済安保に需要</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">富士通が人工知能（AI）企業に脱皮しようとしている。かつては携帯端末や個人向けパソコンなども手掛ける総合電機メーカーだったが、過去30年はIT（情報技術）サービスに軸足を移した。次に狙うのがAIだ。</div>
+        <div class="zh-text">富士通正在转型为人工智能企业。过去曾是经营手机终端和个人电脑等业务的综合电机厂商，但在过去30年中将重心转向IT服务。下一个目标是AI。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ITやAI分野は米中が先行する。富士通が狙うのは、次世代の半導体や量子計算機といったハードウエアを含めてAIを一体的に提供する戦略だ。経済安全保障を背景に、自国主導でAI技術を確立しようとする世界の...</div>
+        <div class="zh-text">IT和AI领域是美中领先。富士通瞄准的是包括次世代半导体和量子计算机等硬件在内、一体化提供AI的战略。以経済安保为背景，世界各国都在尝试以自国主导确立AI技术...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUC0909J0Z00C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">02</span>
+      <h3>宇宙のデータ拠点、日本は光技術で先行狙う　スペースコンパスCEO</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">超知能　第4部　きしむ世界　インタビュー</div>
+        <div class="zh-text">超知能　第4部　吱嘎作响的世界　访谈</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">連載企画「超知能」の第4部「きしむ世界」では、人工知能（AI）の開発競争に潜む課題を点検した。米中のテック大手が宇宙でAIの覇権を争うなか、日本企業はどう対応するのか。</div>
+        <div class="zh-text">连载企划「超知能」第4部「吱嘎作响的世界」検討了人工智能（AI）开発竞争中潜在的課題。在美中科技巨头争夺宇宙AI霸权的过程中，日本企業如何応対？</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">NTTとスカパーJSATが出資し宇宙データセンター事業を手掛けるスペースコンパス（東京・千代田）の小松大...</div>
+        <div class="zh-text">由NTT和天空完美通信出资、从事宇宙数据中心事業的SpaceCompass（東京・千代田）小松大...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUC281HV0Y6A320C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">03</span>
+      <h3>建設3Dプリンター、関連法に変化の兆し　建築材料の規制緩和へ</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">建築基準法が障壁となり、建設3Dプリンターの適用範囲は限られている。ここにきて国土交通省が規制緩和に乗り出し、変化の兆しが見えてきた。2026年度は3Dプリンターの大きな転換点になり得る。</div>
+        <div class="zh-text">建築基準法成了障壁，建设3D打印机的适用範囲很有限。最近国交省开始着手规制緩和，出现了変化的兆し。2026年度可能成为3D打印机的重大转换点。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">適用例が積み上がってきたとはいえ、建設3Dプリンターにはまだ普及を阻む多くの壁が存在する。例えば、製作した部材を建築物の構造体に利用できて初めて真価を発揮するが、法規制の課題が横たわる。</div>
+        <div class="zh-text">虽然适用事例在不断积累，建设3D打印机还是存在很多阻碍普及的壁垒。比如，只有能把制作的部材用于建築物的構造体才能真正発揮价值，但法规制的課題横亘在前。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">モルタル系材料は指定...</div>
+        <div class="zh-text">砂浆系材料是指定的...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOUC273RA0X20C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     🌐 国際
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="intl" id="intl">
+  <div class="section-head">
+    <span class="emoji">🌐</span>
+    <h2>国際</h2>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">01</span>
+      <h3>パキスタンが世界を救う？ 米イラン停戦仲介を可能にした4つの力学</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">「パキスタンに米国が必要な以上に、米国がパキスタンを必要とするようになる」</div>
+        <div class="zh-text">"巴基斯坦需要美国，但美国更需要巴基斯坦"</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">英領インドからの分離・独立の翌1948年に病死した「建国の父」ムハンマド・アリ・ジンナーの予言は現実になった。</div>
+        <div class="zh-text">从英属印度分离独立后翌年1948年病死的"建国之父"穆罕默德&middot;阿里&middot;真纳的预言成为了现实。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">4月11日、米国はバンス副大統領、イランはガリバフ国会議長が率いる代表団がパキスタンの首都イスラマバードで対峙した。79年のイラン革命で対立に転じて以降、両国間で最高位の対面協議では、米国・イスラエルが先制攻撃...</div>
+        <div class="zh-text">4月11日，美国由副総統バンス、イラン由国会議長ガリバフ率团，在巴基斯坦首都イスラマバード对峙。自79年イラン革命转为対立以来，两国间最高级别的対面協議中，美国・イスラエル先制攻撃...</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOCD112V80R10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">02</span>
+      <h3>仏投資会社ティケオー、日本で事業投資に参入　アモーヴァと合弁</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">フランスの投資会社ティケオー・キャピタルが日本事業を拡大する。提携している三井住友トラストグループと協力し、プライベートエクイティ（PE=未公開株）投資を今年度から開始する。脱炭素分野の中堅企業に的を絞って買収し、企業価値を向上させて利益を上げる。</div>
+        <div class="zh-text">法国投資会社Tikehau Capital扩大日本事業。与提携的三井住友Trust集团合作，从本年度开始PE投資（私募股权）。锁定脱炭素领域的中坚企业进行収購，提升企业価值获取利益。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">ティケオーはこのほど、</div>
+        <div class="zh-text">Tikehau最近，</div>
+        <div class="note">（原文在此处截断）</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOCB133QV0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-head">
+      <span class="num">03</span>
+      <h3>トランプ氏「逆封鎖」で圧力　イラン原油を遮断、高まる衝突リスク</h3>
+    </div>
+    <div class="article-body">
+      <div class="pair">
+        <div class="jp-quote">【ワシントン=甲原潤之介、カイロ=古賀雄大】トランプ米大統領は12日、米軍がホルムズ海峡への船舶の出入りを封鎖すると表明した。海峡を実効支配してきたイランとの交渉決裂を受けた対抗措置だ。停戦中の両国が再び軍事衝突するリスクが高まってきた。</div>
+        <div class="zh-text">Trump美国大統領12日表明，美军将封鎖ホルムズ海峡的船舶出入。这是针对实効支配该海峡的イラン交渉決裂的対抗措置。停戦中的両国再次軍事衝突的风险正在升高。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">中東を管轄する米中央軍は12日の声明で、トランプ氏の指示を踏まえ「13日午前10時（日本時間13日午後11時）からイランの港湾に出入りするすべての海上交通の封鎖を開始する」と発表した。</div>
+        <div class="zh-text">管轄中東的美中央軍在12日声明中，基于Trump的指示発表「从13日上午10点（日本時間13日下午11点）开始，对出入イラン港湾的所有海上交通实施封鎖」。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">アメリカのホルムズ海峡「逆封鎖」で割を食うのは、ペルシャ湾岸からのエネルギーに依存している国々。その中には、中国やインド、更には今回のアメリカとイランの仲介工作をしているパキスタンも含まれます。</div>
+        <div class="zh-text">美国对ホルムズ海峡进行「逆封鎖」，受害的是依赖ペルシャ湾岸能源的国家。其中包括中国、印度，甚至还有在此次美国とイラン之间进行仲介工作的巴基斯坦。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">イランが行っている機雷等による海峡封鎖と異なり、アメリカが行うのは個別の船舶に対する臨検の様ですが、果たして米軍は中国やインド、パキスタンの船にも臨検と停船を行うのか。</div>
+        <div class="zh-text">与イラン通过水雷等手段进行的海峡封鎖不同，美国采取的似乎是对個別船舶的临检。问题是美军是否也会对中国、印度、巴基斯坦的船只进行临检和停船。</div>
+      </div>
+      <div class="pair">
+        <div class="jp-quote">1963年のキューバ危機に近い状況が招来されないことを望むばかりです。</div>
+        <div class="zh-text">只希望不要出现接近1963年古巴危机的状況。</div>
+      </div>
+    </div>
+    <div class="article-foot">
+      <a href="https://www.nikkei.com/article/DGXZQOCB133CV0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     🌍 国際経済ニュース
+     ═══════════════════════════════════════════ -->
+<div class="section" data-cat="intl-news" id="intl-news">
+  <div class="section-head">
+    <span class="emoji">🌍</span>
+    <h2>国際経済ニュース</h2>
+  </div>
+
+  <div class="intl-grid">
+    <div class="intl-card">
+      <span class="src-tag ft">Financial Times</span>
+      <div class="en">Trump nominates Pimco executive to lead US Treasury's international affairs</div>
+      <div class="zh">特朗普提名Pimco高管担任财政部国际事务负责人</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag ft">Financial Times</span>
+      <div class="en">What happens now in Iran?</div>
+      <div class="zh">伊朗局势下一步走向分析</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag ft">Financial Times</span>
+      <div class="en">The AI build-out is powering global goods trade</div>
+      <div class="zh">AI基础设施建设推动全球商品贸易增长</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag ap">AP News</span>
+      <div class="en">Trump says US military has blockaded Iranian ports to pressure Tehran</div>
+      <div class="zh">特朗普称美军封锁伊朗港口向德黑兰施压</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag ap">AP News</span>
+      <div class="en">An underwater bus in Havana becomes the ride that matters during Cuba's fuel crisis</div>
+      <div class="zh">哈瓦那水下巴士在古巴燃料危机期间成为重要交通工具</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag ap">AP News</span>
+      <div class="en">Florida teenager charged with sexually assaulting and killing stepsister Anna Kepner on cruise ship</div>
+      <div class="zh">佛州少年被控在游轮上性侵并杀害继姊Anna Kepner</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag bbc">BBC Business</span>
+      <div class="en">Oil jumps back above $100 after US-Iran peace talks fail</div>
+      <div class="zh">美伊和谈失败后油价重回100美元上方，全球能源危机担忧加剧</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag bbc">BBC Business</span>
+      <div class="en">US home buyers 'frozen' as sales slump over Iran war fears</div>
+      <div class="zh">伊朗战争恐慌导致美国房屋销售跌至9个月低点，买家观望情绪浓厚</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag bbc">BBC Business</span>
+      <div class="en">EasyJet passengers describe EU border 'nightmare'</div>
+      <div class="zh">EasyJet乘客描述欧盟新数字边控系统导致的"噩梦"</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag cnbc">CNBC Economy</span>
+      <div class="en">Hormuz blockade could deepen world's worst energy crisis &mdash; and risk a dangerous misstep</div>
+      <div class="zh">霍尔木兹海峡封锁可能加剧全球能源危机，推高油价并可能将中国卷入冲突</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag cnbc">CNBC Economy</span>
+      <div class="en">Consumer sentiment hits record low, inflation fears rise amid Iran war</div>
+      <div class="zh">消费者信心跌至历史低点，密歇根指数降至47.6，通胀担忧加剧</div>
+    </div>
+    <div class="intl-card">
+      <span class="src-tag cnbc">CNBC Economy</span>
+      <div class="en">Consumer prices rose 3.3% in March, as energy prices spiked due to Iran conflict</div>
+      <div class="zh">3月CPI因伊朗冲突推高能源价格上涨3.3%，符合市场预期</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>nikkei_morning_report.py &middot; auto-generated &middot; 2026-04-14</p>
+</footer>
+
+</div><!-- /.container -->
+</body>
+</html>
