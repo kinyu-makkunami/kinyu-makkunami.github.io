@@ -5,408 +5,256 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>日経早報 2026-04-14（火）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:          #0c0e14;
-    --bg-surface:  #13161f;
-    --bg-card:     #181c27;
-    --bg-quote:    #1e2230;
-    --border:      #272c3a;
-    --border-light:#333849;
-    --text:        #c8cad3;
-    --text-dim:    #6b7084;
-    --text-bright: #eceef4;
-    --accent:      #6ea1ff;
-    --link:        #7eaaff;
-    --green:       #4ade80;
-    --red:         #f87171;
-    --orange:      #fb923c;
-    --purple:      #a78bfa;
-    --cyan:        #38bdf8;
-    --yellow:      #facc15;
-    --radius:      8px;
-  }
+:root {
+  --bg: #F2EBE4;
+  --bg-card: #FDFCFA;
+  --bg-quote: #EDEBF2;
+  --border: #D8D2CB;
+  --border-accent: #6B7DB3;
+  --text: #1a1a1a;
+  --text-dim: #6b7084;
+  --text-heading: #3A4A7A;
+  --accent1: #4A5A8A;
+  --accent2: #6B7DB3;
+  --accent3: #8B7DAA;
+  --orange: #D4854A;
+  --gold: #D4A843;
+  --rose: #C4616A;
+  --radius: 8px;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
-  html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Serif JP','Noto Serif SC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Source Sans 3', 'Noto Sans JP', -apple-system, sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+.container { max-width:780px; margin:0 auto; padding:0 20px; }
 
-  /* ── Layout ── */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+/* ── Sticky bar ── */
+.top-bar {
+  position:sticky; top:0; z-index:100;
+  background: linear-gradient(135deg, #4A5A8A, #6B7DB3, #8B7DAA);
+  padding:12px 0;
+  box-shadow: 0 2px 8px rgba(74,90,138,0.15);
+}
+.top-bar .container { display:flex; align-items:center; justify-content:space-between; }
+.top-bar .logo {
+  font-family:'Noto Sans JP',sans-serif; font-size:16px; font-weight:700;
+  color:#fff; letter-spacing:0.03em;
+}
+.top-bar .date-tag {
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);
+  letter-spacing:0.06em;
+}
 
-  /* ── Sticky Header ── */
-  .top-bar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(12,14,20,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 0;
-  }
+/* ── Hero ── */
+.hero {
+  text-align:center; padding:48px 0 36px;
+  border-bottom:2px solid transparent;
+  border-image: linear-gradient(90deg, #4A5A8A, #6B7DB3, #8B7DAA) 1;
+  margin-bottom:12px;
+}
+.hero h1 {
+  font-family:'Noto Serif JP',serif; font-size:28px; font-weight:700;
+  color:var(--text-heading); margin-bottom:8px;
+}
+.hero .sub {
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);
+  letter-spacing:0.06em; text-transform:uppercase;
+}
 
-  .top-bar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+/* ── TOC ── */
+.toc {
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  padding:20px 0 32px;
+}
+.toc a {
+  font-family:'Noto Sans JP',sans-serif; font-size:13px;
+  color:var(--text-dim); text-decoration:none;
+  padding:5px 14px; border:1px solid var(--border); border-radius:20px;
+  transition:all 0.2s; white-space:nowrap;
+}
+.toc a:hover {
+  color:var(--text-heading); border-color:var(--accent2);
+  background:rgba(107,125,179,0.08);
+}
 
-  .top-bar .logo {
-    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-bright);
-    letter-spacing: 0.02em;
-  }
+/* ── Section ── */
+.section { margin-bottom:44px; }
+.section-head {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 0 12px;
+  border-bottom:2px solid var(--accent2);
+  margin-bottom:24px;
+  position:sticky; top:48px; z-index:50;
+  background:var(--bg);
+}
+.section-head .emoji { font-size:22px; }
+.section-head h2 {
+  font-family:'Noto Sans JP','Noto Sans SC',sans-serif;
+  font-size:19px; font-weight:700; color:var(--text-heading);
+}
 
-  .top-bar .date-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.06em;
-  }
+/* ── Article card ── */
+.article {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); margin-bottom:20px; overflow:hidden;
+  transition:border-color 0.2s;
+}
+.article:hover { border-color:#b0a898; }
+.article-head {
+  padding:20px 24px 16px; border-bottom:1px solid var(--border);
+  display:flex; align-items:flex-start; gap:12px;
+}
+.article-head .num {
+  flex-shrink:0; font-family:'IBM Plex Mono',monospace;
+  font-size:11px; color:var(--accent2);
+  background:rgba(107,125,179,0.1); border-radius:4px;
+  padding:3px 8px; margin-top:3px;
+}
+.article-head h3 {
+  font-family:'Noto Sans JP','Noto Sans SC',sans-serif;
+  font-size:16px; font-weight:700; color:var(--text-heading); line-height:1.5;
+}
+.article-body { padding:20px 24px 24px; }
 
-  /* ── Hero ── */
-  .hero {
-    text-align: center;
-    padding: 56px 0 40px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
-  }
+/* ── JP quote (with ruby) ── */
+.jp-quote {
+  background:var(--bg-quote);
+  border-left:3px solid var(--border-accent);
+  border-radius:0 6px 6px 0;
+  padding:16px 18px;
+  margin-bottom:4px;
+  font-family:'Noto Serif JP',serif;
+  font-size:15px;
+  line-height:2.4;
+  color:#3a3a4a;
+}
 
-  .hero h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--text-bright);
-    letter-spacing: 0.03em;
-    margin-bottom: 10px;
-  }
+/* ── Ruby styling ── */
+ruby { ruby-position:over; }
+rt {
+  font-size:0.55em;
+  color:#8B7DAA;
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:400;
+}
+rp { color:transparent; font-size:0; }
 
-  .hero .sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+/* ── CN translation ── */
+.zh-text {
+  padding:12px 18px 14px;
+  margin-bottom:14px;
+  font-size:15.5px;
+  line-height:1.85;
+  color:var(--text);
+  border-left:3px solid transparent;
+}
 
-  /* ── TOC ── */
-  .toc {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    padding: 20px 0 32px;
-  }
+/* ── Language tags ── */
+.lang-tag {
+  display:inline-block; font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:0.08em; border-radius:3px;
+  padding:1px 5px; margin-right:8px; vertical-align:middle;
+}
+.jp-tag { color:#6b7084; background:rgba(0,0,0,0.04); }
+.cn-tag { color:var(--accent2); background:rgba(107,125,179,0.1); }
 
-  .toc a {
-    font-size: 13px;
-    color: var(--text-dim);
-    text-decoration: none;
-    padding: 5px 14px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
+.pair { margin-bottom:4px; }
+.note {
+  font-size:13px; color:var(--text-dim); font-style:italic;
+  padding:4px 18px 8px;
+}
 
-  .toc a:hover {
-    color: var(--text-bright);
-    border-color: var(--accent);
-    background: rgba(110,161,255,0.08);
-  }
+.article-foot { padding:0 24px 20px; }
+.article-foot a {
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  color:var(--text-dim); text-decoration:none;
+  border:1px solid var(--border); border-radius:4px;
+  padding:4px 12px; transition:all 0.2s;
+}
+.article-foot a:hover { color:var(--accent1); border-color:var(--accent1); }
 
-  /* ── Section ── */
-  .section {
-    margin-bottom: 48px;
-  }
+/* ── Intl news grid ── */
+.intl-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.intl-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px 18px;
+  border-top:2px solid var(--rose);
+  transition:border-color 0.2s;
+}
+.intl-card:hover { border-color:#b0a898; }
+.src-tag {
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:0.05em; text-transform:uppercase;
+  display:inline-block; padding:1px 7px; border-radius:3px; margin-bottom:8px;
+}
+.src-tag.ft   { color:var(--orange); background:rgba(212,133,74,0.12); }
+.src-tag.ap   { color:var(--accent2); background:rgba(107,125,179,0.12); }
+.src-tag.bbc  { color:var(--rose); background:rgba(196,97,106,0.12); }
+.src-tag.cnbc { color:var(--gold); background:rgba(212,168,67,0.12); }
+.intl-card .en {
+  font-size:13px; color:var(--text-dim); font-style:italic;
+  margin-bottom:6px; line-height:1.5;
+}
+.intl-card .zh { font-size:14px; color:var(--text); line-height:1.6; }
 
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 0 12px;
-    border-bottom: 2px solid var(--border);
-    margin-bottom: 24px;
-    position: sticky;
-    top: 49px;
-    z-index: 50;
-    background: var(--bg);
-  }
+/* ── Footer ── */
+footer {
+  text-align:center; padding:32px 0 48px;
+  border-top:2px solid transparent;
+  border-image:linear-gradient(90deg, #4A5A8A, #6B7DB3, #8B7DAA) 1;
+  margin-top:48px;
+}
+footer p { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); }
 
-  .section-head .emoji { font-size: 22px; }
+/* ── Responsive ── */
+@media (max-width:640px) {
+  .hero { padding:32px 0 24px; }
+  .hero h1 { font-size:22px; }
+  .article-head { padding:16px 16px 12px; }
+  .article-body { padding:14px 16px 18px; }
+  .article-foot { padding:0 16px 16px; }
+  .jp-quote { padding:12px 14px; font-size:14px; }
+  .zh-text { padding:10px 14px; font-size:14px; }
+  .intl-grid { grid-template-columns:1fr; }
+  .section-head { top:44px; }
+  .toc { gap:6px; }
+  .toc a { font-size:12px; padding:4px 10px; }
+}
 
-  .section-head h2 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 19px;
-    font-weight: 700;
-    color: var(--text-bright);
-  }
-
-  /* ── Article Card ── */
-  .article {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-
-  .article:hover { border-color: var(--border-light); }
-
-  .article-head {
-    padding: 20px 24px 16px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .article-head .num {
-    flex-shrink: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    background: rgba(110,161,255,0.1);
-    border-radius: 4px;
-    padding: 3px 8px;
-    margin-top: 2px;
-  }
-
-  .article-head h3 {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-bright);
-    line-height: 1.5;
-  }
-
-  .article-body { padding: 20px 24px 24px; }
-
-  /* ── Quote block (Japanese original) ── */
-  .jp-quote {
-    background: var(--bg-quote);
-    border-left: 3px solid var(--border-light);
-    border-radius: 0 6px 6px 0;
-    padding: 14px 18px;
-    margin-bottom: 6px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 13.5px;
-    line-height: 1.85;
-    color: #9a9db0;
-  }
-
-  .jp-quote::before {
-    content: "JP";
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: #555a70;
-    background: rgba(255,255,255,0.04);
-    border-radius: 3px;
-    padding: 1px 5px;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-
-  /* ── Chinese translation ── */
-  .zh-text {
-    padding: 12px 18px 14px;
-    margin-bottom: 16px;
-    font-size: 14.5px;
-    line-height: 1.8;
-    color: var(--text);
-    border-left: 3px solid transparent;
-  }
-
-  .zh-text::before {
-    content: "CN";
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    background: rgba(110,161,255,0.1);
-    border-radius: 3px;
-    padding: 1px 5px;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-
-  .pair { margin-bottom: 4px; }
-
-  .pair:last-of-type { margin-bottom: 0; }
-
-  .article-foot {
-    padding: 0 24px 20px;
-  }
-
-  .article-foot a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 4px 12px;
-    transition: all 0.2s;
-  }
-
-  .article-foot a:hover {
-    color: var(--link);
-    border-color: var(--link);
-  }
-
-  /* ── Section color accents ── */
-  [data-cat="market"] .article  { border-top: 2px solid var(--green); }
-  [data-cat="economy"] .article { border-top: 2px solid var(--accent); }
-  [data-cat="politics"] .article { border-top: 2px solid var(--purple); }
-  [data-cat="tech"] .article    { border-top: 2px solid var(--orange); }
-  [data-cat="intl"] .article    { border-top: 2px solid var(--cyan); }
-
-  [data-cat="market"] .section-head  { border-bottom-color: var(--green); }
-  [data-cat="economy"] .section-head { border-bottom-color: var(--accent); }
-  [data-cat="politics"] .section-head { border-bottom-color: var(--purple); }
-  [data-cat="tech"] .section-head    { border-bottom-color: var(--orange); }
-  [data-cat="intl"] .section-head    { border-bottom-color: var(--cyan); }
-  [data-cat="intl-news"] .section-head { border-bottom-color: var(--red); }
-
-  /* ── Intl News ── */
-  .intl-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .intl-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    transition: border-color 0.2s;
-  }
-
-  .intl-card:hover { border-color: var(--border-light); }
-
-  .src-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 1px 7px;
-    border-radius: 3px;
-    margin-bottom: 8px;
-  }
-
-  .src-tag.ft   { color: var(--orange); background: rgba(251,146,60,0.12); }
-  .src-tag.ap   { color: var(--cyan);   background: rgba(56,189,248,0.12); }
-  .src-tag.bbc  { color: var(--red);    background: rgba(248,113,113,0.12); }
-  .src-tag.cnbc { color: var(--yellow); background: rgba(250,204,21,0.12); }
-
-  .intl-card .en {
-    font-size: 12.5px;
-    color: #6b7084;
-    font-style: italic;
-    margin-bottom: 6px;
-    line-height: 1.5;
-  }
-
-  .intl-card .zh {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  /* ── Note (truncation warnings) ── */
-  .note {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-style: italic;
-    padding: 4px 18px 8px;
-  }
-
-  /* ── Footer ── */
-  footer {
-    text-align: center;
-    padding: 32px 0 48px;
-    border-top: 1px solid var(--border);
-    margin-top: 48px;
-  }
-
-  footer p {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.03em;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .hero { padding: 36px 0 28px; }
-    .hero h1 { font-size: 22px; }
-    .article-head { padding: 16px 16px 12px; }
-    .article-body { padding: 14px 16px 18px; }
-    .article-foot { padding: 0 16px 16px; }
-    .jp-quote { padding: 10px 14px; font-size: 13px; }
-    .zh-text  { padding: 10px 14px; font-size: 13.5px; }
-    .intl-grid { grid-template-columns: 1fr; }
-    .section-head { top: 45px; }
-    .toc { gap: 6px; }
-    .toc a { font-size: 12px; padding: 4px 10px; }
-  }
-
-  /* ── Animation ── */
-  .article, .intl-card {
-    animation: fadeUp 0.35s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+.article, .intl-card { animation:fadeUp 0.35s ease both; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
 </style>
 </head>
 <body>
-
-<!-- Sticky top bar -->
 <nav class="top-bar">
   <div class="container">
     <span class="logo">日経早報</span>
     <span class="date-tag">2026-04-14 TUE &middot; JST</span>
   </div>
 </nav>
-
 <div class="container">
-
-<!-- Hero -->
 <header class="hero">
   <h1>日経早報 2026-04-14（火）</h1>
-  <div class="sub">Nikkei Morning Brief &middot; JP-CN Bilingual</div>
+  <div class="sub">Nikkei Morning Brief &middot; JP-CN Bilingual &middot; with Furigana</div>
 </header>
-
-<!-- TOC -->
 <nav class="toc">
   <a href="#market">📈 マーケット</a>
+  <a href="#finance">🏦 金融</a>
+  <a href="#fx">💱 為替</a>
   <a href="#economy">🌏 経済</a>
   <a href="#politics">🏛️ 政治</a>
   <a href="#tech">💻 テクノロジー</a>
@@ -414,507 +262,506 @@
   <a href="#intl-news">🌍 国際経済ニュース</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     📈 マーケット
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="market" id="market">
-  <div class="section-head">
+<div class="section" id="market">
+  <div class="section-head" style="border-bottom-color:#4A8A5A">
     <span class="emoji">📈</span>
     <h2>マーケット</h2>
   </div>
-
-  <!-- Article 1 -->
-  <div class="article">
-    <div class="article-head">
-      <span class="num">01</span>
-      <h3>長引くイラン衝突、米経済の支え「ペトロダラー」に揺らぎ</h3>
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">01</span><h3>日経平均株価が反発、一時1200円高　米イラン協議の継続期待で</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>前場<rp>(</rp><rt>ぜんば</rt><rp>)</rp></ruby><ruby>寄<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>り<ruby>付<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>きの<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で<ruby>日経<rp>(</rp><rt>にっけい</rt><rp>)</rp></ruby><ruby>平均<rp>(</rp><rt>へいきん</rt><rp>)</rp></ruby><ruby>株価<rp>(</rp><rt>かぶか</rt><rp>)</rp></ruby>は<ruby>大幅<rp>(</rp><rt>おおはば</rt><rp>)</rp></ruby><ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>で<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>まり、<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby><ruby>終値<rp>(</rp><rt>おわりね</rt><rp>)</rp></ruby>に<ruby>比<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>べた<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げ<ruby>幅<rp>(</rp><rt>はば</rt><rp>)</rp></ruby>は1200<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>を<ruby>超<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>える<ruby>場面<rp>(</rp><rt>ばめん</rt><rp>)</rp></ruby>があった。5<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby>7700<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>で<ruby>推移<rp>(</rp><rt>すいい</rt><rp>)</rp></ruby>している。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランの<ruby>軍事<rp>(</rp><rt>ぐんじ</rt><rp>)</rp></ruby><ruby>衝突<rp>(</rp><rt>しょうとつ</rt><rp>)</rp></ruby>の<ruby>終結<rp>(</rp><rt>しゅうけつ</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けた<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby>が<ruby>水面<rp>(</rp><rt>すいめん</rt><rp>)</rp></ruby><ruby>下<rp>(</rp><rt>か</rt><rp>)</rp></ruby>で<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いているとの<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>から、<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>の<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で<ruby>主要<rp>(</rp><rt>しゅよう</rt><rp>)</rp></ruby>3<ruby>指数<rp>(</rp><rt>しすう</rt><rp>)</rp></ruby>が<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>した。<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>では<ruby>海外<rp>(</rp><rt>かいがい</rt><rp>)</rp></ruby><ruby>投機<rp>(</rp><rt>とうき</rt><rp>)</rp></ruby><ruby>筋<rp>(</rp><rt>すじ</rt><rp>)</rp></ruby>が<ruby>日経<rp>(</rp><rt>にっけい</rt><rp>)</rp></ruby><ruby>平均<rp>(</rp><rt>へいきん</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby>への<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いを<ruby>加速<rp>(</rp><rt>かそく</rt><rp>)</rp></ruby>させているとみられ、<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>の<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby><ruby>株<rp>(</rp><rt>かぶ</rt><rp>)</rp></ruby>の<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby><ruby>率<rp>(</rp><rt>りつ</rt><rp>)</rp></ruby>を<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく<ruby>上回<rp>(</rp><rt>うわまわ</rt><rp>)</rp></ruby>る<ruby>急伸<rp>(</rp><rt>きゅうしん</rt><rp>)</rp></ruby>となっている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>14日前場の東京株式市場で日経平均株価が大幅反発で始まり、前日終値比で上げ幅が1200円を超える場面があった。5万7700円台で推移している。米国とイランの軍事衝突終結に向けた交渉が水面下で続いているとの期待から、前日の米株式市場で主要3指数が上昇した。東京市場では海外投機筋が日経平均先物への買いを加速させているとみられ、前日の米国株の上昇率を大きく上回る急伸となっている。</div>
     </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">原油取引をドルで決済する「ペトロダラー」への注目が高まっている。米国が安全保障を提供する代わりに、産油国は原油取引で得たドルを米国資産に投資する。米国経済の強さの一因とも言われてきたが、イラン衝突の出口が見えない中、揺らぎが生じ始めた。</div>
-        <div class="zh-text">原油取引用美元结算的"石油美元"受到关注。美国提供安全保障作为交换，产油国将原油取引获得的美元投资于美国资产。这被认为是美国経済强势的原因之一，但イラン衝突看不到出口的情况下，开始出现动摇。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">「イラン情勢はペトロダラー体制にとって正念場になりうる」。ドイツ銀行のリサーチ部門が3月下旬に出したリポートが市場で関心を集めている。</div>
-        <div class="zh-text">"イラン情勢对石油美元体制来说可能是正念場"。德意志銀行的研究部门3月下旬发表的报告在市场引起关注。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ペトロダラーは1974年...</div>
-        <div class="zh-text">石油美元是1974年...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>トランプ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby>は13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、<ruby>記者<rp>(</rp><rt>きしゃ</rt><rp>)</rp></ruby><ruby>団<rp>(</rp><rt>だん</rt><rp>)</rp></ruby>に「（イラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>から）<ruby>連絡<rp>(</rp><rt>れんらく</rt><rp>)</rp></ruby>があり、<ruby>彼<rp>(</rp><rt>かれ</rt><rp>)</rp></ruby>らは<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>を<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>く<ruby>望<rp>(</rp><rt>のぞ</rt><rp>)</rp></ruby>んでいる」と<ruby>語<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>った。<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>ニュースサイトのアクシオスは、<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby><ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby><ruby>者<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>による「<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランの<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>は<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いており、<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けて<ruby>進展<rp>(</rp><rt>しんてん</rt><rp>)</rp></ruby>している」との<ruby>発言<rp>(</rp><rt>はつげん</rt><rp>)</rp></ruby>を<ruby>報<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>じた。<ruby>前<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby><ruby>週末<rp>(</rp><rt>しゅうまつ</rt><rp>)</rp></ruby>の<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>では<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>に<ruby>至<rp>(</rp><rt>いた</rt><rp>)</rp></ruby>らなかったが、<ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>では<ruby>先行<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>きに<ruby>楽観<rp>(</rp><rt>らっかん</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>な<ruby>見方<rp>(</rp><rt>みかた</rt><rp>)</rp></ruby>が<ruby>一段<rp>(</rp><rt>いちだん</rt><rp>)</rp></ruby>と<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>がっている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>特朗普13日对记者团说"（从伊朗側）有联系，他们强烈希望达成合意"。美国新闻网站Axios报道了美政府関係者"美国和伊朗的協議还在继续，正朝着合意方向进展"的発言。前週末的協議虽未达成合意，但株式市场对前景的楽観見方进一步扩散。</div>
     </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOGN13B2L0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>主導<rp>(</rp><rt>しゅどう</rt><rp>)</rp></ruby>の<ruby>展開<rp>(</rp><rt>てんかい</rt><rp>)</rp></ruby>を<ruby>映<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>し、<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>に<ruby>下<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>げていた<ruby>値<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>がさのアドテストや<ruby>東<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>エレクなどの<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby><ruby>関連<rp>(</rp><rt>かんれん</rt><rp>)</rp></ruby><ruby>株<rp>(</rp><rt>かぶ</rt><rp>)</rp></ruby>などを<ruby>中心<rp>(</rp><rt>ちゅうしん</rt><rp>)</rp></ruby>に<ruby>幅広<rp>(</rp><rt>はばひろ</rt><rp>)</rp></ruby>い<ruby>銘柄<rp>(</rp><rt>めいがら</rt><rp>)</rp></ruby>に<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いが<ruby>先行<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>反映先物主導的展開，前日下跌的高価股アドテスト和東エレク等半導体関連株等为中心，幅広銘柄买盘先行。</div>
     </div>
-  </div>
-
-  <!-- Article 2 -->
-  <div class="article">
-    <div class="article-head">
-      <span class="num">02</span>
-      <h3>米国株、ダウ反発し301ドル高　米・イランの協議継続を期待　ナスダック9日続伸</h3>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>東証<rp>(</rp><rt>とうしょう</rt><rp>)</rp></ruby><ruby>株価<rp>(</rp><rt>かぶか</rt><rp>)</rp></ruby><ruby>指数<rp>(</rp><rt>しすう</rt><rp>)</rp></ruby>（TOPIX）は<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>東証株価指数（TOPIX）反発。</div>
     </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">【NQNニューヨーク=田中俊行】13日の米株式市場でダウ工業株30種平均は反発し、終値は前週末比301ドル68セント（0.62%）高の4万8218ドル25セントと、3月4日以来の高値だった。トランプ米大統領が13日、イラン側が和平協議で合意することを望んでいるとの見方を示した。米国とイランの交渉が水面下で続いているとの期待から買いが優勢になった。</div>
-        <div class="zh-text">13日美股市場道指反発，收盤較前周末上涨301.68美元（0.62%）至48218.25美元，創3月4日以来の高値。Trump 13日表示，伊朗方面希望在和平協議上達成合意。市場対美伊谈判在水面下继续进行的期待推动买盘占优势。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">トランプ氏は13日、記者団に「（イラン側から）連絡があり、彼らは合意を強く望んでいる」と語った。米ニュースサイトのアクシオスは、米政府関係者が「米国とイランの協議は続いており、合意に向けて進展している」と明らかにしたと報じた。中東情勢を巡る不確実性がやや後退し、株式に買いが入った。</div>
-        <div class="zh-text">Trump 13日对記者说："（伊朗方面）有联络，他们强烈希望达成合意。" 美国新闻网站Axios報道，美政府相关人员透露"美伊協議在持续，向合意方向有进展"。中东情势的不確実性稍微后退，股式进入买盘。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">米紙ウォール・ストリート・ジャーナル電子版は13日に「数日以内に米国とイランによる2回目の協議が開催される可能性がある」と報じた。戦闘終結に至るかは不透明だが、両国の話し合いが続く可能性があるとして見直し買いが優勢になった。市場では「11月の米中間選挙を見据えて、トランプ氏は戦闘を早期に終えたいと考えているはずだと見透かす投資家が多い」（Bライリーのアート・ホーガン氏）との声があった。</div>
-        <div class="zh-text">华尔街日报电子版13日報道"数日内可能举行美伊第2次協議"。虽然是否能終結戦闘仍不透明，但两国対话继续的可能性推动見直し买盘占优势。市场有声音称"看向11月美中間選挙，很多投资家看透Trump应该想要早期終結戦闘"（B.Riley的Art Hogan）。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ダウ平均は朝方に410ドル安となる場面があった。米国とイランは11〜12日にパキスタンのイスラマバードで和平交渉に臨んだが、合意に至らなかった。トランプ氏は12日、報復措置として米軍がエネルギー輸送の要衝であるホルムズ海峡を封鎖すると表明した。停戦中に限定的な軍事衝突が起こる可能性も意識され、投資家心理が悪化して売りが先行した。もっとも協議継続への期待で徐々に買いの勢いが増した。</div>
-        <div class="zh-text">道指朝方曾跌410美元。美伊两国11-12日在巴基斯坦伊斯兰堡进行和平交渉但未达成合意。Trump 12日表明，作为報復措施美军将封锁能源运输要冲霍尔木兹海峡。市场意识到停戦中可能发生有限军事冲突，投资家心理恶化，売り先行。不过对協議継続的期待让买盘势头逐渐增强。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">13日の米原油先物市場では、WTI（ウエスト・テキサス・インターミディエット）の期近5月物が前週末比2.6%高の1バレル99.08ドルで終えた。原油供給を巡る不安で米東部時間12日の取引で一時105ドル台まで上昇した。原油高は株式相場の重荷だった。</div>
-        <div class="zh-text">13日美原油先物市场，WTI近月5月合约较前周末上涨2.6%，收在每桶99.08美元。因原油供給不安，美東部時間12日交易中一度上涨至105美元水平。原油高是股式相場的重負。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ダウ平均の構成銘柄では、セールスフォースやマイクロソフト、アメリカン・エキスプレス（アメックス）が上昇した。IBMやユナイテッドヘルス・グループ、ボーイングも上げた。一方、ゴールドマン・サックスが下げた。13日朝発表した四半期決算で債券のトレーディング収益が低調だったのが嫌気された。ウォルマートやコカ・コーラ、ベライゾン・コミュニケーションズが売られた。</div>
-        <div class="zh-text">道指構成銘柄中，Salesforce、Microsoft、美国运通上涨。IBM、联合健康集团、Boeing也上涨。另一方面，Goldman Sachs下跌。13日朝発表的季度財報中債券交易收益低调被嫌気。Walmart、Coca-Cola、Verizon通信被売出。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ハイテク株比率が高いナスダック総合株価指数は9日続伸した。終値は前週末比280.842ポイント（1.22%）高の2万3183.736（速報値）だった。2月9日以来、約2カ月ぶりの高値。9日続伸は2023年12月中旬以来、2年4カ月ぶりだった。</div>
-        <div class="zh-text">高科技股比率高的纳斯达克综合股価指数連續9日上涨。収盤較前周末上涨280.842点（1.22%）至23183.736（速報值）。为2月9日以来约2个月来的高値。連續9日上涨为2023年12月中旬以来2年4个月来首次。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ソフトウエアのアドビやサイバーセキュリティーのクラウドストライク・ホールディングスの上昇が目立った。ブロードコムやインテル、アーム・ホールディングスなど半導体関連も買われた。</div>
-        <div class="zh-text">软件公司Adobe和网络安全公司CrowdStrike Holdings的上涨显眼。Broadcom、Intel、Arm Holdings等半導体関連也被买入。</div>
-      </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>フジクラやソフトバンクグループ（SBG）、ファナックが<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>している。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>、<ruby>中外<rp>(</rp><rt>ちゅうがい</rt><rp>)</rp></ruby><ruby>薬<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>や<ruby>信越<rp>(</rp><rt>しんえつ</rt><rp>)</rp></ruby><ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>、<ruby>良品<rp>(</rp><rt>りょうひん</rt><rp>)</rp></ruby><ruby>計画<rp>(</rp><rt>けいかく</rt><rp>)</rp></ruby>が<ruby>下落<rp>(</rp><rt>げらく</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>フジクラ、软银集团（SBG）、ファナック上昇。另一方面，中外薬、信越化、良品計画下落。</div>
     </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOFL13B9O0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>〔<ruby>日経<rp>(</rp><rt>にっけい</rt><rp>)</rp></ruby>QUICKニュース（NQN）〕</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>〔日経QUICKニュース（NQN）〕</div>
     </div>
   </div>
-
-  <!-- Article 3 -->
-  <div class="article">
-    <div class="article-head">
-      <span class="num">03</span>
-      <h3>NY株ハイライト　勢い増す強気派　米・イラン交渉暗雲も消費に陰りなし</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">【NQNニューヨーク=田中俊行】米株式市場で強気派の勢いが増している。米国とイランの和平交渉が物別れに終わりリスク回避の売りが先行したが、すかさず押し目買いが入った。米国の個人消費は腰折れせず米企業業績の成長も続くといった楽観的な見方が広がり、米原油先物の高騰に対する「耐性」も強まっている。</div>
-        <div class="zh-text">美股市场で強気派的势头正在增强。美伊和平交渉破裂收场，リスク回避的抛售先行，但立即有逢低买盘进入。美国个人消费没有腰折れ，美企业績の成長也持续的乐观見方扩散，对美原油先物高騰的「耐性」也在增强。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">米国とイランは11〜12日にパキスタンのイスラマバードで交渉に臨んだが、イランが核開発の放棄やホルムズ...</div>
-        <div class="zh-text">美国和伊朗在11-12日于巴基斯坦伊斯兰堡进行了交渉，但伊朗在核开发放弃和霍尔木兹...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOFL13B1X0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL140M00U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     🌏 経済
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="economy" id="economy">
-  <div class="section-head">
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">02</span><h3>日銀当預増やす外銀、国内勢に逆行　決済ニーズや円売りが押し上げ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="note">请提供完整的文章内容，我会按照您要求的格式进行逐段对照翻译。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL0923ETZ00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">03</span><h3>円相場、上昇し159円台前半　対ユーロでは下落</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>早朝<rp>(</rp><rt>そうちょう</rt><rp>)</rp></ruby>の<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>外国<rp>(</rp><rt>がいこく</rt><rp>)</rp></ruby><ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で、<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>している。8<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>30<ruby>分<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>は1ドル=159<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>24〜25<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>と<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>17<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>と<ruby>比<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>べて36<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>の<ruby>円高<rp>(</rp><rt>えんだか</rt><rp>)</rp></ruby>・ドル<ruby>安<rp>(</rp><rt>やす</rt><rp>)</rp></ruby>だった。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランの<ruby>和平<rp>(</rp><rt>わへい</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>について、トランプ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby>はイラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>が<ruby>接触<rp>(</rp><rt>せっしょく</rt><rp>)</rp></ruby>してきたと<ruby>明<rp>(</rp><rt>あき</rt><rp>)</rp></ruby>らかにした。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>がホルムズ<ruby>海峡<rp>(</rp><rt>かいきょう</rt><rp>)</rp></ruby>の<ruby>封鎖<rp>(</rp><rt>ふうさ</rt><rp>)</rp></ruby>に<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>くなど<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>は<ruby>予断<rp>(</rp><rt>よだん</rt><rp>)</rp></ruby>を<ruby>許<rp>(</rp><rt>ゆる</rt><rp>)</rp></ruby>さないが、<ruby>両国<rp>(</rp><rt>りょうこく</rt><rp>)</rp></ruby>の<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby><ruby>余地<rp>(</rp><rt>よち</rt><rp>)</rp></ruby>はあるとして、これまで<ruby>積<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>み<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>がった「<ruby>有事<rp>(</rp><rt>ゆうじ</rt><rp>)</rp></ruby>のドル<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>い」の<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>ち<ruby>高<rp>(</rp><rt>だか</rt><rp>)</rp></ruby>を<ruby>解消<rp>(</rp><rt>かいしょう</rt><rp>)</rp></ruby>する<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>きが<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>た。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>14日早朝の東京外国為替市場で、円相場は上昇している。8時30分時点は1ドル=159円24〜25銭と前日17時時点と比べて36銭の円高・ドル安だった。米国とイランの和平協議について、トランプ大統領はイラン側が接触してきたと明らかにした。米国がホルムズ海峡の封鎖に動くなど中東情勢は予断を許さないが、両国の交渉余地はあるとして、これまで積み上がった「有事のドル買い」の持ち高を解消する動きが出た。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>トランプ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby>は13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、ホワイトハウスで<ruby>記者<rp>(</rp><rt>きしゃ</rt><rp>)</rp></ruby><ruby>団<rp>(</rp><rt>だん</rt><rp>)</rp></ruby>に「イラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>から<ruby>連絡<rp>(</rp><rt>れんらく</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>けている。<ruby>彼<rp>(</rp><rt>かれ</rt><rp>)</rp></ruby>らはとても<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>を<ruby>成立<rp>(</rp><rt>せいりつ</rt><rp>)</rp></ruby>させたがっている」と<ruby>語<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>った。イランが<ruby>核<rp>(</rp><rt>かく</rt><rp>)</rp></ruby><ruby>兵器<rp>(</rp><rt>へいき</rt><rp>)</rp></ruby>を<ruby>保有<rp>(</rp><rt>ほゆう</rt><rp>)</rp></ruby>しないと<ruby>明確<rp>(</rp><rt>めいかく</rt><rp>)</rp></ruby>にすれば<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>するという。<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>ウォール・ストリート・ジャーナル<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby><ruby>版<rp>(</rp><rt>ばん</rt><rp>)</rp></ruby>は<ruby>同日<rp>(</rp><rt>どうじつ</rt><rp>)</rp></ruby>に「<ruby>数日<rp>(</rp><rt>すうじつ</rt><rp>)</rp></ruby>のうちに<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランによる2<ruby>回目<rp>(</rp><rt>かいめ</rt><rp>)</rp></ruby>の<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>が<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>かれる<ruby>可能<rp>(</rp><rt>かのう</rt><rp>)</rp></ruby><ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>がある」と<ruby>報<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>じ、<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby><ruby>継続<rp>(</rp><rt>けいぞく</rt><rp>)</rp></ruby>への<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>がった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>トランプ大統領は13日、ホワイトハウスで記者団に「イラン側から連絡を受けている。彼らはとても取引を成立させたがっている」と語った。イランが核兵器を保有しないと明確にすれば合意するという。米紙ウォール・ストリート・ジャーナル電子版は同日に「数日のうちに米国とイランによる2回目の協議が開かれる可能性がある」と報じ、協議継続への期待が広がった。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>11〜12<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>イラン<ruby>和平<rp>(</rp><rt>わへい</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>は<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>に<ruby>至<rp>(</rp><rt>いた</rt><rp>)</rp></ruby>らず、<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>の<ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>が<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>することへの<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>から<ruby>基軸<rp>(</rp><rt>きじく</rt><rp>)</rp></ruby><ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>のドルには<ruby>有事<rp>(</rp><rt>ゆうじ</rt><rp>)</rp></ruby>の<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いが<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>み、<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>ドルの<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>に159<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby><ruby>後半<rp>(</rp><rt>こうはん</rt><rp>)</rp></ruby>に<ruby>下落<rp>(</rp><rt>げらく</rt><rp>)</rp></ruby>していた。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby><ruby>当局<rp>(</rp><rt>とうきょく</rt><rp>)</rp></ruby>による<ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>介入<rp>(</rp><rt>かいにゅう</rt><rp>)</rp></ruby>への<ruby>思惑<rp>(</rp><rt>しわく</rt><rp>)</rp></ruby>がくすぶるなか、<ruby>利益<rp>(</rp><rt>りえき</rt><rp>)</rp></ruby><ruby>確定<rp>(</rp><rt>かくてい</rt><rp>)</rp></ruby>や<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>ち<ruby>高<rp>(</rp><rt>だか</rt><rp>)</rp></ruby><ruby>調整<rp>(</rp><rt>ちょうせい</rt><rp>)</rp></ruby>の<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>い・ドル<ruby>売<rp>(</rp><rt>う</rt><rp>)</rp></ruby>りが<ruby>入<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>り<ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>を<ruby>下支<rp>(</rp><rt>したざさ</rt><rp>)</rp></ruby>えした。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>11〜12日的美伊和平協議没有达成合意，对中东紧迫状况长期化的警戒让基轴通貨ドルに有事买入推进，対ドルの円相场在前日下落到159円台後半。日本通貨当局による為替介入の思惑がくすぶる中，利益確定や持ち高調整の円買い・ドル売りが入り相場を下支えした。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>もっとも、<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>の<ruby>上値<rp>(</rp><rt>うわね</rt><rp>)</rp></ruby>は<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>はホルムズ<ruby>海峡<rp>(</rp><rt>かいきょう</rt><rp>)</rp></ruby>を<ruby>通過<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>する<ruby>船舶<rp>(</rp><rt>せんぱく</rt><rp>)</rp></ruby>に<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>する<ruby>封鎖<rp>(</rp><rt>ふうさ</rt><rp>)</rp></ruby><ruby>措置<rp>(</rp><rt>そち</rt><rp>)</rp></ruby>を13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>開始<rp>(</rp><rt>かいし</rt><rp>)</rp></ruby>し、イラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>は<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>を<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>めている。<ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby>の<ruby>停滞<rp>(</rp><rt>ていたい</rt><rp>)</rp></ruby>は<ruby>長引<rp>(</rp><rt>ながび</rt><rp>)</rp></ruby>くとして<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>早朝<rp>(</rp><rt>そうちょう</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>でも<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は1バレル96ドル<ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>で<ruby>高止<rp>(</rp><rt>たかど</rt><rp>)</rp></ruby>まりしている。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby><ruby>収支<rp>(</rp><rt>しゅうし</rt><rp>)</rp></ruby>の<ruby>赤字<rp>(</rp><rt>あかじ</rt><rp>)</rp></ruby>が<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>するとの<ruby>見方<rp>(</rp><rt>みかた</rt><rp>)</rp></ruby>が<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>の<ruby>重荷<rp>(</rp><rt>おもに</rt><rp>)</rp></ruby>となっている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>不过，円の上値は重い。美国开始对通过霍尔木兹海峡的船舶実施封锁措置，伊朗方面反発加强。原油供給の停滞会长引，日本時間14日早朝的取引中美原油先物相场也在1桶96美元台高止まり。日本貿易収支の赤字拡大的見方成为円相场的重荷。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>の<ruby>植田<rp>(</rp><rt>うえだ</rt><rp>)</rp></ruby><ruby>和男<rp>(</rp><rt>かずお</rt><rp>)</rp></ruby><ruby>総裁<rp>(</rp><rt>そうさい</rt><rp>)</rp></ruby>は13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>信託<rp>(</rp><rt>しんたく</rt><rp>)</rp></ruby><ruby>大会<rp>(</rp><rt>たいかい</rt><rp>)</rp></ruby>の<ruby>挨拶<rp>(</rp><rt>あいさつ</rt><rp>)</rp></ruby>で、<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>の<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>で「<ruby>国際<rp>(</rp><rt>こくさい</rt><rp>)</rp></ruby><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>では<ruby>不安<rp>(</rp><rt>ふあん</rt><rp>)</rp></ruby><ruby>定<rp>(</rp><rt>てい</rt><rp>)</rp></ruby>な<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>きがみられる」との<ruby>認識<rp>(</rp><rt>にんしき</rt><rp>)</rp></ruby>を<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>した。「サプライチェーン（<ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby><ruby>網<rp>(</rp><rt>もう</rt><rp>)</rp></ruby>）への<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて、<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>の<ruby>生産<rp>(</rp><rt>せいさん</rt><rp>)</rp></ruby><ruby>活動<rp>(</rp><rt>かつどう</rt><rp>)</rp></ruby>に<ruby>下押<rp>(</rp><rt>したお</rt><rp>)</rp></ruby>し<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>がかかるリスクもある」とも<ruby>指摘<rp>(</rp><rt>してき</rt><rp>)</rp></ruby>した。<ruby>景気<rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>や<ruby>物価<rp>(</rp><rt>ぶっか</rt><rp>)</rp></ruby>に<ruby>上下<rp>(</rp><rt>じょうげ</rt><rp>)</rp></ruby><ruby>両方<rp>(</rp><rt>りょうほう</rt><rp>)</rp></ruby><ruby>向<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby>のリスクがあるなか、<ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>が<ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby><ruby>判断<rp>(</rp><rt>はんだん</rt><rp>)</rp></ruby>に<ruby>慎重<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>になると<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>止<rp>(</rp><rt>と</rt><rp>)</rp></ruby>められたことは<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>を<ruby>下押<rp>(</rp><rt>したお</rt><rp>)</rp></ruby>しした。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>日銀の植田和男は13日信託大会の挨拶中，对中东緊迫长期化表示「国际金融市场出现不安定动向」的認識。也指摘「通过对供应链的影響，企业生産活动面临下行压力的风险」。在景气和物価存在上下双向风险的情况下，日銀在政策判断上变得慎重这一理解下押了円相场。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL140F90U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="finance">
+  <div class="section-head" style="border-bottom-color:#6B7DB3">
+    <span class="emoji">🏦</span>
+    <h2>金融</h2>
+  </div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">01</span><h3>大手損保、整備業者への修理費引き上げ　自動車保険料に上げ圧力</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>大手<rp>(</rp><rt>おおて</rt><rp>)</rp></ruby><ruby>損害保険<rp>(</rp><rt>そんがいほけん</rt><rp>)</rp></ruby><ruby>会社<rp>(</rp><rt>かいしゃ</rt><rp>)</rp></ruby>は<ruby>自動車<rp>(</rp><rt>じどうしゃ</rt><rp>)</rp></ruby><ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby><ruby>業者<rp>(</rp><rt>ぎょうしゃ</rt><rp>)</rp></ruby>に<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>う<ruby>車両<rp>(</rp><rt>しゃりょう</rt><rp>)</rp></ruby>の<ruby>修理費<rp>(</rp><rt>しゅうりひ</rt><rp>)</rp></ruby>を<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げる。<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げ<ruby>幅<rp>(</rp><rt>はば</rt><rp>)</rp></ruby>は<ruby>東京海上日動火災保険<rp>(</rp><rt>とうきょうかいじょうにちどうかさいほけん</rt><rp>)</rp></ruby>は<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>7.4%、<ruby>損害保険<rp>(</rp><rt>そんがいほけん</rt><rp>)</rp></ruby>ジャパンは<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>4.6%。<ruby>三井住友海上火災保険<rp>(</rp><rt>みついすみともかいじょうかさいほけん</rt><rp>)</rp></ruby>とあいおいニッセイ<ruby>同和<rp>(</rp><rt>どうわ</rt><rp>)</rp></ruby><ruby>損害保険<rp>(</rp><rt>そんがいほけん</rt><rp>)</rp></ruby>も<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby><ruby>単価<rp>(</rp><rt>たんか</rt><rp>)</rp></ruby>を<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げる<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>だ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>大手損保公司提高支付給自動車整備業者的車両修理費。引き上げ幅度東京海上日動火災保険约7.4%，損保ジャパン约4.6%。三井住友海上火災保険和あいおいニッセイ同和損保也方針上调対応単価。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>事故車<rp>(</rp><rt>じこしゃ</rt><rp>)</rp></ruby>を<ruby>修理<rp>(</rp><rt>しゅうり</rt><rp>)</rp></ruby>する<ruby>際<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>の1<ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby><ruby>当<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>たりの<ruby>単価<rp>(</rp><rt>たんか</rt><rp>)</rp></ruby>である「<ruby>指数<rp>(</rp><rt>しすう</rt><rp>)</rp></ruby><ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby><ruby>単価<rp>(</rp><rt>たんか</rt><rp>)</rp></ruby>」を<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げる。<ruby>東京海上日動<rp>(</rp><rt>とうきょうかいじょうにちどう</rt><rp>)</rp></ruby>は6<ruby>月末<rp>(</rp><rt>がつまつ</rt><rp>)</rp></ruby>までに<ruby>全<rp>(</rp><rt>すべ</rt><rp>)</rp></ruby>ての<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby><ruby>業者<rp>(</rp><rt>ぎょうしゃ</rt><rp>)</rp></ruby>に<ruby>適用<rp>(</rp><rt>てきよう</rt><rp>)</rp></ruby>し、<ruby>損保<rp>(</rp><rt>そんぽ</rt><rp>)</rp></ruby>ジャパンは7<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>から<ruby>適用<rp>(</rp><rt>てきよう</rt><rp>)</rp></ruby>する。<ruby>修理費<rp>(</rp><rt>しゅうりひ</rt><rp>)</rp></ruby>の<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げで...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>提高事故車修理时每小时単価的"指数対応単価"。東京海上日動6月末之前适用所有整備業者，損保ジャパン7月开始适用。修理費引き上げ...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB133P30T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">02</span><h3>ゴールドマン・サックス2割増益　CEO、ファンド融資「依然魅力的」</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>【ニューヨーク=<ruby>秋田<rp>(</rp><rt>あきた</rt><rp>)</rp></ruby><ruby>咲<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>】<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>大手<rp>(</rp><rt>おおて</rt><rp>)</rp></ruby>ゴールドマン・サックスが13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>した2026<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>1〜3<ruby>月期<rp>(</rp><rt>がつき</rt><rp>)</rp></ruby><ruby>決算<rp>(</rp><rt>けっさん</rt><rp>)</rp></ruby>は、<ruby>純利益<rp>(</rp><rt>じゅんりえき</rt><rp>)</rp></ruby>が<ruby>前年<rp>(</rp><rt>ぜんねん</rt><rp>)</rp></ruby><ruby>同期比<rp>(</rp><rt>どうきひ</rt><rp>)</rp></ruby>19%<ruby>増<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>の56<ruby>億<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>3000<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby>ドル（<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>8900<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>）だった。<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>などで<ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby><ruby>変動<rp>(</rp><rt>へんどう</rt><rp>)</rp></ruby>が<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく<ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby>のトレーディング<ruby>収入<rp>(</rp><rt>しゅうにゅう</rt><rp>)</rp></ruby>が2<ruby>期<rp>(</rp><rt>き</rt><rp>)</rp></ruby><ruby>連続<rp>(</rp><rt>れんぞく</rt><rp>)</rp></ruby>で<ruby>四半期<rp>(</rp><rt>しはんき</rt><rp>)</rp></ruby>での<ruby>最高<rp>(</rp><rt>さいこう</rt><rp>)</rp></ruby>を<ruby>更新<rp>(</rp><rt>こうしん</rt><rp>)</rp></ruby>した。M&A（<ruby>合併<rp>(</rp><rt>がっぺい</rt><rp>)</rp></ruby>・<ruby>買収<rp>(</rp><rt>ばいしゅう</rt><rp>)</rp></ruby>）<ruby>助言<rp>(</rp><rt>じょげん</rt><rp>)</rp></ruby>も<ruby>好調<rp>(</rp><rt>こうちょう</rt><rp>)</rp></ruby>だった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>美金融大手高盛13日発表2026年1-3月期决算，純利益比前年同期增19%达563亿美元（约8900亿円）。中東情勢等导致相场変動较大，股式交易收入连续2期创四半期最高纪录。M&A助言也表现良好。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>1<ruby>株<rp>(</rp><rt>かぶ</rt><rp>)</rp></ruby><ruby>利益<rp>(</rp><rt>りえき</rt><rp>)</rp></ruby>は17.55ドルと、QUICK・ファクトセット<ruby>集計<rp>(</rp><rt>しゅうけい</rt><rp>)</rp></ruby>のアナリスト<ruby>予想<rp>(</rp><rt>よそう</rt><rp>)</rp></ruby>（16.4</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>每股利益17.55美元，超过QUICK・FactSet集计的分析师预期（16.4</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>機関<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>の<ruby>決算<rp>(</rp><rt>けっさん</rt><rp>)</rp></ruby><ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>は、チェックポイントが<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い。<ruby>今<rp>(</rp><rt>いま</rt><rp>)</rp></ruby>のように、AIバブルやプライベートクレジット<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>に<ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>があるときには、<ruby>尚更<rp>(</rp><rt>なおさら</rt><rp>)</rp></ruby><ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>だ。<ruby>筆者<rp>(</rp><rt>ひっしゃ</rt><rp>)</rp></ruby>は、<ruby>特<rp>(</rp><rt>とく</rt><rp>)</rp></ruby>にシティバンクとゴールドマンについては<ruby>収益<rp>(</rp><rt>しゅうえき</rt><rp>)</rp></ruby><ruby>力<rp>(</rp><rt>りょく</rt><rp>)</rp></ruby>がどこで、どういう<ruby>稼<rp>(</rp><rt>かせ</rt><rp>)</rp></ruby>ぎ<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>をしているのか、に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>している。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>、JPモルガンは、ジェイミーダイモン<ruby>氏<rp>(</rp><rt>し</rt><rp>)</rp></ruby>の<ruby>指摘<rp>(</rp><rt>してき</rt><rp>)</rp></ruby>も<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>めて、<ruby>今後<rp>(</rp><rt>こんご</rt><rp>)</rp></ruby>の<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby><ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の<ruby>見通<rp>(</rp><rt>みとお</rt><rp>)</rp></ruby>しとリスクの<ruby>所在<rp>(</rp><rt>しょざい</rt><rp>)</rp></ruby>について、どこを<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>ているか、に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>することにしている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>美国金融機関の决算発表，检查要点很多。像现在这样，AI泡沫和私人信贷市场有懸念的时候，更加值得注目。我特别关注花旗银行和高盛的収益力在哪里、用什么方式赚钱。另一方面，对于摩根大通，包括戴蒙的指摘，我注目他们对今后美国経済の見通し和风险所在看法如何。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>ゴールドマンの<ruby>決算<rp>(</rp><rt>けっさん</rt><rp>)</rp></ruby><ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>を<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>る<ruby>限<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>り、AIバブルやプライベートクレジット<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>に<ruby>関<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>するリスク<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>は<ruby>過度<rp>(</rp><rt>かど</rt><rp>)</rp></ruby>に<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>はないことを<ruby>示唆<rp>(</rp><rt>しさ</rt><rp>)</rp></ruby>しているとは<ruby>言<rp>(</rp><rt>い</rt><rp>)</rp></ruby>えそうだ。タイミングを<ruby>見極<rp>(</rp><rt>みきわ</rt><rp>)</rp></ruby>める<ruby>上<rp>(</rp><rt>うえ</rt><rp>)</rp></ruby>で<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>機関<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby><ruby>決算<rp>(</rp><rt>けっさん</rt><rp>)</rp></ruby>は<ruby>役<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>に<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>つ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>从高盛的决算発表来看，可以说暗示对AI泡沫和私人信贷市场的风险警戒没必要过度进行。在把握时机方面，美国金融機関决算很有用。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOGN138LE0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">03</span><h3>公募投信、3月運用額13兆円減　株価下落で落ち込み最大</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>資産<rp>(</rp><rt>しさん</rt><rp>)</rp></ruby><ruby>運用<rp>(</rp><rt>うんよう</rt><rp>)</rp></ruby><ruby>業協<rp>(</rp><rt>ぎょうきょう</rt><rp>)</rp></ruby><ruby>会<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>が13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>した3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>の<ruby>投信<rp>(</rp><rt>とうしん</rt><rp>)</rp></ruby><ruby>概況<rp>(</rp><rt>がいきょう</rt><rp>)</rp></ruby>によると、<ruby>上場<rp>(</rp><rt>じょうじょう</rt><rp>)</rp></ruby><ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby><ruby>信託<rp>(</rp><rt>しんたく</rt><rp>)</rp></ruby>（ETF）を<ruby>除<rp>(</rp><rt>のぞ</rt><rp>)</rp></ruby>く<ruby>公募<rp>(</rp><rt>こうぼ</rt><rp>)</rp></ruby><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>投信<rp>(</rp><rt>とうしん</rt><rp>)</rp></ruby>の<ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby>は175<ruby>兆<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>1666<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>と<ruby>前月<rp>(</rp><rt>ぜんげつ</rt><rp>)</rp></ruby>から10<ruby>兆<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>9683<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>（<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>6%）<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>った。<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>の<ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>に<ruby>伴<rp>(</rp><rt>ともな</rt><rp>)</rp></ruby>う<ruby>国内外<rp>(</rp><rt>こくないがい</rt><rp>)</rp></ruby>の<ruby>株安<rp>(</rp><rt>かぶやす</rt><rp>)</rp></ruby>が<ruby>響<rp>(</rp><rt>ひび</rt><rp>)</rp></ruby>き、<ruby>運用<rp>(</rp><rt>うんよう</rt><rp>)</rp></ruby><ruby>額<rp>(</rp><rt>がく</rt><rp>)</rp></ruby>は13<ruby>兆<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>179<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>のマイナスと<ruby>過去<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby><ruby>最大<rp>(</rp><rt>さいだい</rt><rp>)</rp></ruby>の<ruby>落<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ち<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>みを<ruby>記録<rp>(</rp><rt>きろく</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>資産運用業協会が13日発表した3月の投信概況によると、上場投資信託（ETF）を除く公募株式投信の残高は175兆1666億円と前月から10兆9683億円（約6%）減った。中東情勢的緊迫导致国内外株安响应，運用額出现13兆179億円的负增长，创下过去最大落ち込み。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>投信<rp>(</rp><rt>とうしん</rt><rp>)</rp></ruby>の<ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby><ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>は2025<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby><ruby>以来<rp>(</rp><rt>いらい</rt><rp>)</rp></ruby>11カ<ruby>月<rp>(</rp><rt>げつ</rt><rp>)</rp></ruby>ぶりに<ruby>前月<rp>(</rp><rt>ぜんげつ</rt><rp>)</rp></ruby>を<ruby>下回<rp>(</rp><rt>したまわ</rt><rp>)</rp></ruby>った。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>株式投信の残高全体是2025年4月以来11个月来首次低于前月。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby>マネーの<ruby>流入<rp>(</rp><rt>りゅうにゅう</rt><rp>)</rp></ruby>そのものは<ruby>継続<rp>(</rp><rt>けいぞく</rt><rp>)</rp></ruby>した。<ruby>公募<rp>(</rp><rt>こうぼ</rt><rp>)</rp></ruby><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>投信<rp>(</rp><rt>とうしん</rt><rp>)</rp></ruby>の<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby><ruby>額<rp>(</rp><rt>がく</rt><rp>)</rp></ruby>から<ruby>解約<rp>(</rp><rt>かいやく</rt><rp>)</rp></ruby>や<ruby>償還<rp>(</rp><rt>しょうかん</rt><rp>)</rp></ruby><ruby>額<rp>(</rp><rt>がく</rt><rp>)</rp></ruby>を<ruby>差<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>し<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>いた<ruby>資金<rp>(</rp><rt>しきん</rt><rp>)</rp></ruby><ruby>流入<rp>(</rp><rt>りゅうにゅう</rt><rp>)</rp></ruby><ruby>額<rp>(</rp><rt>がく</rt><rp>)</rp></ruby>は2<ruby>兆<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>3198<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>だった。<ruby>過去<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby>2<ruby>番目<rp>(</rp><rt>ばんめ</rt><rp>)</rp></ruby>に<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い<ruby>水準<rp>(</rp><rt>すいじゅん</rt><rp>)</rp></ruby>となった。<ruby>国内<rp>(</rp><rt>こくない</rt><rp>)</rp></ruby><ruby>株式型<rp>(</rp><rt>かぶしきがた</rt><rp>)</rp></ruby>が<ruby>堅調<rp>(</rp><rt>けんちょう</rt><rp>)</rp></ruby>だった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>個人マネー的流入本身还在継続。公募株式投信的設定額减去解約和償還額后的資金流入額为2兆3198億円，达到过去第2高的水準。国内株式型表现堅調。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>同<rp>(</rp><rt>どう</rt><rp>)</rp></ruby><ruby>協会<rp>(</rp><rt>きょうかい</rt><rp>)</rp></ruby>の<ruby>菱田<rp>(</rp><rt>ひしだ</rt><rp>)</rp></ruby><ruby>賀夫<rp>(</rp><rt>よしお</rt><rp>)</rp></ruby><ruby>会長<rp>(</rp><rt>かいちょう</rt><rp>)</rp></ruby>は<ruby>記者<rp>(</rp><rt>きしゃ</rt><rp>)</rp></ruby><ruby>会見<rp>(</rp><rt>かいけん</rt><rp>)</rp></ruby>で「<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby>で<ruby>安定<rp>(</rp><rt>あんてい</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>に<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby><ruby>株<rp>(</rp><rt>かぶ</rt><rp>)</rp></ruby>に<ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby>する<ruby>人<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>は<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>えている」と<ruby>話<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>同協会的菱田賀夫会長在記者会見上表示「長期で安定的に投资日本株的人正在增加」。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB134600T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="fx">
+  <div class="section-head" style="border-bottom-color:#D4A843">
+    <span class="emoji">💱</span>
+    <h2>為替</h2>
+  </div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">01</span><h3>債券寄り付き　先物が反発　原油高一服で</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>朝方<rp>(</rp><rt>あさがた</rt><rp>)</rp></ruby>の<ruby>国内<rp>(</rp><rt>こくない</rt><rp>)</rp></ruby><ruby>債券<rp>(</rp><rt>さいけん</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で<ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>が<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>している。<ruby>中心<rp>(</rp><rt>ちゅうしん</rt><rp>)</rp></ruby><ruby>限月<rp>(</rp><rt>げんげつ</rt><rp>)</rp></ruby>である6<ruby>月物<rp>(</rp><rt>つきもの</rt><rp>)</rp></ruby>は<ruby>前日比<rp>(</rp><rt>ぜんじつひ</rt><rp>)</rp></ruby>6<ruby>銭高<rp>(</rp><rt>せんだか</rt><rp>)</rp></ruby>の129<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>65<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>で<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>まった。<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>で<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>んだ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>の<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>が<ruby>一服<rp>(</rp><rt>いっぷく</rt><rp>)</rp></ruby>しており、インフレ<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>の<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>まりを<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>した13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>売<rp>(</rp><rt>う</rt><rp>)</rp></ruby>りの<ruby>反動<rp>(</rp><rt>はんどう</rt><rp>)</rp></ruby>から<ruby>国内<rp>(</rp><rt>こくない</rt><rp>)</rp></ruby><ruby>債<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>の<ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby>に<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いが<ruby>先行<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>14日朝方の国内債券市場で先物相場が反発。主要限月である6月物が前日比6銭高の129円65銭でスタート。日本時間13日の取引で進んだ米原油相場の上昇が一服したことで、通胀圧力上升を警戒した13日の売りの反動から国内債の先物に買いが先行。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>で<ruby>一時<rp>(</rp><rt>いちじ</rt><rp>)</rp></ruby>1バレル105ドル<ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>に<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>した<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby>は、1...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>日本時間13日の取引で一時1桶105美元台まで上昇した米原油先物は...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL140OB0U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">02</span><h3>外為8時30分　円相場、上昇し159円台前半　対ユーロでは下落</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>早朝<rp>(</rp><rt>そうちょう</rt><rp>)</rp></ruby>の<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>外国<rp>(</rp><rt>がいこく</rt><rp>)</rp></ruby><ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で、<ruby>円相場<rp>(</rp><rt>えんそうば</rt><rp>)</rp></ruby>は<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>している。8<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>30<ruby>分<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>は1ドル=159<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>24〜25<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>と<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>17<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>と<ruby>比<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>べて36<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>の<ruby>円高<rp>(</rp><rt>えんだか</rt><rp>)</rp></ruby>・ドル<ruby>安<rp>(</rp><rt>やす</rt><rp>)</rp></ruby>だった。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランの<ruby>和平<rp>(</rp><rt>わへい</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>について、トランプ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby>はイラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>が<ruby>接触<rp>(</rp><rt>せっしょく</rt><rp>)</rp></ruby>してきたと<ruby>明<rp>(</rp><rt>あき</rt><rp>)</rp></ruby>らかにした。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>がホルムズ<ruby>海峡<rp>(</rp><rt>かいきょう</rt><rp>)</rp></ruby>の<ruby>封鎖<rp>(</rp><rt>ふうさ</rt><rp>)</rp></ruby>に<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>くなど<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>は<ruby>予断<rp>(</rp><rt>よだん</rt><rp>)</rp></ruby>を<ruby>許<rp>(</rp><rt>ゆる</rt><rp>)</rp></ruby>さないが、<ruby>両国<rp>(</rp><rt>りょうこく</rt><rp>)</rp></ruby>の<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby><ruby>余地<rp>(</rp><rt>よち</rt><rp>)</rp></ruby>はあるとして、これまで<ruby>積<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>み<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>がった「<ruby>有事<rp>(</rp><rt>ゆうじ</rt><rp>)</rp></ruby>のドル<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>い」の<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>ち<ruby>高<rp>(</rp><rt>だか</rt><rp>)</rp></ruby>を<ruby>解消<rp>(</rp><rt>かいしょう</rt><rp>)</rp></ruby>する<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>きが<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>た。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>14日早朝の東京外国為替市場で、円相場は上昇。8時30分時点で1ドル=159円24〜25銭と前日17時比36銭の円高・ドル安。米国とイランの和平協議について、トランプ大統領はイラン側が接触してきたと発表。米国がホルムズ海峡を封鎖するなど中東情勢は予断を許さないが、両国の交渉余地はあるとして、これまで積み上がった「有事のドル買い」のポジション解消動きが出現。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>トランプ<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby>は13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、ホワイトハウスで<ruby>記者団<rp>(</rp><rt>きしゃだん</rt><rp>)</rp></ruby>に「イラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>から<ruby>連絡<rp>(</rp><rt>れんらく</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>けている。<ruby>彼<rp>(</rp><rt>かれ</rt><rp>)</rp></ruby>らはとても<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>を<ruby>成立<rp>(</rp><rt>せいりつ</rt><rp>)</rp></ruby>させたがっている」と<ruby>語<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>った。イランが<ruby>核兵器<rp>(</rp><rt>かくへいき</rt><rp>)</rp></ruby>を<ruby>保有<rp>(</rp><rt>ほゆう</rt><rp>)</rp></ruby>しないと<ruby>明確<rp>(</rp><rt>めいかく</rt><rp>)</rp></ruby>にすれば<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>するという。<ruby>米紙<rp>(</rp><rt>べいし</rt><rp>)</rp></ruby>ウォール・ストリート・ジャーナル<ruby>電子版<rp>(</rp><rt>でんしばん</rt><rp>)</rp></ruby>は<ruby>同日<rp>(</rp><rt>どうじつ</rt><rp>)</rp></ruby>に「<ruby>数日<rp>(</rp><rt>すうじつ</rt><rp>)</rp></ruby>のうちに<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>とイランによる2<ruby>回目<rp>(</rp><rt>かいめ</rt><rp>)</rp></ruby>の<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>が<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>かれる<ruby>可能性<rp>(</rp><rt>かのうせい</rt><rp>)</rp></ruby>がある」と<ruby>報<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>じ、<ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby><ruby>継続<rp>(</rp><rt>けいぞく</rt><rp>)</rp></ruby>への<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>がった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>トランプ大統領は13日、ホワイトハウスで記者団に「イラン側から連絡を受けている。彼らはとても取引を成立させたがっている」と語った。イランが核兵器を保有しないと明確にすれば合意するという。米紙ウォール・ストリート・ジャーナル電子版は同日「数日のうちに米国とイランによる2回目の協議が開かれる可能性がある」と報道し、協議継続への期待が広がった。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>11〜12<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>イラン<ruby>和平<rp>(</rp><rt>わへい</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>は<ruby>合意<rp>(</rp><rt>ごうい</rt><rp>)</rp></ruby>に<ruby>至<rp>(</rp><rt>いた</rt><rp>)</rp></ruby>らず、<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>の<ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>が<ruby>長期化<rp>(</rp><rt>ちょうきか</rt><rp>)</rp></ruby>することへの<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>から<ruby>基軸<rp>(</rp><rt>きじく</rt><rp>)</rp></ruby><ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>のドルには<ruby>有事<rp>(</rp><rt>ゆうじ</rt><rp>)</rp></ruby>の<ruby>買<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いが<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>み、<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>ドルの<ruby>円相場<rp>(</rp><rt>えんそうば</rt><rp>)</rp></ruby>は<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>に159<ruby>円台<rp>(</rp><rt>えんだい</rt><rp>)</rp></ruby><ruby>後半<rp>(</rp><rt>こうはん</rt><rp>)</rp></ruby>に<ruby>下落<rp>(</rp><rt>げらく</rt><rp>)</rp></ruby>していた。<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby>の<ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby><ruby>当局<rp>(</rp><rt>とうきょく</rt><rp>)</rp></ruby>による<ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>介入<rp>(</rp><rt>かいにゅう</rt><rp>)</rp></ruby>への<ruby>思惑<rp>(</rp><rt>おもわく</rt><rp>)</rp></ruby>がくすぶるなか、<ruby>利益<rp>(</rp><rt>りえき</rt><rp>)</rp></ruby><ruby>確定<rp>(</rp><rt>かくてい</rt><rp>)</rp></ruby>や<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>ち<ruby>高<rp>(</rp><rt>だか</rt><rp>)</rp></ruby><ruby>調整<rp>(</rp><rt>ちょうせい</rt><rp>)</rp></ruby>の<ruby>円買<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>い・ドル<ruby>売<rp>(</rp><rt>う</rt><rp>)</rp></ruby>りが<ruby>入<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>り<ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>を<ruby>下支<rp>(</rp><rt>したささ</rt><rp>)</rp></ruby>えした。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>11〜12日の米イラン和平協議は合意に至らず、中東の緊迫が長期化することへの警戒から基軸通貨のドルには有事の買いが進み、対ドルの円相場は前日に159円台後半に下落していた。日本の通貨当局による為替介入への思惑がくすぶる中、利益確定や持ち高調整の円買い・ドル売りが入り相場を下支えした。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>もっとも、<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>の<ruby>上値<rp>(</rp><rt>うわね</rt><rp>)</rp></ruby>は<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>はホルムズ<ruby>海峡<rp>(</rp><rt>かいきょう</rt><rp>)</rp></ruby>を<ruby>通過<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>する<ruby>船舶<rp>(</rp><rt>せんぱく</rt><rp>)</rp></ruby>に<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>する<ruby>封鎖<rp>(</rp><rt>ふうさ</rt><rp>)</rp></ruby><ruby>措置<rp>(</rp><rt>そち</rt><rp>)</rp></ruby>を13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>開始<rp>(</rp><rt>かいし</rt><rp>)</rp></ruby>し、イラン<ruby>側<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby>は<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>を<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>めている。<ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby>の<ruby>停滞<rp>(</rp><rt>ていたい</rt><rp>)</rp></ruby>は<ruby>長引<rp>(</rp><rt>ながび</rt><rp>)</rp></ruby>くとして<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>早朝<rp>(</rp><rt>そうちょう</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>でも<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は1バレル96ドル<ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>で<ruby>高止<rp>(</rp><rt>たかど</rt><rp>)</rp></ruby>まりしている。<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby>の<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby><ruby>収支<rp>(</rp><rt>しゅうし</rt><rp>)</rp></ruby>の<ruby>赤字<rp>(</rp><rt>あかじ</rt><rp>)</rp></ruby>が<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>するとの<ruby>見方<rp>(</rp><rt>みかた</rt><rp>)</rp></ruby>が<ruby>円相場<rp>(</rp><rt>えんそうば</rt><rp>)</rp></ruby>の<ruby>重荷<rp>(</rp><rt>おもに</rt><rp>)</rp></ruby>となっている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>もっとも、円の上値は重い。米国はホルムズ海峡を通過する船舶に対する封鎖措置を13日に開始し、イラン側は反発を強めている。原油供給の停滞は長引くとして日本時間14日早朝の取引でも米原油先物相場は1バレル96ドル台で高止まり。日本の貿易収支の赤字が拡大するとの見方が円相場の重荷となっている。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>の<ruby>植田<rp>(</rp><rt>うえだ</rt><rp>)</rp></ruby><ruby>和男<rp>(</rp><rt>かずお</rt><rp>)</rp></ruby><ruby>総裁<rp>(</rp><rt>そうさい</rt><rp>)</rp></ruby>は13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>信託<rp>(</rp><rt>しんたく</rt><rp>)</rp></ruby><ruby>大会<rp>(</rp><rt>たいかい</rt><rp>)</rp></ruby>の<ruby>挨拶<rp>(</rp><rt>あいさつ</rt><rp>)</rp></ruby>で、<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>の<ruby>長期化<rp>(</rp><rt>ちょうきか</rt><rp>)</rp></ruby>で「<ruby>国際<rp>(</rp><rt>こくさい</rt><rp>)</rp></ruby><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>では<ruby>不安定<rp>(</rp><rt>ふあんてい</rt><rp>)</rp></ruby>な<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>きがみられる」との<ruby>認識<rp>(</rp><rt>にんしき</rt><rp>)</rp></ruby>を<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>した。「サプライチェーン（<ruby>供給網<rp>(</rp><rt>きょうきゅうもう</rt><rp>)</rp></ruby>）への<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて、<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>の<ruby>生産<rp>(</rp><rt>せいさん</rt><rp>)</rp></ruby><ruby>活動<rp>(</rp><rt>かつどう</rt><rp>)</rp></ruby>に<ruby>下押<rp>(</rp><rt>したお</rt><rp>)</rp></ruby>し<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>がかかるリスクもある」とも<ruby>指摘<rp>(</rp><rt>してき</rt><rp>)</rp></ruby>した。<ruby>景気<rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>や<ruby>物価<rp>(</rp><rt>ぶっか</rt><rp>)</rp></ruby>に<ruby>上下<rp>(</rp><rt>じょうげ</rt><rp>)</rp></ruby><ruby>両方向<rp>(</rp><rt>りょうほうこう</rt><rp>)</rp></ruby>のリスクがあるなか、<ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>が<ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby><ruby>判断<rp>(</rp><rt>はんだん</rt><rp>)</rp></ruby>に<ruby>慎重<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>になると<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>止<rp>(</rp><rt>と</rt><rp>)</rp></ruby>められたことは<ruby>円相場<rp>(</rp><rt>えんそうば</rt><rp>)</rp></ruby>を<ruby>下押<rp>(</rp><rt>したお</rt><rp>)</rp></ruby>しした。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>日銀の植田和男は13日の信託大会の挨拶で、中東緊迫の長期化で「国際金融市場では不安定な動きがみられる」との認識を示した。「供応链への影響を通じて、企業の生産活動に下押し圧力がかかるリスクもある」とも指摘した。景気や物価に上下両方向のリスクがある中、日銀が政策判断に慎重になると受け止められたことは円相場を下押しした。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>は<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>ユーロで<ruby>下落<rp>(</rp><rt>げらく</rt><rp>)</rp></ruby>している。8<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>30<ruby>分<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>は1ユーロ=187<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>34〜37<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>と、<ruby>同<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>66<ruby>銭<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>の<ruby>円安<rp>(</rp><rt>えんやす</rt><rp>)</rp></ruby>・ユーロ<ruby>高<rp>(</rp><rt>だか</rt><rp>)</rp></ruby>だった。<ruby>和平<rp>(</rp><rt>わへい</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby><ruby>継続<rp>(</rp><rt>けいぞく</rt><rp>)</rp></ruby>への<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>から<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby>の<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>株式<rp>(</rp><rt>かぶしき</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>が<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>した。<ruby>投資家<rp>(</rp><rt>とうしか</rt><rp>)</rp></ruby><ruby>心理<rp>(</rp><rt>しんり</rt><rp>)</rp></ruby>の<ruby>改善<rp>(</rp><rt>かいぜん</rt><rp>)</rp></ruby>が<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>ユーロでは「<ruby>低<rp>(</rp><rt>てい</rt><rp>)</rp></ruby>リスク<ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>」とされる<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>の<ruby>売<rp>(</rp><rt>う</rt><rp>)</rp></ruby>りを<ruby>促<rp>(</rp><rt>うなが</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>円は対ユーロで下落している。8時30分時点は1ユーロ=187円34〜37銭と、同66銭の円安・ユーロ高だった。和平協議継続への期待から前日の米株式相場が上昇した。投資家心理の改善が対ユーロでは「低リスク通貨」とされる円の売りを促した。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL140F90U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">03</span><h3>日銀当預増やす外銀、国内勢に逆行　決済ニーズや円売りが押し上げ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>の<ruby>当座預金<rp>(</rp><rt>とうざよきん</rt><rp>)</rp></ruby><ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby>における<ruby>外国<rp>(</rp><rt>がいこく</rt><rp>)</rp></ruby><ruby>銀行<rp>(</rp><rt>ぎんこう</rt><rp>)</rp></ruby>の<ruby>存在感<rp>(</rp><rt>そんざいかん</rt><rp>)</rp></ruby>がじわりと<ruby>増<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>している。3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>の<ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby><ruby>当座預金<rp>(</rp><rt>とうざよきん</rt><rp>)</rp></ruby>の<ruby>平均<rp>(</rp><rt>へいきん</rt><rp>)</rp></ruby><ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby>は449<ruby>兆円<rp>(</rp><rt>ちょうえん</rt><rp>)</rp></ruby>と、<ruby>日銀<rp>(</rp><rt>にちぎん</rt><rp>)</rp></ruby>がマイナス<ruby>金利<rp>(</rp><rt>きんり</rt><rp>)</rp></ruby><ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby>の<ruby>解除<rp>(</rp><rt>かいじょ</rt><rp>)</rp></ruby>を<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>めた<ruby>後<rp>(</rp><rt>あと</rt><rp>)</rp></ruby>につけた<ruby>ピーク<rp>(</rp><rt>ピーク</rt><rp>)</rp></ruby>の2024<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>（564<ruby>兆円<rp>(</rp><rt>ちょうえん</rt><rp>)</rp></ruby>）から100<ruby>兆円<rp>(</rp><rt>ちょうえん</rt><rp>)</rp></ruby>…</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>日銀当座預金残高中，外国銀行存在感正在悄然増加。3月日銀当座預金平均残高为449万億円，相比日銀決定解除负利率政策后创下峯値的2024年4月（564万億円），減少了100万億円...</div>
+    </div>
+    <div class="pair">
+      <div class="note">请提供完整的文章内容，我将为您完整翻译。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL0923ETZ00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="economy">
+  <div class="section-head" style="border-bottom-color:#4A5A8A">
     <span class="emoji">🌏</span>
     <h2>経済</h2>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">01</span>
-      <h3>CO2地下貯留、千葉・九十九里沖の試掘許可へ　国内排出0.5%の容量</h3>
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">01</span><h3>CO2地下貯留、千葉・九十九里沖の試掘許可へ　国内排出0.5%の容量</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>（CO2）を<ruby>回収<rp>(</rp><rt>かいしゅう</rt><rp>)</rp></ruby>して<ruby>地下<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>にためる「CCS」の<ruby>実用化<rp>(</rp><rt>じつようか</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けて、<ruby>経済産業省<rp>(</rp><rt>けいざいさんぎょうしょう</rt><rp>)</rp></ruby>は<ruby>近<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>く<ruby>千葉県<rp>(</rp><rt>ちばけん</rt><rp>)</rp></ruby>・<ruby>九十九里沖<rp>(</rp><rt>くじゅうくりおき</rt><rp>)</rp></ruby>での<ruby>試掘調査<rp>(</rp><rt>しくつちょうさ</rt><rp>)</rp></ruby>を<ruby>許可<rp>(</rp><rt>きょか</rt><rp>)</rp></ruby>する。<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>・<ruby>苫小牧沖<rp>(</rp><rt>とまこまいおき</rt><rp>)</rp></ruby>に<ruby>次<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>ぐ<ruby>全国<rp>(</rp><rt>ぜんこく</rt><rp>)</rp></ruby>2<ruby>例目<rp>(</rp><rt>れいめ</rt><rp>)</rp></ruby>。<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby>は<ruby>国内排出<rp>(</rp><rt>こくないはいしゅつ</rt><rp>)</rp></ruby>の0.5%<ruby>分<rp>(</rp><rt>ぶん</rt><rp>)</rp></ruby>を<ruby>貯留<rp>(</rp><rt>ちょりゅう</rt><rp>)</rp></ruby>する。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>CO2回収地下储存"CCS"实用化方面，経産省近期将许可千葉県・九十九里沖的试掘調査。继北海道・苫小牧沖之后的全国第2例。将来能貯留国内排出量的0.5%。</div>
     </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">二酸化炭素（CO2）を回収して地下にためる「CCS」の実用化に向けて、経済産業省は近く千葉県・九十九里沖での試掘調査を許可する。北海道・苫小牧沖に次ぐ全国2例目。将来は国内排出の0.5%分を貯留する。</div>
-        <div class="zh-text">为推进回收CO2并存储到地下的"CCS"实用化，経産省将于近期许可千葉县九十九里沖的試掘調査。这是继北海道苫小牧沖后的全国第2例。将来可貯留国内排出量的0.5%。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">千葉県は都道府県別のCO2排出量が全国1位の東京都に次いで多く、工場など産業部門に限れば最も多い。排出量削減の余地が大きく、実現すれば東京湾沿いの工場や発電所の競争力向上につながる。</div>
-        <div class="zh-text">千葉県按都道府県的CO2排出量，仅次于全国第1位的東京都，如果仅限工場等産業部門則排出最多。排出量削減的余地很大，如果実現，将有助于提升東京湾沿岸工場和発電所的競争力。</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA095PK0Z00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>千葉県<rp>(</rp><rt>ちばけん</rt><rp>)</rp></ruby>は<ruby>都道府県別<rp>(</rp><rt>とどうふけんべつ</rt><rp>)</rp></ruby>のCO2<ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>が<ruby>全国<rp>(</rp><rt>ぜんこく</rt><rp>)</rp></ruby>1<ruby>位<rp>(</rp><rt>い</rt><rp>)</rp></ruby>の<ruby>東京都<rp>(</rp><rt>とうきょうと</rt><rp>)</rp></ruby>に<ruby>次<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>いで<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>く、<ruby>工場<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>など<ruby>産業部門<rp>(</rp><rt>さんぎょうぶもん</rt><rp>)</rp></ruby>に<ruby>限<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>れば<ruby>最<rp>(</rp><rt>もっと</rt><rp>)</rp></ruby>も<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い。<ruby>排出量削減<rp>(</rp><rt>はいしゅつりょうさくげん</rt><rp>)</rp></ruby>の<ruby>余地<rp>(</rp><rt>よち</rt><rp>)</rp></ruby>が<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく、<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>すれば<ruby>東京湾沿<rp>(</rp><rt>とうきょうわんぞ</rt><rp>)</rp></ruby>いの<ruby>工場<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>や<ruby>発電所<rp>(</rp><rt>はつでんしょ</rt><rp>)</rp></ruby>の<ruby>競争力向上<rp>(</rp><rt>きょうそうりょくこうじょう</rt><rp>)</rp></ruby>につながる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>千葉県按都道府県別CO2排出量仅次于全国第1位的東京都，工場等産業部門来看则是最多的。排出量削減余地很大，実現的话将提升東京湾沿岸工场和発電所的竞争力。</div>
     </div>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">02</span>
-      <h3>諮問会議の民間議員、財政検証機能を提言　首相「市場の信認を確保」</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">経済財政諮問会議の民間議員は13日、今後の予算編成を巡る基本原則を提言した。財政運営や経済政策に関する「独立的な検証機能のあり方」について検討を求めた。一連の取り組みを通じ、施策効果の確認や財政規律の確保を要請した。</div>
-        <div class="zh-text">经济财政諮問会議的民間議员13日就今后予算编成的基本原则进行了提言。要求就财政運営和经济政策相关的"独立性検証機能のあり方"进行検討。通过一系列举措，要求确认施策效果和确保财政规律。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">高市早苗政権が掲げる「責任ある積極財政」を踏まえ、経団連会長の筒井義信氏ら4人の連名で提言を出した。夏に向けて作る「経済財政運営と改革の基本方針（骨太の方針）」や2027年度の予算...</div>
-        <div class="zh-text">基于高市早苗政権提出的"负责任的积极财政"，经团联会长筒井義信等4人联名提出了提言。面向夏季制定的"经济财政運営与改革基本方针（骨太方针）"和2027年度预算...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA121TX0S6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">03</span>
-      <h3>核ごみ処分候補地に南鳥島　迷走の原子力政策、国主導で立て直し</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">東京都小笠原村にある南鳥島は、高レベル放射性廃棄物（核のごみ）の最終処分場選定に向けて、国が主導して調査地を選ぶ方式の第1号となる。原子力発電所の再稼働を進めながら最終処分場は定まらないという迷走する政策の立て直しにはつながるが、決着には時間がかかりそうだ。</div>
-        <div class="zh-text">东京都小笠原村的南鸟岛，将成为高水平放射性废物（核垃圾）最终处分场选定中，国家主导选择调査地方式的第一号。虽然有助于重建既推进原子力発電所再稼働又没有确定最终処分場的迷走政策，但解决需要时间。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">小笠原村の渋谷正昭村長は13日、処分場の選定に向けた第1段階である「文献調査」を容認する意向を示した。経済産業省の幹部が3月に小笠原村役場を訪問し、文献調査への協力を要請した。</div>
-        <div class="zh-text">小笠原村村長渋谷正昭13日表示，同意处分场选定第一阶段的"文献調査"。経済産業省干部3月访问小笠原村役場，要求协助文献調査。</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA095JQ0Z00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA095PK0Z00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     🏛️ 政治
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="politics" id="politics">
-  <div class="section-head">
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">02</span><h3>2024年度の温暖化ガス排出量1.9%減、3年連続で減少　削減幅は縮小</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>環境省<rp>(</rp><rt>かんきょうしょう</rt><rp>)</rp></ruby>は14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、2024<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>の<ruby>温暖化<rp>(</rp><rt>おんだんか</rt><rp>)</rp></ruby>ガス<ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>が<ruby>前年度比<rp>(</rp><rt>ぜんねんどひ</rt><rp>)</rp></ruby>で1.9%<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>の10<ruby>億<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>4600<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby>トンだったと<ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>した。3<ruby>年連続<rp>(</rp><rt>ねんれんぞく</rt><rp>)</rp></ruby>で<ruby>減少<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>した。<ruby>発電<rp>(</rp><rt>はつでん</rt><rp>)</rp></ruby>の<ruby>電源構成<rp>(</rp><rt>でんげんこうせい</rt><rp>)</rp></ruby>に<ruby>占<rp>(</rp><rt>し</rt><rp>)</rp></ruby>める<ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>エネルギーや<ruby>原子力<rp>(</rp><rt>げんしりょく</rt><rp>)</rp></ruby>の<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>が<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>び<ruby>悩<rp>(</rp><rt>なや</rt><rp>)</rp></ruby>み、<ruby>減少幅<rp>(</rp><rt>げんしょうはば</rt><rp>)</rp></ruby>は<ruby>前年度<rp>(</rp><rt>ぜんねんど</rt><rp>)</rp></ruby>の3.9%から<ruby>縮小<rp>(</rp><rt>しゅくしょう</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>環境省14日発表，2024年度温暖化ガス排出量前年度比减1.9%，为10億4600万吨。连续3年减少。由于电源构成中再生可能エネルギー和原子力占比增长乏力，削減幅度从前年度的3.9%缩小。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>石原宏高<rp>(</rp><rt>いしはらひろたか</rt><rp>)</rp></ruby><ruby>環境相<rp>(</rp><rt>かんきょうそう</rt><rp>)</rp></ruby>が<ruby>同日<rp>(</rp><rt>どうじつ</rt><rp>)</rp></ruby>の<ruby>閣議後<rp>(</rp><rt>かくぎご</rt><rp>)</rp></ruby>の<ruby>記者会見<rp>(</rp><rt>きしゃかいけん</rt><rp>)</rp></ruby>で<ruby>公表<rp>(</rp><rt>こうひょう</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>石原宏高環境相在同日閣議後的記者会見上公表。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>数値<rp>(</rp><rt>すうち</rt><rp>)</rp></ruby>は<ruby>二酸化炭素換算<rp>(</rp><rt>にさんかたんそかんさん</rt><rp>)</rp></ruby>で、<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>は30<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>の<ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>を13<ruby>年度比<rp>(</rp><rt>ねんどひ</rt><rp>)</rp></ruby>で46%<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>らす<ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby>をかかげる。ここでの<ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>は<ruby>森林<rp>(</rp><rt>しんりん</rt><rp>)</rp></ruby>などによる<ruby>吸収分<rp>(</rp><rt>きゅうしゅうぶん</rt><rp>)</rp></ruby>を<ruby>差<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>し<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>いた<ruby>実質<rp>(</rp><rt>じっしつ</rt><rp>)</rp></ruby>の<ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>で、23<ruby>年度比<rp>(</rp><rt>ねんどひ</rt><rp>)</rp></ruby>で1.9%<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>の9<ruby>億<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>9400<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby>トンとなった。13<ruby>年度比<rp>(</rp><rt>ねんどひ</rt><rp>)</rp></ruby>では28.7%<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>で、<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>り6<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>で17ポイント<ruby>強<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>の<ruby>削減<rp>(</rp><rt>さくげん</rt><rp>)</rp></ruby>が<ruby>求<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>められる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>数値为二酸化碳换算，政府设定目标要在30年度比13年度削减46%排出量。这里的排出量是扣除森林等吸收分的实质排出量，比23年度减1.9%，为9億9400万吨。比13年度减28.7%，剩余6年需要削減17个百分点以上。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>排出量<rp>(</rp><rt>はいしゅつりょう</rt><rp>)</rp></ruby>を<ruby>部門別<rp>(</rp><rt>ぶもんべつ</rt><rp>)</rp></ruby>でみると、<ruby>工場<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>などの<ruby>産業部門<rp>(</rp><rt>さんぎょうぶもん</rt><rp>)</rp></ruby>とエネルギー<ruby>転換部門<rp>(</rp><rt>てんかんぶもん</rt><rp>)</rp></ruby>がともに23<ruby>年度比<rp>(</rp><rt>ねんどひ</rt><rp>)</rp></ruby>で2.5%<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>となり、<ruby>減少<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>に<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく<ruby>寄与<rp>(</rp><rt>きよ</rt><rp>)</rp></ruby>した。<ruby>産業部門<rp>(</rp><rt>さんぎょうぶもん</rt><rp>)</rp></ruby>は<ruby>粗鋼<rp>(</rp><rt>そこう</rt><rp>)</rp></ruby>など<ruby>素材産業<rp>(</rp><rt>そざいさんぎょう</rt><rp>)</rp></ruby>の<ruby>生産<rp>(</rp><rt>せいさん</rt><rp>)</rp></ruby>が<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>ったのが<ruby>主<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>な<ruby>要因<rp>(</rp><rt>よういん</rt><rp>)</rp></ruby>だという。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>按部门来看排出量，工場等産業部门和エネルギー転換部门都比23年度减2.5%，对减少贡献很大。産業部门主要因为粗鋼等素材産業生産减少。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>運輸部門<rp>(</rp><rt>うんゆぶもん</rt><rp>)</rp></ruby>は<ruby>自動車<rp>(</rp><rt>じどうしゃ</rt><rp>)</rp></ruby>の<ruby>燃費改善<rp>(</rp><rt>ねんぴかいぜん</rt><rp>)</rp></ruby>や<ruby>貨物<rp>(</rp><rt>かもつ</rt><rp>)</rp></ruby>の<ruby>積載効率向上<rp>(</rp><rt>せきさいこうりつこうじょう</rt><rp>)</rp></ruby>により1.6%<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>った。オフィスや<ruby>商業施設<rp>(</rp><rt>しょうぎょうしせつ</rt><rp>)</rp></ruby>などを<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>む「<ruby>業務<rp>(</rp><rt>ぎょうむ</rt><rp>)</rp></ruby>その<ruby>他部門<rp>(</rp><rt>たぶもん</rt><rp>)</rp></ruby>」は<ruby>微増<rp>(</rp><rt>びぞう</rt><rp>)</rp></ruby>だった。<ruby>訪日外国人客<rp>(</rp><rt>ほうにちがいこくじんきゃく</rt><rp>)</rp></ruby>の<ruby>需要<rp>(</rp><rt>じゅよう</rt><rp>)</rp></ruby>が<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>びた<ruby>飲食業<rp>(</rp><rt>いんしょくぎょう</rt><rp>)</rp></ruby>などでの<ruby>増加<rp>(</rp><rt>ぞうか</rt><rp>)</rp></ruby>が<ruby>目立<rp>(</rp><rt>めだ</rt><rp>)</rp></ruby>った。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>運輸部门因自動車燃費改善和货物装载效率提升减1.6%。包含办公室和商業施設等的"業務その他部门"微增。由于訪日外国人客需求增长，飲食業等的增加很显眼。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>24<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>の<ruby>電源構成<rp>(</rp><rt>でんげんこうせい</rt><rp>)</rp></ruby>をみると、<ruby>脱炭素<rp>(</rp><rt>だつたんそ</rt><rp>)</rp></ruby>につながる<ruby>再生<rp>(</rp><rt>さいせい</rt><rp>)</rp></ruby>エネは<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>の23.1%と0.2ポイント<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>した。<ruby>原子力<rp>(</rp><rt>げんしりょく</rt><rp>)</rp></ruby>は9.4%と0.9ポイント<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>がった。<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>わせて<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>の32.5%と1.1ポイント<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>したものの、<ruby>前年度<rp>(</rp><rt>ぜんねんど</rt><rp>)</rp></ruby>の4.0ポイントの<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>びからは<ruby>縮<rp>(</rp><rt>ちぢ</rt><rp>)</rp></ruby>んだ。<ruby>原子力発電所<rp>(</rp><rt>げんしりょくはつでんしょ</rt><rp>)</rp></ruby>の<ruby>再稼働時期<rp>(</rp><rt>さいかどうじき</rt><rp>)</rp></ruby>が24<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>の<ruby>後半<rp>(</rp><rt>こうはん</rt><rp>)</rp></ruby>に<ruby>偏<rp>(</rp><rt>かたよ</rt><rp>)</rp></ruby>り、<ruby>発電量<rp>(</rp><rt>はつでんりょう</rt><rp>)</rp></ruby>の<ruby>増加<rp>(</rp><rt>ぞうか</rt><rp>)</rp></ruby>への<ruby>貢献度<rp>(</rp><rt>こうけんど</rt><rp>)</rp></ruby>は<ruby>限定的<rp>(</rp><rt>げんていてき</rt><rp>)</rp></ruby>だった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>看24年度電源構成，连接脱碳化的再生エネ占全体23.1%，上升0.2个百分点。原子力9.4%，上升0.9个百分点。合计占全体32.5%，上升1.1个百分点，但比前年度4.0个百分点的增长缩小了。原子力発電所再稼働时期集中在24年度后半，对発電量増加的贡献度有限。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA10ADP0Q6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">03</span><h3>3月の米中古住宅販売、9カ月ぶり低水準　金利・価格上昇で</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>【ニューヨーク=<ruby>佐<rp>(</rp><rt>さ</rt><rp>)</rp></ruby><ruby>藤<rp>(</rp><rt>とう</rt><rp>)</rp></ruby><ruby>璃<rp>(</rp><rt>り</rt><rp>)</rp></ruby><ruby>子<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>】<ruby>全<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby><ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>不<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby><ruby>動<rp>(</rp><rt>どう</rt><rp>)</rp></ruby><ruby>産<rp>(</rp><rt>さん</rt><rp>)</rp></ruby><ruby>協<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby><ruby>会<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>（NAR）が13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>発<rp>(</rp><rt>はっ</rt><rp>)</rp></ruby><ruby>表<rp>(</rp><rt>ぴょう</rt><rp>)</rp></ruby>した3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>の<ruby>中<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby><ruby>古<rp>(</rp><rt>こ</rt><rp>)</rp></ruby><ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>販<rp>(</rp><rt>はん</rt><rp>)</rp></ruby><ruby>売<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby><ruby>件<rp>(</rp><rt>けん</rt><rp>)</rp></ruby><ruby>数<rp>(</rp><rt>すう</rt><rp>)</rp></ruby>は398<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby><ruby>戸<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>（<ruby>季<rp>(</rp><rt>き</rt><rp>)</rp></ruby><ruby>節<rp>(</rp><rt>せつ</rt><rp>)</rp></ruby><ruby>調<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby><ruby>整<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>済<rp>(</rp><rt>ず</rt><rp>)</rp></ruby>み、<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>率<rp>(</rp><rt>りつ</rt><rp>)</rp></ruby><ruby>換<rp>(</rp><rt>かん</rt><rp>)</rp></ruby><ruby>算<rp>(</rp><rt>さん</rt><rp>)</rp></ruby>）と、<ruby>前<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby><ruby>月<rp>(</rp><rt>げつ</rt><rp>)</rp></ruby><ruby>比<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>3.6%<ruby>減<rp>(</rp><rt>げん</rt><rp>)</rp></ruby><ruby>少<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>した。2025<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>6<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby><ruby>以<rp>(</rp><rt>い</rt><rp>)</rp></ruby><ruby>来<rp>(</rp><rt>らい</rt><rp>)</rp></ruby>、9カ<ruby>月<rp>(</rp><rt>げつ</rt><rp>)</rp></ruby>ぶりの<ruby>低<rp>(</rp><rt>てい</rt><rp>)</rp></ruby><ruby>水<rp>(</rp><rt>すい</rt><rp>)</rp></ruby><ruby>準<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>となった。<ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>価<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>格<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>とローン<ruby>金<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>利<rp>(</rp><rt>り</rt><rp>)</rp></ruby>の<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>昇<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>が<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby><ruby>荷<rp>(</rp><rt>に</rt><rp>)</rp></ruby>となっている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>全米不動産協会(NAR)が13日発表した3月の中古住宅販売件数は398万戸(季節調整済、年率換算)で前月比3.6%減少。2025年6月以来9か月ぶりの低水準。住宅価格とローン金利上昇が重荷となった。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>販<rp>(</rp><rt>はん</rt><rp>)</rp></ruby><ruby>売<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby><ruby>件<rp>(</rp><rt>けん</rt><rp>)</rp></ruby><ruby>数<rp>(</rp><rt>すう</rt><rp>)</rp></ruby>は<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>ダウ・ジョーンズまとめの<ruby>市<rp>(</rp><rt>し</rt><rp>)</rp></ruby><ruby>場<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>予<rp>(</rp><rt>よ</rt><rp>)</rp></ruby><ruby>想<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>の405<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby><ruby>戸<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>を<ruby>下<rp>(</rp><rt>した</rt><rp>)</rp></ruby><ruby>回<rp>(</rp><rt>まわ</rt><rp>)</rp></ruby>った。<ruby>販<rp>(</rp><rt>はん</rt><rp>)</rp></ruby><ruby>売<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby><ruby>価<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>格<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>（<ruby>中<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby><ruby>央<rp>(</rp><rt>おう</rt><rp>)</rp></ruby><ruby>値<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>）は<ruby>前<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby><ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>同<rp>(</rp><rt>どう</rt><rp>)</rp></ruby><ruby>月<rp>(</rp><rt>げつ</rt><rp>)</rp></ruby><ruby>比<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>で1.4%<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>昇<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>し、40<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby>8800ドル（<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>6500<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby><ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>）だった。25<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>11<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby><ruby>以<rp>(</rp><rt>い</rt><rp>)</rp></ruby><ruby>来<rp>(</rp><rt>らい</rt><rp>)</rp></ruby>の<ruby>高<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>水<rp>(</rp><rt>すい</rt><rp>)</rp></ruby><ruby>準<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>となった。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>販売件数は米ダウ・ジョーンズまとめの市場予想405万戸を下回った。販売価格(中央値)は前年同月比1.4%上昇し40万8800ドル(約6500万円)。25年11月以来の高水準。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>NARのチーフエコノミスト、ローレンス・ユンは「<ruby>消<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby><ruby>費<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby><ruby>者<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby><ruby>景<rp>(</rp><rt>けい</rt><rp>)</rp></ruby><ruby>況<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby><ruby>感<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>の<ruby>低<rp>(</rp><rt>てい</rt><rp>)</rp></ruby><ruby>下<rp>(</rp><rt>か</rt><rp>)</rp></ruby>と<ruby>雇<rp>(</rp><rt>こ</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby><ruby>成<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>長<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>の<ruby>軟<rp>(</rp><rt>なん</rt><rp>)</rp></ruby><ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>が、<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>き<ruby>購<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>入<rp>(</rp><rt>にゅう</rt><rp>)</rp></ruby><ruby>者<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>の<ruby>足<rp>(</rp><rt>あし</rt><rp>)</rp></ruby>かせとなっている」と<ruby>分<rp>(</rp><rt>ぶん</rt><rp>)</rp></ruby><ruby>析<rp>(</rp><rt>せき</rt><rp>)</rp></ruby>した。<ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>在<rp>(</rp><rt>ざい</rt><rp>)</rp></ruby><ruby>庫<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>が<ruby>依<rp>(</rp><rt>い</rt><rp>)</rp></ruby><ruby>然<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby>として<ruby>逼<rp>(</rp><rt>ひっ</rt><rp>)</rp></ruby><ruby>迫<rp>(</rp><rt>ぱく</rt><rp>)</rp></ruby>していることから、<ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>価<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>格<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>は3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby><ruby>単<rp>(</rp><rt>たん</rt><rp>)</rp></ruby><ruby>月<rp>(</rp><rt>げつ</rt><rp>)</rp></ruby>としては<ruby>過<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>去<rp>(</rp><rt>こ</rt><rp>)</rp></ruby><ruby>最<rp>(</rp><rt>さい</rt><rp>)</rp></ruby><ruby>高<rp>(</rp><rt>こう</rt><rp>)</rp></ruby>になったと<ruby>指<rp>(</rp><rt>し</rt><rp>)</rp></ruby><ruby>摘<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>NARのチーフエコノミスト、ローレンス・ユンは「消費者景況感の低下と雇用成長の軟化が引き続き購入者の足かせとなっている」と分析。住宅在庫が依然逼迫しているため住宅価格は3月単月で過去最高になったと指摘。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>2<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby><ruby>末<rp>(</rp><rt>まつ</rt><rp>)</rp></ruby>の<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>イラン<ruby>攻<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>撃<rp>(</rp><rt>げき</rt><rp>)</rp></ruby><ruby>以<rp>(</rp><rt>い</rt><rp>)</rp></ruby><ruby>降<rp>(</rp><rt>こう</rt><rp>)</rp></ruby>、<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby>ローン<ruby>金<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>利<rp>(</rp><rt>り</rt><rp>)</rp></ruby>は<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>昇<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>した。<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>邦<rp>(</rp><rt>ぽう</rt><rp>)</rp></ruby><ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>貸<rp>(</rp><rt>かし</rt><rp>)</rp></ruby><ruby>付<rp>(</rp><rt>つけ</rt><rp>)</rp></ruby><ruby>抵<rp>(</rp><rt>てい</rt><rp>)</rp></ruby><ruby>当<rp>(</rp><rt>とう</rt><rp>)</rp></ruby><ruby>公<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>社<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>（フレディマック）が<ruby>公<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>表<rp>(</rp><rt>ひょう</rt><rp>)</rp></ruby>する<ruby>直<rp>(</rp><rt>ちょく</rt><rp>)</rp></ruby><ruby>近<rp>(</rp><rt>きん</rt><rp>)</rp></ruby>の30<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>物<rp>(</rp><rt>もの</rt><rp>)</rp></ruby><ruby>固<rp>(</rp><rt>こ</rt><rp>)</rp></ruby><ruby>定<rp>(</rp><rt>てい</rt><rp>)</rp></ruby><ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby>ローン<ruby>金<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>利<rp>(</rp><rt>り</rt><rp>)</rp></ruby>は<ruby>週<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby><ruby>平<rp>(</rp><rt>へい</rt><rp>)</rp></ruby><ruby>均<rp>(</rp><rt>きん</rt><rp>)</rp></ruby>で6.37%と、イラン<ruby>攻<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>撃<rp>(</rp><rt>げき</rt><rp>)</rp></ruby><ruby>直<rp>(</rp><rt>ちょく</rt><rp>)</rp></ruby><ruby>前<rp>(</rp><rt>ぜん</rt><rp>)</rp></ruby>につけた5%<ruby>台<rp>(</rp><rt>だい</rt><rp>)</rp></ruby><ruby>後<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>半<rp>(</rp><rt>はん</rt><rp>)</rp></ruby>から<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>0.4%<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い<ruby>水<rp>(</rp><rt>すい</rt><rp>)</rp></ruby><ruby>準<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>で<ruby>推<rp>(</rp><rt>すい</rt><rp>)</rp></ruby><ruby>移<rp>(</rp><rt>い</rt><rp>)</rp></ruby>している。NARはローン<ruby>金<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>利<rp>(</rp><rt>り</rt><rp>)</rp></ruby>の<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>昇<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け、<ruby>今<rp>(</rp><rt>こん</rt><rp>)</rp></ruby><ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>の<ruby>住<rp>(</rp><rt>じゅう</rt><rp>)</rp></ruby><ruby>宅<rp>(</rp><rt>たく</rt><rp>)</rp></ruby><ruby>販<rp>(</rp><rt>はん</rt><rp>)</rp></ruby><ruby>売<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby><ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby><ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>しを<ruby>下<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>方<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby><ruby>修<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby><ruby>正<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>したという。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>2月末の米イラン攻撃以降、米住宅ローン金利上昇。米連邦住宅貸付抵当公社(フレディマック)公表の直近30年物固定住宅ローン金利は週平均6.37%で、イラン攻撃直前の5%台後半から約0.4%高い水準で推移。NARはローン金利上昇を受け今年の住宅販売見通しを下方修正したという。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOGN13AII0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="politics">
+  <div class="section-head" style="border-bottom-color:#8B7DAA">
     <span class="emoji">🏛️</span>
     <h2>政治</h2>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">01</span>
-      <h3>「保守層」は強固か、真正派と穏健派が争う可能性　河野有理法大教授</h3>
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">01</span><h3>「保守層」は強固か、真正派と穏健派が争う可能性　河野有理法大教授</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>政治<rp>(</rp><rt>せいじ</rt><rp>)</rp></ruby>で<ruby>長<rp>(</rp><rt>なが</rt><rp>)</rp></ruby>く<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いた<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>―リベラルの<ruby>対立軸<rp>(</rp><rt>たいりつじく</rt><rp>)</rp></ruby>が<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>すると、<ruby>政党<rp>(</rp><rt>せいとう</rt><rp>)</rp></ruby>の<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>ち<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>にはどんな<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>が<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>るか。<ruby>政治学<rp>(</rp><rt>せいじがく</rt><rp>)</rp></ruby>が<ruby>専門<rp>(</rp><rt>せんもん</rt><rp>)</rp></ruby>の<ruby>河野<rp>(</rp><rt>かわの</rt><rp>)</rp></ruby><ruby>有理<rp>(</rp><rt>ゆうり</rt><rp>)</rp></ruby>・<ruby>法政大<rp>(</rp><rt>ほうせいだい</rt><rp>)</rp></ruby><ruby>教授<rp>(</rp><rt>きょうじゅ</rt><rp>)</rp></ruby>に<ruby>聞<rp>(</rp><rt>き</rt><rp>)</rp></ruby>いた。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>日本政治中长期持续的保守-自由对立轴发生变化时，会对政党的立场产生什么影响。采访了政治学专业的法大河野有理教授。</div>
     </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">日本政治で長く続いた保守―リベラルの対立軸が変化すると、政党の立ち位置にはどんな影響が出るか。政治学が専門の河野有理・法政大教授に聞いた。</div>
-        <div class="zh-text">日本政治长期持续的保守-自由主义对立轴发生変化后，政党的立场会受到什么影响？我们采访了政治学专业的河野有理法政大教授。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">――保守層が自民党に回帰したといわれています。</div>
-        <div class="zh-text">——据说保守层回归了自民党。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">「高市早苗首相が安倍晋三元首相の継承者とみなされ、参政党や日本保守党に流れていた岩盤支持層を自民党が回収した。一方で、この保守層がどこまで強固かはわからない」</div>
-        <div class="zh-text">"高市早苗首相被视为安倍晋三元首相的继承者，自民党回收了流向参政党和日本保守党的岩盤支持层。但另一方面，这个保守层到底有多强固还不清楚。"</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">――なぜでしょうか。</div>
-        <div class="zh-text">——为什么这么说？</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">「自衛隊違憲論のような立場は</div>
-        <div class="zh-text">"像自卫队违宪论这样的立场</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>――<ruby>保守層<rp>(</rp><rt>ほしゅそう</rt><rp>)</rp></ruby>が<ruby>自民党<rp>(</rp><rt>じみんとう</rt><rp>)</rp></ruby>に<ruby>回帰<rp>(</rp><rt>かいき</rt><rp>)</rp></ruby>したといわれています。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>——据说保守層回归自民党了。</div>
     </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA077YC0X00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>高市<rp>(</rp><rt>たかいち</rt><rp>)</rp></ruby><ruby>早苗<rp>(</rp><rt>さなえ</rt><rp>)</rp></ruby><ruby>首相<rp>(</rp><rt>しゅしょう</rt><rp>)</rp></ruby>が<ruby>安倍<rp>(</rp><rt>あべ</rt><rp>)</rp></ruby><ruby>晋三<rp>(</rp><rt>しんぞう</rt><rp>)</rp></ruby><ruby>元首相<rp>(</rp><rt>もとしゅしょう</rt><rp>)</rp></ruby>の<ruby>継承者<rp>(</rp><rt>けいしょうしゃ</rt><rp>)</rp></ruby>とみなされ、<ruby>参政党<rp>(</rp><rt>さんせいとう</rt><rp>)</rp></ruby>や<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>保守党<rp>(</rp><rt>ほしゅとう</rt><rp>)</rp></ruby>に<ruby>流<rp>(</rp><rt>なが</rt><rp>)</rp></ruby>れていた<ruby>岩盤<rp>(</rp><rt>がんばん</rt><rp>)</rp></ruby><ruby>支持層<rp>(</rp><rt>しじそう</rt><rp>)</rp></ruby>を<ruby>自民党<rp>(</rp><rt>じみんとう</rt><rp>)</rp></ruby>が<ruby>回収<rp>(</rp><rt>かいしゅう</rt><rp>)</rp></ruby>した。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>で、この<ruby>保守層<rp>(</rp><rt>ほしゅそう</rt><rp>)</rp></ruby>がどこまで<ruby>強固<rp>(</rp><rt>きょうこ</rt><rp>)</rp></ruby>かはわからない」</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>"高市早苗首相被视为安倍晋三的继承者，自民党回收了流向参政党和日本保守党的岩盤支持層。不过，这个保守層到底有多強固还不清楚。"</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>――なぜでしょうか。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>——为什么呢？</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>自衛隊<rp>(</rp><rt>じえいたい</rt><rp>)</rp></ruby><ruby>違憲論<rp>(</rp><rt>いけんろん</rt><rp>)</rp></ruby>のような<ruby>立場<rp>(</rp><rt>たちば</rt><rp>)</rp></ruby>は...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>"像自衛隊違憲論这样的立場...</div>
     </div>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">02</span>
-      <h3>SNS投資詐欺に専用通報サイト　自民党の提言案判明</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">自民党が14日に開く、デジタル社会推進本部や情報通信戦略調査会、消費者問題調査会の合同プロジェクトチーム（PT）の会合で骨子案を提示する。同会合は偽の動画や画像を人工知能（AI）で生成する「ディ...</div>
-        <div class="zh-text">自民党14日召开的数字社会推進本部、情報通信戦略調査会、消費者问题調査会合同项目团队（PT）会议上，将提示骨子案。该会议讨论用人工智能（AI）生成虚假视频和图像的"深度..."</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA13AA60T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">03</span>
-      <h3>高市早苗首相の憲法改正意欲　28年参院選前へ3シナリオ</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">高市早苗首相が憲法改正に関し、2027年春までに発議のめどをつけると意欲を示した。歴代首相の多くは改憲を具体的な政治日程に位置づけておらず、最高機関である党大会での表明は異例といえる。党内には28年夏の参院選前に3つのシナリオが浮かぶ。</div>
-        <div class="zh-text">高市早苗首相关于宪法改正，表示要在2027年春前有発議的眉目。历代首相多数都没有将改宪定位为具体的政治日程，在最高机关党大会上的表明可以说是异例。党内对28年夏参院選前浮现3个剧本。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">首相は12日の党大会で改憲の国会議論に関し「議論のための議論であってはならない。国民の負託に応えるためにおこなうべきは決断のための議論だ」と言及した。「新たなペ...</div>
-        <div class="zh-text">首相在12日的党大会上关于改宪的国会議論提到"不能是为了議論的議論。为了回应国民负託应该进行的是为了決断的議論"。"新的节...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUA137WS0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA077YC0X00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     💻 テクノロジー
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="tech" id="tech">
-  <div class="section-head">
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">02</span><h3>SNS投資詐欺に専用通報サイト　自民党の提言案判明</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>X(旧Twitter)・Instagram…SNSの<ruby>ニュース<rp>(</rp><rt>にゅーす</rt><rp>)</rp></ruby>や<ruby>最新<rp>(</rp><rt>さいしん</rt><rp>)</rp></ruby><ruby>トレンド<rp>(</rp><rt>とれんど</rt><rp>)</rp></ruby></div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>X(旧Twitter)・Instagram…SNS的新闻和最新动态</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>X(旧Twitter)・Instagram…SNSの<ruby>ニュース<rp>(</rp><rt>にゅーす</rt><rp>)</rp></ruby>や<ruby>最新<rp>(</rp><rt>さいしん</rt><rp>)</rp></ruby><ruby>トレンド<rp>(</rp><rt>とれんど</rt><rp>)</rp></ruby></div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>X(旧Twitter)・Instagram…SNS的新闻和最新动态</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA13AA60T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">03</span><h3>高市早苗首相の憲法改正意欲　28年参院選前へ3シナリオ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>高市<rp>(</rp><rt>たかいち</rt><rp>)</rp></ruby><ruby>早苗<rp>(</rp><rt>さなえ</rt><rp>)</rp></ruby><ruby>首相<rp>(</rp><rt>しゅしょう</rt><rp>)</rp></ruby>が<ruby>憲法<rp>(</rp><rt>けんぽう</rt><rp>)</rp></ruby><ruby>改正<rp>(</rp><rt>かいせい</rt><rp>)</rp></ruby>に<ruby>関<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>し、2027<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>春<rp>(</rp><rt>はる</rt><rp>)</rp></ruby>までに<ruby>発議<rp>(</rp><rt>はつぎ</rt><rp>)</rp></ruby>のめどをつけると<ruby>意欲<rp>(</rp><rt>いよく</rt><rp>)</rp></ruby>を<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>した。<ruby>歴代<rp>(</rp><rt>れきだい</rt><rp>)</rp></ruby><ruby>首相<rp>(</rp><rt>しゅしょう</rt><rp>)</rp></ruby>の<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>くは<ruby>改憲<rp>(</rp><rt>かいけん</rt><rp>)</rp></ruby>を<ruby>具体的<rp>(</rp><rt>ぐたいてき</rt><rp>)</rp></ruby>な<ruby>政治<rp>(</rp><rt>せいじ</rt><rp>)</rp></ruby><ruby>日程<rp>(</rp><rt>にってい</rt><rp>)</rp></ruby>に<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>づけておらず、<ruby>最高<rp>(</rp><rt>さいこう</rt><rp>)</rp></ruby><ruby>機関<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>である<ruby>党<rp>(</rp><rt>とう</rt><rp>)</rp></ruby><ruby>大会<rp>(</rp><rt>たいかい</rt><rp>)</rp></ruby>での<ruby>表明<rp>(</rp><rt>ひょうめい</rt><rp>)</rp></ruby>は<ruby>異例<rp>(</rp><rt>いれい</rt><rp>)</rp></ruby>といえる。<ruby>党内<rp>(</rp><rt>とうない</rt><rp>)</rp></ruby>には28<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>夏<rp>(</rp><rt>なつ</rt><rp>)</rp></ruby>の<ruby>参院<rp>(</rp><rt>さんいん</rt><rp>)</rp></ruby><ruby>選<rp>(</rp><rt>せん</rt><rp>)</rp></ruby><ruby>前<rp>(</rp><rt>まえ</rt><rp>)</rp></ruby>に3つのシナリオが<ruby>浮<rp>(</rp><rt>う</rt><rp>)</rp></ruby>かぶ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>高市早苗首相关于憲法改正，表示要在2027年春天之前确定発議的目标。历代首相多数都没有把改憲定位为具体的政治日程，在最高机关である党大会での表明算是异例。党内浮かぶ2028年夏の参院選前的3个剧本。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>首相<rp>(</rp><rt>しゅしょう</rt><rp>)</rp></ruby>は12<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>党<rp>(</rp><rt>とう</rt><rp>)</rp></ruby><ruby>大会<rp>(</rp><rt>たいかい</rt><rp>)</rp></ruby>で<ruby>改憲<rp>(</rp><rt>かいけん</rt><rp>)</rp></ruby>の<ruby>国会<rp>(</rp><rt>こっかい</rt><rp>)</rp></ruby><ruby>議論<rp>(</rp><rt>ぎろん</rt><rp>)</rp></ruby>に<ruby>関<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>し「<ruby>議論<rp>(</rp><rt>ぎろん</rt><rp>)</rp></ruby>のための<ruby>議論<rp>(</rp><rt>ぎろん</rt><rp>)</rp></ruby>であってはならない。<ruby>国民<rp>(</rp><rt>こくみん</rt><rp>)</rp></ruby>の<ruby>負託<rp>(</rp><rt>ふたく</rt><rp>)</rp></ruby>に<ruby>応<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えるためにおこなうべきは<ruby>決断<rp>(</rp><rt>けつだん</rt><rp>)</rp></ruby>のための<ruby>議論<rp>(</rp><rt>ぎろん</rt><rp>)</rp></ruby>だ」と<ruby>言及<rp>(</rp><rt>げんきゅう</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>首相在12日的党大会上关于改憲の国会議論说："不能为了議論而議論。为了回应国民の負託，应该进行的是为了決断の議論"。</div>
+    </div>
+    <div class="pair">
+      <div class="note">请提供完整的文章内容，我将继续逐段翻译。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA137WS0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="tech">
+  <div class="section-head" style="border-bottom-color:#D4854A">
     <span class="emoji">💻</span>
     <h2>テクノロジー</h2>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">01</span>
-      <h3>富士通、米中並ぶAI第三極狙う　ハード一体「日本製」経済安保に需要</h3>
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">01</span><h3>富士通、米中並ぶAI第三極狙う　ハード一体「日本製」経済安保に需要</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>富士通<rp>(</rp><rt>ふじつう</rt><rp>)</rp></ruby>が<ruby>人工知能<rp>(</rp><rt>じんこうちのう</rt><rp>)</rp></ruby>（AI）<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>に<ruby>脱皮<rp>(</rp><rt>だっぴ</rt><rp>)</rp></ruby>しようとしている。かつては<ruby>携帯端末<rp>(</rp><rt>けいたいたんまつ</rt><rp>)</rp></ruby>や<ruby>個人向<rp>(</rp><rt>こじんむ</rt><rp>)</rp></ruby>けパソコンなども<ruby>手掛<rp>(</rp><rt>てが</rt><rp>)</rp></ruby>ける<ruby>総合電機<rp>(</rp><rt>そうごうでんき</rt><rp>)</rp></ruby>メーカーだったが、<ruby>過去<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby>30<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>はIT（<ruby>情報技術<rp>(</rp><rt>じょうほうぎじゅつ</rt><rp>)</rp></ruby>）サービスに<ruby>軸足<rp>(</rp><rt>じくあし</rt><rp>)</rp></ruby>を<ruby>移<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>した。<ruby>次<rp>(</rp><rt>つぎ</rt><rp>)</rp></ruby>に<ruby>狙<rp>(</rp><rt>ねら</rt><rp>)</rp></ruby>うのがAIだ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>富士通正在寻求向AI企業转型。过去曾是经营携带终端和个人电脑的综合电机制造商，但在过去30年将重心转向IT服务。下一个目标就是AI。</div>
     </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">富士通が人工知能（AI）企業に脱皮しようとしている。かつては携帯端末や個人向けパソコンなども手掛ける総合電機メーカーだったが、過去30年はIT（情報技術）サービスに軸足を移した。次に狙うのがAIだ。</div>
-        <div class="zh-text">富士通正在转型为人工智能企业。过去曾是经营手机终端和个人电脑等业务的综合电机厂商，但在过去30年中将重心转向IT服务。下一个目标是AI。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ITやAI分野は米中が先行する。富士通が狙うのは、次世代の半導体や量子計算機といったハードウエアを含めてAIを一体的に提供する戦略だ。経済安全保障を背景に、自国主導でAI技術を確立しようとする世界の...</div>
-        <div class="zh-text">IT和AI领域是美中领先。富士通瞄准的是包括次世代半导体和量子计算机等硬件在内、一体化提供AI的战略。以経済安保为背景，世界各国都在尝试以自国主导确立AI技术...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUC0909J0Z00C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>ITやAI<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>は<ruby>米中<rp>(</rp><rt>べいちゅう</rt><rp>)</rp></ruby>が<ruby>先行<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>する。<ruby>富士通<rp>(</rp><rt>ふじつう</rt><rp>)</rp></ruby>が<ruby>狙<rp>(</rp><rt>ねら</rt><rp>)</rp></ruby>うのは、<ruby>次世代<rp>(</rp><rt>じせだい</rt><rp>)</rp></ruby>の<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby>や<ruby>量子計算機<rp>(</rp><rt>りょうしけいさんき</rt><rp>)</rp></ruby>といったハードウエアを<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>めてAIを<ruby>一体的<rp>(</rp><rt>いったいてき</rt><rp>)</rp></ruby>に<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する<ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby>だ。<ruby>経済安全保障<rp>(</rp><rt>けいざいあんぜんほしょう</rt><rp>)</rp></ruby>を<ruby>背景<rp>(</rp><rt>はいけい</rt><rp>)</rp></ruby>に、<ruby>自国主導<rp>(</rp><rt>じこくしゅどう</rt><rp>)</rp></ruby>でAI<ruby>技術<rp>(</rp><rt>ぎじゅつ</rt><rp>)</rp></ruby>を<ruby>確立<rp>(</rp><rt>かくりつ</rt><rp>)</rp></ruby>しようとする<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>の...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>IT和AI分野中美领先。富士通瞄准的戦略是包含次世代半導体和量子计算机等硬件在内，一体化提供AI服务。以経済安保为背景，世界各国试图自主确立AI技術...</div>
     </div>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">02</span>
-      <h3>宇宙のデータ拠点、日本は光技術で先行狙う　スペースコンパスCEO</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">超知能　第4部　きしむ世界　インタビュー</div>
-        <div class="zh-text">超知能　第4部　吱嘎作响的世界　访谈</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">連載企画「超知能」の第4部「きしむ世界」では、人工知能（AI）の開発競争に潜む課題を点検した。米中のテック大手が宇宙でAIの覇権を争うなか、日本企業はどう対応するのか。</div>
-        <div class="zh-text">连载企划「超知能」第4部「吱嘎作响的世界」検討了人工智能（AI）开発竞争中潜在的課題。在美中科技巨头争夺宇宙AI霸权的过程中，日本企業如何応対？</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">NTTとスカパーJSATが出資し宇宙データセンター事業を手掛けるスペースコンパス（東京・千代田）の小松大...</div>
-        <div class="zh-text">由NTT和天空完美通信出资、从事宇宙数据中心事業的SpaceCompass（東京・千代田）小松大...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUC281HV0Y6A320C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">03</span>
-      <h3>建設3Dプリンター、関連法に変化の兆し　建築材料の規制緩和へ</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">建築基準法が障壁となり、建設3Dプリンターの適用範囲は限られている。ここにきて国土交通省が規制緩和に乗り出し、変化の兆しが見えてきた。2026年度は3Dプリンターの大きな転換点になり得る。</div>
-        <div class="zh-text">建築基準法成了障壁，建设3D打印机的适用範囲很有限。最近国交省开始着手规制緩和，出现了変化的兆し。2026年度可能成为3D打印机的重大转换点。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">適用例が積み上がってきたとはいえ、建設3Dプリンターにはまだ普及を阻む多くの壁が存在する。例えば、製作した部材を建築物の構造体に利用できて初めて真価を発揮するが、法規制の課題が横たわる。</div>
-        <div class="zh-text">虽然适用事例在不断积累，建设3D打印机还是存在很多阻碍普及的壁垒。比如，只有能把制作的部材用于建築物的構造体才能真正発揮价值，但法规制的課題横亘在前。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">モルタル系材料は指定...</div>
-        <div class="zh-text">砂浆系材料是指定的...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOUC273RA0X20C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC0909J0Z00C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     🌐 国際
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="intl" id="intl">
-  <div class="section-head">
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">02</span><h3>宇宙のデータ拠点、日本は光技術で先行狙う　スペースコンパスCEO</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>超<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby><ruby>知能<rp>(</rp><rt>ちのう</rt><rp>)</rp></ruby>　<ruby>第<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>4<ruby>部<rp>(</rp><rt>ぶ</rt><rp>)</rp></ruby>　きしむ<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>　インタビュー</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>超知能 第4部 摇摇欲坠的世界 采访</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>連載<rp>(</rp><rt>れんさい</rt><rp>)</rp></ruby><ruby>企画<rp>(</rp><rt>きかく</rt><rp>)</rp></ruby>「<ruby>超<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby><ruby>知能<rp>(</rp><rt>ちのう</rt><rp>)</rp></ruby>」の<ruby>第<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>4<ruby>部<rp>(</rp><rt>ぶ</rt><rp>)</rp></ruby>「きしむ<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>」では、<ruby>人工<rp>(</rp><rt>じんこう</rt><rp>)</rp></ruby><ruby>知能<rp>(</rp><rt>ちのう</rt><rp>)</rp></ruby>（AI）の<ruby>開発<rp>(</rp><rt>かいはつ</rt><rp>)</rp></ruby><ruby>競争<rp>(</rp><rt>きょうそう</rt><rp>)</rp></ruby>に<ruby>潜<rp>(</rp><rt>ひそ</rt><rp>)</rp></ruby>む<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>を<ruby>点検<rp>(</rp><rt>てんけん</rt><rp>)</rp></ruby>した。<ruby>米中<rp>(</rp><rt>べいちゅう</rt><rp>)</rp></ruby>のテック<ruby>大手<rp>(</rp><rt>おおて</rt><rp>)</rp></ruby>が<ruby>宇宙<rp>(</rp><rt>うちゅう</rt><rp>)</rp></ruby>でAIの<ruby>覇権<rp>(</rp><rt>はけん</rt><rp>)</rp></ruby>を<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>うなか、<ruby>日本<rp>(</rp><rt>にっぽん</rt><rp>)</rp></ruby><ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>はどう<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>するのか。NTTとスカパーJSATが<ruby>出資<rp>(</rp><rt>しゅっし</rt><rp>)</rp></ruby>し<ruby>宇宙<rp>(</rp><rt>うちゅう</rt><rp>)</rp></ruby>データセンター<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>を<ruby>手掛<rp>(</rp><rt>てが</rt><rp>)</rp></ruby>けるスペースコンパス（<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>千代田<rp>(</rp><rt>ちよだ</rt><rp>)</rp></ruby>）の<ruby>小松<rp>(</rp><rt>こまつ</rt><rp>)</rp></ruby><ruby>大<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>連載企画「超知能」第4部「摇摇欲坠的世界」点検了人工知能(AI)開発競争潜在的課題。美中科技大手在宇宙争夺AI霸権之际，日本企業如何対応？NTT和SKY Perfect JSAT出資、从事宇宙数据中心事業的Space Compass（東京・千代田）的小松大...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC281HV0Y6A320C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">03</span><h3>建設3Dプリンター、関連法に変化の兆し　建築材料の規制緩和へ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>建築<rp>(</rp><rt>けんちく</rt><rp>)</rp></ruby><ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby><ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>が<ruby>障壁<rp>(</rp><rt>しょうへき</rt><rp>)</rp></ruby>となり、<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>3Dプリンターの<ruby>適用<rp>(</rp><rt>てきよう</rt><rp>)</rp></ruby><ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>は<ruby>限<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>られている。ここにきて<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby><ruby>交通<rp>(</rp><rt>こうつう</rt><rp>)</rp></ruby><ruby>省<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>が<ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby><ruby>緩和<rp>(</rp><rt>かんわ</rt><rp>)</rp></ruby>に<ruby>乗<rp>(</rp><rt>の</rt><rp>)</rp></ruby>り<ruby>出<rp>(</rp><rt>だ</rt><rp>)</rp></ruby>し、<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>の<ruby>兆<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>しが<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>えてきた。2026<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>は3Dプリンターの<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きな<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby><ruby>点<rp>(</rp><rt>てん</rt><rp>)</rp></ruby>になり<ruby>得<rp>(</rp><rt>う</rt><rp>)</rp></ruby>る。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>建築基準法成为障碍，建设3D打印机的适用范围受限。此时国土交通省着手規制緩和，変化の兆しが見えてきた。2026年度可能成为3D打印机的大きな転換点。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>適用<rp>(</rp><rt>てきよう</rt><rp>)</rp></ruby><ruby>例<rp>(</rp><rt>れい</rt><rp>)</rp></ruby>が<ruby>積<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>み<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>がってきたとはいえ、<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>3Dプリンターにはまだ<ruby>普及<rp>(</rp><rt>ふきゅう</rt><rp>)</rp></ruby>を<ruby>阻<rp>(</rp><rt>はば</rt><rp>)</rp></ruby>む<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>くの<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>する。<ruby>例<rp>(</rp><rt>たと</rt><rp>)</rp></ruby>えば、<ruby>製作<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby>した<ruby>部材<rp>(</rp><rt>ぶざい</rt><rp>)</rp></ruby>を<ruby>建築<rp>(</rp><rt>けんちく</rt><rp>)</rp></ruby><ruby>物<rp>(</rp><rt>ぶつ</rt><rp>)</rp></ruby>の<ruby>構造<rp>(</rp><rt>こうぞう</rt><rp>)</rp></ruby><ruby>体<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>に<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>できて<ruby>初<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>めて<ruby>真価<rp>(</rp><rt>しんか</rt><rp>)</rp></ruby>を<ruby>発揮<rp>(</rp><rt>はっき</rt><rp>)</rp></ruby>するが、<ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby><ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>の<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>が<ruby>横<rp>(</rp><rt>よこ</rt><rp>)</rp></ruby>たわる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>虽说適用例在增加，但建设3D打印机仍存在阻碍普及的诸多壁垒。比如，製作的部材用于建築物構造体时才能初めて発揮真价，但法規制課題横たわる。</div>
+    </div>
+    <div class="pair">
+      <div class="note">你提到的原文似乎没有完整。请提供剩余部分，我将继续按照同样格式翻译。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC273RA0X20C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="intl">
+  <div class="section-head" style="border-bottom-color:#38A5B8">
     <span class="emoji">🌐</span>
     <h2>国際</h2>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">01</span>
-      <h3>パキスタンが世界を救う？ 米イラン停戦仲介を可能にした4つの力学</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">「パキスタンに米国が必要な以上に、米国がパキスタンを必要とするようになる」</div>
-        <div class="zh-text">"巴基斯坦需要美国，但美国更需要巴基斯坦"</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">英領インドからの分離・独立の翌1948年に病死した「建国の父」ムハンマド・アリ・ジンナーの予言は現実になった。</div>
-        <div class="zh-text">从英属印度分离独立后翌年1948年病死的"建国之父"穆罕默德&middot;阿里&middot;真纳的预言成为了现实。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">4月11日、米国はバンス副大統領、イランはガリバフ国会議長が率いる代表団がパキスタンの首都イスラマバードで対峙した。79年のイラン革命で対立に転じて以降、両国間で最高位の対面協議では、米国・イスラエルが先制攻撃...</div>
-        <div class="zh-text">4月11日，美国由副総統バンス、イラン由国会議長ガリバフ率团，在巴基斯坦首都イスラマバード对峙。自79年イラン革命转为対立以来，两国间最高级别的対面協議中，美国・イスラエル先制攻撃...</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOCD112V80R10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">01</span><h3>パキスタンが世界を救う？ 米イラン停戦仲介を可能にした4つの力学</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>パキスタンが世界を救う？ 米イラン停戦仲介を可能にした4つの力学</div>
+      <div class="note">（正文未能抓取）</div>
     </div>
   </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">02</span>
-      <h3>仏投資会社ティケオー、日本で事業投資に参入　アモーヴァと合弁</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">フランスの投資会社ティケオー・キャピタルが日本事業を拡大する。提携している三井住友トラストグループと協力し、プライベートエクイティ（PE=未公開株）投資を今年度から開始する。脱炭素分野の中堅企業に的を絞って買収し、企業価値を向上させて利益を上げる。</div>
-        <div class="zh-text">法国投資会社Tikehau Capital扩大日本事業。与提携的三井住友Trust集团合作，从本年度开始PE投資（私募股权）。锁定脱炭素领域的中坚企业进行収購，提升企业価值获取利益。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">ティケオーはこのほど、</div>
-        <div class="zh-text">Tikehau最近，</div>
-        <div class="note">（原文在此处截断）</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOCB133QV0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
-
-  <div class="article">
-    <div class="article-head">
-      <span class="num">03</span>
-      <h3>トランプ氏「逆封鎖」で圧力　イラン原油を遮断、高まる衝突リスク</h3>
-    </div>
-    <div class="article-body">
-      <div class="pair">
-        <div class="jp-quote">【ワシントン=甲原潤之介、カイロ=古賀雄大】トランプ米大統領は12日、米軍がホルムズ海峡への船舶の出入りを封鎖すると表明した。海峡を実効支配してきたイランとの交渉決裂を受けた対抗措置だ。停戦中の両国が再び軍事衝突するリスクが高まってきた。</div>
-        <div class="zh-text">Trump美国大統領12日表明，美军将封鎖ホルムズ海峡的船舶出入。这是针对实効支配该海峡的イラン交渉決裂的対抗措置。停戦中的両国再次軍事衝突的风险正在升高。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">中東を管轄する米中央軍は12日の声明で、トランプ氏の指示を踏まえ「13日午前10時（日本時間13日午後11時）からイランの港湾に出入りするすべての海上交通の封鎖を開始する」と発表した。</div>
-        <div class="zh-text">管轄中東的美中央軍在12日声明中，基于Trump的指示発表「从13日上午10点（日本時間13日下午11点）开始，对出入イラン港湾的所有海上交通实施封鎖」。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">アメリカのホルムズ海峡「逆封鎖」で割を食うのは、ペルシャ湾岸からのエネルギーに依存している国々。その中には、中国やインド、更には今回のアメリカとイランの仲介工作をしているパキスタンも含まれます。</div>
-        <div class="zh-text">美国对ホルムズ海峡进行「逆封鎖」，受害的是依赖ペルシャ湾岸能源的国家。其中包括中国、印度，甚至还有在此次美国とイラン之间进行仲介工作的巴基斯坦。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">イランが行っている機雷等による海峡封鎖と異なり、アメリカが行うのは個別の船舶に対する臨検の様ですが、果たして米軍は中国やインド、パキスタンの船にも臨検と停船を行うのか。</div>
-        <div class="zh-text">与イラン通过水雷等手段进行的海峡封鎖不同，美国采取的似乎是对個別船舶的临检。问题是美军是否也会对中国、印度、巴基斯坦的船只进行临检和停船。</div>
-      </div>
-      <div class="pair">
-        <div class="jp-quote">1963年のキューバ危機に近い状況が招来されないことを望むばかりです。</div>
-        <div class="zh-text">只希望不要出现接近1963年古巴危机的状況。</div>
-      </div>
-    </div>
-    <div class="article-foot">
-      <a href="https://www.nikkei.com/article/DGXZQOCB133CV0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a>
-    </div>
-  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOCD112V80R10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     🌍 国際経済ニュース
-     ═══════════════════════════════════════════ -->
-<div class="section" data-cat="intl-news" id="intl-news">
-  <div class="section-head">
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">02</span><h3>仏投資会社ティケオー、日本で事業投資に参入　アモーヴァと合弁</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>フランスの<ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby><ruby>会社<rp>(</rp><rt>がいしゃ</rt><rp>)</rp></ruby>ティケオー・キャピタルが<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>を<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>する。<ruby>提携<rp>(</rp><rt>ていけい</rt><rp>)</rp></ruby>している<ruby>三井住友<rp>(</rp><rt>みついすみとも</rt><rp>)</rp></ruby>トラストグループと<ruby>協力<rp>(</rp><rt>きょうりょく</rt><rp>)</rp></ruby>し、プライベートエクイティ（PE=<ruby>未公開株<rp>(</rp><rt>みこうかいかぶ</rt><rp>)</rp></ruby>）<ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby>を<ruby>今年度<rp>(</rp><rt>こんねんど</rt><rp>)</rp></ruby>から<ruby>開始<rp>(</rp><rt>かいし</rt><rp>)</rp></ruby>する。<ruby>脱炭素<rp>(</rp><rt>だつたんそ</rt><rp>)</rp></ruby><ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>の<ruby>中堅<rp>(</rp><rt>ちゅうけん</rt><rp>)</rp></ruby><ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>に<ruby>的<rp>(</rp><rt>まと</rt><rp>)</rp></ruby>を<ruby>絞<rp>(</rp><rt>しぼ</rt><rp>)</rp></ruby>って<ruby>買収<rp>(</rp><rt>ばいしゅう</rt><rp>)</rp></ruby>し、<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby><ruby>価値<rp>(</rp><rt>かち</rt><rp>)</rp></ruby>を<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>させて<ruby>利益<rp>(</rp><rt>りえき</rt><rp>)</rp></ruby>を<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>法国投資会社Tikehau Capital扩大日本事業。与提携的三井住友信托集团协力，从今年度开始PE（私募股权）投資。锁定脱炭素分野的中坚企業进行买収，通过提升企業价值来获得利益。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>ティケオーはこのほど、</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>Tikehau最近，</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOCB133QV0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">03</span><h3>中国海南島にロシア人大挙　欧米代替リゾート、医療ツアーでも誘引</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby><ruby>最南端<rp>(</rp><rt>さいなんたん</rt><rp>)</rp></ruby>のリゾート<ruby>地<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>、<ruby>海南島<rp>(</rp><rt>はいなんとう</rt><rp>)</rp></ruby>にロシア<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby>が<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し<ruby>寄<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>せている。ウクライナ<ruby>侵略<rp>(</rp><rt>しんりゃく</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>欧米<rp>(</rp><rt>おうべい</rt><rp>)</rp></ruby>ではビザ<ruby>発給<rp>(</rp><rt>はっきゅう</rt><rp>)</rp></ruby>を<ruby>制限<rp>(</rp><rt>せいげん</rt><rp>)</rp></ruby>する<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>が<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>く、<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>皿<rp>(</rp><rt>さら</rt><rp>)</rp></ruby>となっている。<ruby>消費<rp>(</rp><rt>しょうひ</rt><rp>)</rp></ruby><ruby>低迷<rp>(</rp><rt>ていめい</rt><rp>)</rp></ruby>が<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>く<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>だが、<ruby>観光<rp>(</rp><rt>かんこう</rt><rp>)</rp></ruby><ruby>需要<rp>(</rp><rt>じゅよう</rt><rp>)</rp></ruby>を<ruby>景気<rp>(</rp><rt>けいき</rt><rp>)</rp></ruby><ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げにつなげたい<ruby>考<rp>(</rp><rt>かんが</rt><rp>)</rp></ruby>えだ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>中国最南端的度假地海南島，俄国人大量涌入。因乌克兰侵略，欧美多国限制签证発給，海南島成了替代目的地。中国消費低迷持续，希望通过观光需要来推动景気。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>海南島<rp>(</rp><rt>はいなんとう</rt><rp>)</rp></ruby>のすべてが<ruby>気<rp>(</rp><rt>き</rt><rp>)</rp></ruby>に<ruby>入<rp>(</rp><rt>い</rt><rp>)</rp></ruby>っている」。11<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、<ruby>海南省<rp>(</rp><rt>はいなんしょう</rt><rp>)</rp></ruby><ruby>三亜市<rp>(</rp><rt>さんあし</rt><rp>)</rp></ruby>の<ruby>大東地区<rp>(</rp><rt>だいとうちく</rt><rp>)</rp></ruby>にあるビーチに<ruby>寝<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>そべり<ruby>日光浴<rp>(</rp><rt>にっこうよく</rt><rp>)</rp></ruby>していたロシア<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby><ruby>男性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>は<ruby>満足<rp>(</rp><rt>まんぞく</rt><rp>)</rp></ruby>げに<ruby>語<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>った。<ruby>妻<rp>(</rp><rt>つま</rt><rp>)</rp></ruby>と<ruby>一緒<rp>(</rp><rt>いっしょ</rt><rp>)</rp></ruby>に14<ruby>日間<rp>(</rp><rt>にちかん</rt><rp>)</rp></ruby><ruby>滞在<rp>(</rp><rt>たいざい</rt><rp>)</rp></ruby>し、<ruby>海<rp>(</rp><rt>うみ</rt><rp>)</rp></ruby>や<ruby>中国式<rp>(</rp><rt>ちゅうごくしき</rt><rp>)</rp></ruby>マッサージを<ruby>楽<rp>(</rp><rt>たの</rt><rp>)</rp></ruby>しむ<ruby>予定<rp>(</rp><rt>よてい</rt><rp>)</rp></ruby>だとい...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>"海南島的一切都很喜欢"。11日，在海南省三亜市大東地区海滩上躺着日光浴的俄国男性満足地说道。和妻子一起滞在14天，予定享受大海和中国式按摩...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOGM10AG50Q6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="intl-news">
+  <div class="section-head" style="border-bottom-color:#C4616A">
     <span class="emoji">🌍</span>
     <h2>国際経済ニュース</h2>
   </div>
-
-  <div class="intl-grid">
-    <div class="intl-card">
-      <span class="src-tag ft">Financial Times</span>
-      <div class="en">Trump nominates Pimco executive to lead US Treasury's international affairs</div>
-      <div class="zh">特朗普提名Pimco高管担任财政部国际事务负责人</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag ft">Financial Times</span>
-      <div class="en">What happens now in Iran?</div>
-      <div class="zh">伊朗局势下一步走向分析</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag ft">Financial Times</span>
-      <div class="en">The AI build-out is powering global goods trade</div>
-      <div class="zh">AI基础设施建设推动全球商品贸易增长</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag ap">AP News</span>
-      <div class="en">Trump says US military has blockaded Iranian ports to pressure Tehran</div>
-      <div class="zh">特朗普称美军封锁伊朗港口向德黑兰施压</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag ap">AP News</span>
-      <div class="en">An underwater bus in Havana becomes the ride that matters during Cuba's fuel crisis</div>
-      <div class="zh">哈瓦那水下巴士在古巴燃料危机期间成为重要交通工具</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag ap">AP News</span>
-      <div class="en">Florida teenager charged with sexually assaulting and killing stepsister Anna Kepner on cruise ship</div>
-      <div class="zh">佛州少年被控在游轮上性侵并杀害继姊Anna Kepner</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag bbc">BBC Business</span>
-      <div class="en">Oil jumps back above $100 after US-Iran peace talks fail</div>
-      <div class="zh">美伊和谈失败后油价重回100美元上方，全球能源危机担忧加剧</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag bbc">BBC Business</span>
-      <div class="en">US home buyers 'frozen' as sales slump over Iran war fears</div>
-      <div class="zh">伊朗战争恐慌导致美国房屋销售跌至9个月低点，买家观望情绪浓厚</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag bbc">BBC Business</span>
-      <div class="en">EasyJet passengers describe EU border 'nightmare'</div>
-      <div class="zh">EasyJet乘客描述欧盟新数字边控系统导致的"噩梦"</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag cnbc">CNBC Economy</span>
-      <div class="en">Hormuz blockade could deepen world's worst energy crisis &mdash; and risk a dangerous misstep</div>
-      <div class="zh">霍尔木兹海峡封锁可能加剧全球能源危机，推高油价并可能将中国卷入冲突</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag cnbc">CNBC Economy</span>
-      <div class="en">Consumer sentiment hits record low, inflation fears rise amid Iran war</div>
-      <div class="zh">消费者信心跌至历史低点，密歇根指数降至47.6，通胀担忧加剧</div>
-    </div>
-    <div class="intl-card">
-      <span class="src-tag cnbc">CNBC Economy</span>
-      <div class="en">Consumer prices rose 3.3% in March, as energy prices spiked due to Iran conflict</div>
-      <div class="zh">3月CPI因伊朗冲突推高能源价格上涨3.3%，符合市场预期</div>
-    </div>
+<div class="intl-grid">
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">FirstFT: Oil supply shock intensifies as final Hormuz tankers reach refineries</div>
+    <div class="zh">油价供应冲击加剧，最后一批通过霍尔木兹海峡的油轮抵达炼厂</div>
   </div>
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">Trump nominates Pimco executive to lead US Treasury's international affairs</div>
+    <div class="zh">Trump提名Pimco高管领导美国财政部国际事务部门</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">What happens now in Iran?</div>
+    <div class="zh">伊朗局势下一步走向如何？</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">Trump says US military has blockaded Iranian ports to pressure Tehran</div>
+    <div class="zh">Trump称美军已封锁伊朗港口以向德黑兰施压</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">An underwater bus in Havana becomes the ride that matters during Cuba's fuel crisis</div>
+    <div class="zh">哈瓦那一辆水中巴士成为古巴燃料危机期间的重要交通工具</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">Florida teenager charged with sexually assaulting and killing stepsister Anna Kepner on cruise ship</div>
+    <div class="zh">佛罗里达少年因在游轮上性侵并杀害继妹Anna Kepner被起诉</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">Oil jumps back above $100 after US-Iran peace talks fail</div>
+    <div class="zh">美伊和平谈判失败后油价重新突破100美元，周末谈判失败加剧全球能源危机担忧</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">US home buyers 'frozen' as sales slump over Iran war fears</div>
+    <div class="zh">伊朗战争担忧导致美国房屋销售暴跌，买家"冻结"，房屋销量创九个月新低</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">EasyJet passengers describe EU border 'nightmare'</div>
+    <div class="zh">EasyJet乘客形容欧盟边境检查为"噩梦"，航空公司警告新数字边控系统将带来进一步混乱</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Hormuz blockade could deepen world's worst energy crisis — and risk a dangerous misstep</div>
+    <div class="zh">霍尔木兹海峡封锁可能加剧全球最严重能源危机并引发危险误判，美国海军封锁威胁阻断更多油轮通行，油价飙升，有引发中美冲突风险</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Consumer sentiment hits record low, inflation fears rise amid Iran war</div>
+    <div class="zh">伊朗战争期间消费者信心创历史新低，通胀担忧上升，密歇根大学消费者信心指数跌至47.6，较3月下降10.7%</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Consumer prices rose 3.3% in March, as energy prices spiked due to Iran conflict</div>
+    <div class="zh">3月消费者价格指数因伊朗冲突推高能源价格而上涨3.3%，符合市场预期</div>
+  </div>
+</div>
 </div>
 
 <footer>
   <p>nikkei_morning_report.py &middot; auto-generated &middot; 2026-04-14</p>
 </footer>
-
-</div><!-- /.container -->
+</div>
 </body>
 </html>
