@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日経早報 2026-04-16（木）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F2EBE4;
+  --bg-card: #FDFCFA;
+  --bg-quote: #EDEBF2;
+  --border: #D8D2CB;
+  --border-accent: #6B7DB3;
+  --text: #1a1a1a;
+  --text-dim: #6b7084;
+  --text-heading: #3A4A7A;
+  --accent1: #4A5A8A;
+  --accent2: #6B7DB3;
+  --accent3: #8B7DAA;
+  --orange: #D4854A;
+  --gold: #D4A843;
+  --rose: #C4616A;
+  --radius: 8px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Serif JP','Noto Serif SC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width:780px; margin:0 auto; padding:0 20px; }
+
+/* ── Sticky bar ── */
+.top-bar {
+  position:sticky; top:0; z-index:100;
+  background: linear-gradient(135deg, #4A5A8A, #6B7DB3, #8B7DAA);
+  padding:12px 0;
+  box-shadow: 0 2px 8px rgba(74,90,138,0.15);
+}
+.top-bar .container { display:flex; align-items:center; justify-content:space-between; }
+.top-bar .logo {
+  font-family:'Noto Sans JP',sans-serif; font-size:16px; font-weight:700;
+  color:#fff; letter-spacing:0.03em;
+}
+.top-bar .date-tag {
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);
+  letter-spacing:0.06em;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align:center; padding:48px 0 36px;
+  border-bottom:2px solid transparent;
+  border-image: linear-gradient(90deg, #4A5A8A, #6B7DB3, #8B7DAA) 1;
+  margin-bottom:12px;
+}
+.hero h1 {
+  font-family:'Noto Serif JP',serif; font-size:28px; font-weight:700;
+  color:var(--text-heading); margin-bottom:8px;
+}
+.hero .sub {
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);
+  letter-spacing:0.06em; text-transform:uppercase;
+}
+
+/* ── TOC ── */
+.toc {
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  padding:20px 0 32px;
+}
+.toc a {
+  font-family:'Noto Sans JP',sans-serif; font-size:13px;
+  color:var(--text-dim); text-decoration:none;
+  padding:5px 14px; border:1px solid var(--border); border-radius:20px;
+  transition:all 0.2s; white-space:nowrap;
+}
+.toc a:hover {
+  color:var(--text-heading); border-color:var(--accent2);
+  background:rgba(107,125,179,0.08);
+}
+
+/* ── Section ── */
+.section { margin-bottom:44px; }
+.section-head {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 0 12px;
+  border-bottom:2px solid var(--accent2);
+  margin-bottom:24px;
+  position:sticky; top:48px; z-index:50;
+  background:var(--bg);
+}
+.section-head .emoji { font-size:22px; }
+.section-head h2 {
+  font-family:'Noto Sans JP','Noto Sans SC',sans-serif;
+  font-size:19px; font-weight:700; color:var(--text-heading);
+}
+
+/* ── Article card ── */
+.article {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); margin-bottom:20px; overflow:hidden;
+  transition:border-color 0.2s;
+}
+.article:hover { border-color:#b0a898; }
+.article-head {
+  padding:20px 24px 16px; border-bottom:1px solid var(--border);
+  display:flex; align-items:flex-start; gap:12px;
+}
+.article-head .num {
+  flex-shrink:0; font-family:'IBM Plex Mono',monospace;
+  font-size:11px; color:var(--accent2);
+  background:rgba(107,125,179,0.1); border-radius:4px;
+  padding:3px 8px; margin-top:3px;
+}
+.article-head h3 {
+  font-family:'Noto Sans JP','Noto Sans SC',sans-serif;
+  font-size:16px; font-weight:700; color:var(--text-heading); line-height:1.5;
+}
+.article-body { padding:20px 24px 24px; }
+
+/* ── JP quote (with ruby) ── */
+.jp-quote {
+  background:var(--bg-quote);
+  border-left:3px solid var(--border-accent);
+  border-radius:0 6px 6px 0;
+  padding:16px 18px;
+  margin-bottom:4px;
+  font-family:'Noto Serif JP',serif;
+  font-size:15px;
+  line-height:2.4;
+  color:#3a3a4a;
+}
+
+/* ── Ruby styling ── */
+ruby { ruby-position:over; }
+rt {
+  font-size:0.55em;
+  color:#8B7DAA;
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:400;
+}
+rp { color:transparent; font-size:0; }
+
+/* ── CN translation ── */
+.zh-text {
+  padding:12px 18px 14px;
+  margin-bottom:14px;
+  font-size:15.5px;
+  line-height:1.85;
+  color:var(--text);
+  border-left:3px solid transparent;
+}
+
+/* ── Language tags ── */
+.lang-tag {
+  display:inline-block; font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:0.08em; border-radius:3px;
+  padding:1px 5px; margin-right:8px; vertical-align:middle;
+}
+.jp-tag { color:#6b7084; background:rgba(0,0,0,0.04); }
+.cn-tag { color:var(--accent2); background:rgba(107,125,179,0.1); }
+
+.pair { margin-bottom:4px; }
+.note {
+  font-size:13px; color:var(--text-dim); font-style:italic;
+  padding:4px 18px 8px;
+}
+
+.article-foot { padding:0 24px 20px; }
+.article-foot a {
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  color:var(--text-dim); text-decoration:none;
+  border:1px solid var(--border); border-radius:4px;
+  padding:4px 12px; transition:all 0.2s;
+}
+.article-foot a:hover { color:var(--accent1); border-color:var(--accent1); }
+
+/* ── Intl news grid ── */
+.intl-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.intl-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px 18px;
+  border-top:2px solid var(--rose);
+  transition:border-color 0.2s;
+}
+.intl-card:hover { border-color:#b0a898; }
+.src-tag {
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:0.05em; text-transform:uppercase;
+  display:inline-block; padding:1px 7px; border-radius:3px; margin-bottom:8px;
+}
+.src-tag.ft   { color:var(--orange); background:rgba(212,133,74,0.12); }
+.src-tag.ap   { color:var(--accent2); background:rgba(107,125,179,0.12); }
+.src-tag.bbc  { color:var(--rose); background:rgba(196,97,106,0.12); }
+.src-tag.cnbc { color:var(--gold); background:rgba(212,168,67,0.12); }
+.intl-card .en {
+  font-size:13px; color:var(--text-dim); font-style:italic;
+  margin-bottom:6px; line-height:1.5;
+}
+.intl-card .zh { font-size:14px; color:var(--text); line-height:1.6; }
+
+/* ── Footer ── */
+footer {
+  text-align:center; padding:32px 0 48px;
+  border-top:2px solid transparent;
+  border-image:linear-gradient(90deg, #4A5A8A, #6B7DB3, #8B7DAA) 1;
+  margin-top:48px;
+}
+footer p { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); }
+
+/* ── Responsive ── */
+@media (max-width:640px) {
+  .hero { padding:32px 0 24px; }
+  .hero h1 { font-size:22px; }
+  .article-head { padding:16px 16px 12px; }
+  .article-body { padding:14px 16px 18px; }
+  .article-foot { padding:0 16px 16px; }
+  .jp-quote { padding:12px 14px; font-size:14px; }
+  .zh-text { padding:10px 14px; font-size:14px; }
+  .intl-grid { grid-template-columns:1fr; }
+  .section-head { top:44px; }
+  .toc { gap:6px; }
+  .toc a { font-size:12px; padding:4px 10px; }
+}
+
+.article, .intl-card { animation:fadeUp 0.35s ease both; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+<nav class="top-bar">
+  <div class="container">
+    <span class="logo">日経早報</span>
+    <span class="date-tag">2026-04-16 THU &middot; JST</span>
+  </div>
+</nav>
+<div class="container">
+<header class="hero">
+  <h1>日経早報 2026-04-16（木）</h1>
+  <div class="sub">編集長 CC &middot; 副編集長 MAKKU（外国人実習生）</div>
+</header>
+<nav class="toc">
+  <a href="#market">📈 マーケット</a>
+  <a href="#finance">🏦 金融</a>
+  <a href="#fx">💱 為替</a>
+  <a href="#economy">🌏 経済</a>
+  <a href="#politics">🏛️ 政治</a>
+  <a href="#tech">💻 テクノロジー</a>
+  <a href="#intl">🌐 国際</a>
+  <a href="#intl-news">🌍 国際経済ニュース</a>
+</nav>
+
+<div class="section" id="market">
+  <div class="section-head" style="border-bottom-color:#4A8A5A">
+    <span class="emoji">📈</span>
+    <h2>マーケット</h2>
+  </div>
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">01</span><h3>エプソン、新中計に高まらぬ期待　「引き算」不足のROIC経営</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>セイコーエプソン<rp>(</rp><rt>セイコーエプソン</rt><rp>)</rp></ruby>が<ruby>公表<rp>(</rp><rt>こうひょう</rt><rp>)</rp></ruby>した<ruby>新<rp>(</rp><rt>あたら</rt><rp>)</rp></ruby>たな<ruby>中期経営計画<rp>(</rp><rt>ちゅうきけいえいけいかく</rt><rp>)</rp></ruby>への<ruby>株価<rp>(</rp><rt>かぶか</rt><rp>)</rp></ruby>の<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>が<ruby>鈍<rp>(</rp><rt>にぶ</rt><rp>)</rp></ruby>い。<ruby>投下資本利益率<rp>(</rp><rt>とうかしほんりえきりつ</rt><rp>)</rp></ruby>（ROIC）を<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>する<ruby>経営<rp>(</rp><rt>けいえい</rt><rp>)</rp></ruby>への<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>をうたうが、<ruby>既存事業<rp>(</rp><rt>きそんじぎょう</rt><rp>)</rp></ruby>の<ruby>絞<rp>(</rp><rt>しぼ</rt><rp>)</rp></ruby>り<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>みには<ruby>消極的<rp>(</rp><rt>しょうきょくてき</rt><rp>)</rp></ruby>だ。<ruby>株式市場<rp>(</rp><rt>かぶしきしじょう</rt><rp>)</rp></ruby>には、<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>の<ruby>見直<rp>(</rp><rt>みなお</rt><rp>)</rp></ruby>しや<ruby>余剰資金<rp>(</rp><rt>よじょうしきん</rt><rp>)</rp></ruby>の<ruby>圧縮<rp>(</rp><rt>あっしゅく</rt><rp>)</rp></ruby>といった「<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>算<rp>(</rp><rt>ざん</rt><rp>)</rp></ruby>」の<ruby>経営<rp>(</rp><rt>けいえい</rt><rp>)</rp></ruby>に<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>する<ruby>声<rp>(</rp><rt>こえ</rt><rp>)</rp></ruby>が<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>精工爱普生公表的新中计让株価反应迟钝。虽然号称转向重视ROIC的经营，但在既存事业的缩減上很消極。株式市場期待事业見直し和余剰資金压缩等「引き算」経営的声音很多。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「ROIC<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>にカジを<ruby>切<rp>(</rp><rt>き</rt><rp>)</rp></ruby>り、<ruby>資本効率<rp>(</rp><rt>しほんこうりつ</rt><rp>)</rp></ruby>を<ruby>意識<rp>(</rp><rt>いしき</rt><rp>)</rp></ruby>した<ruby>経営<rp>(</rp><rt>けいえい</rt><rp>)</rp></ruby>に<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>する」。<ruby>エプソン<rp>(</rp><rt>エプソン</rt><rp>)</rp></ruby>が3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>13<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>いた29<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>3<ruby>月期<rp>(</rp><rt>がつき</rt><rp>)</rp></ruby>を<ruby>最終年度<rp>(</rp><rt>さいしゅうねんど</rt><rp>)</rp></ruby>とする3カ<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>の<ruby>新<rp>(</rp><rt>しん</rt><rp>)</rp></ruby><ruby>中計説明会<rp>(</rp><rt>ちゅうけいせつめいかい</rt><rp>)</rp></ruby>。<ruby>吉田潤吉社<rp>(</rp><rt>よしだじゅんきちしゃ</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>"转向ROIC重視，转换成意識资本効率的経営。"爱普生3月13日开的以29年3月期为最終年度的3年新中計説明会上。吉田润吉社...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB052XA0V00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">02</span><h3>犬猫生活、23日上場　佐藤淳社長「動物病院のグループ化で成長」</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>ペットフードの<ruby>製造<rp>(</rp><rt>せいぞう</rt><rp>)</rp></ruby><ruby>販売<rp>(</rp><rt>はんばい</rt><rp>)</rp></ruby>や<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby><ruby>病院<rp>(</rp><rt>びょういん</rt><rp>)</rp></ruby>を<ruby>運営<rp>(</rp><rt>うんえい</rt><rp>)</rp></ruby>する<ruby>総合<rp>(</rp><rt>そうごう</rt><rp>)</rp></ruby>ペットケア<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>の<ruby>犬猫<rp>(</rp><rt>いぬねこ</rt><rp>)</rp></ruby><ruby>生活<rp>(</rp><rt>せいかつ</rt><rp>)</rp></ruby>（<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>新宿<rp>(</rp><rt>しんじゅく</rt><rp>)</rp></ruby>）が23<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、<ruby>東証<rp>(</rp><rt>とうしょう</rt><rp>)</rp></ruby>グロース<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>に<ruby>上場<rp>(</rp><rt>じょうじょう</rt><rp>)</rp></ruby>する。<ruby>佐藤<rp>(</rp><rt>さとう</rt><rp>)</rp></ruby><ruby>淳<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby><ruby>社長<rp>(</rp><rt>しゃちょう</rt><rp>)</rp></ruby>に<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>の<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>みや<ruby>今後<rp>(</rp><rt>こんご</rt><rp>)</rp></ruby>の<ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby>を<ruby>聞<rp>(</rp><rt>き</rt><rp>)</rp></ruby>いた。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>经营宠物食品制造销售和动物病院的综合宠物护理企业犬猫生活（东京新宿）将于23日在东证Growth市场上場。采访了佐藤淳关于事業强项和今后戦略。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>――<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>の<ruby>概要<rp>(</rp><rt>がいよう</rt><rp>)</rp></ruby>と<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>みを<ruby>教<rp>(</rp><rt>おし</rt><rp>)</rp></ruby>えてください。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>——事業概要和强项请告诉我们。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>犬猫<rp>(</rp><rt>いぬねこ</rt><rp>)</rp></ruby><ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けに3<ruby>軸<rp>(</rp><rt>じく</rt><rp>)</rp></ruby>で<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby><ruby>展開<rp>(</rp><rt>てんかい</rt><rp>)</rp></ruby>している。<ruby>国産<rp>(</rp><rt>こくさん</rt><rp>)</rp></ruby><ruby>無添加<rp>(</rp><rt>むてんか</rt><rp>)</rp></ruby>のペットフードやサプリメントの<ruby>製造<rp>(</rp><rt>せいぞう</rt><rp>)</rp></ruby><ruby>販売<rp>(</rp><rt>はんばい</rt><rp>)</rp></ruby>、トリミングサロンや<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby><ruby>病院<rp>(</rp><rt>びょういん</rt><rp>)</rp></ruby>などの<ruby>店舗<rp>(</rp><rt>てんぽ</rt><rp>)</rp></ruby><ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>、<ruby>保護<rp>(</rp><rt>ほご</rt><rp>)</rp></ruby><ruby>犬<rp>(</rp><rt>いぬ</rt><rp>)</rp></ruby><ruby>譲渡<rp>(</rp><rt>じょうと</rt><rp>)</rp></ruby><ruby>会<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>などのイベント<ruby>開催<rp>(</rp><rt>かいさい</rt><rp>)</rp></ruby>の3つだ。<ruby>非営利<rp>(</rp><rt>ひえいり</rt><rp>)</rp></ruby>の<ruby>財団<rp>(</rp><rt>ざいだん</rt><rp>)</rp></ruby><ruby>法人<rp>(</rp><rt>ほうじん</rt><rp>)</rp></ruby>も<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>ち...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>「面向犬猫以3軸展開事業。国産無添加宠物食品和营养补剂的制造销售、美容沙龙和动物病院等店舗事業、保护犬譲渡会等活动开催这3个。非营利财团法人也成立...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC075EC0X00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A8A5A">
+  <div class="article-head"><span class="num">03</span><h3>米長期金利、上昇圧力じわり　インフレ懸念再燃・FRB利下げ観測も後退</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>の<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>金利<rp>(</rp><rt>きんり</rt><rp>)</rp></ruby>が<ruby>高止<rp>(</rp><rt>たかど</rt><rp>)</rp></ruby>まりしている。<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>の<ruby>混迷化<rp>(</rp><rt>こんめいか</rt><rp>)</rp></ruby>で通胀<ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>が<ruby>再燃<rp>(</rp><rt>さいねん</rt><rp>)</rp></ruby>し、<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>連邦<rp>(</rp><rt>れんぽう</rt><rp>)</rp></ruby><ruby>準備<rp>(</rp><rt>じゅんび</rt><rp>)</rp></ruby><ruby>理事会<rp>(</rp><rt>りじかい</rt><rp>)</rp></ruby>（FRB）は「<ruby>年内<rp>(</rp><rt>ねんない</rt><rp>)</rp></ruby><ruby>利下<rp>(</rp><rt>りさ</rt><rp>)</rp></ruby>げなし」が<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>のメインシナリオとなった。<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby><ruby>関係者<rp>(</rp><rt>かんけいしゃ</rt><rp>)</rp></ruby>からは<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>金利<rp>(</rp><rt>きんり</rt><rp>)</rp></ruby>に<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby><ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>がかかり<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>めたとの<ruby>見方<rp>(</rp><rt>みかた</rt><rp>)</rp></ruby>も<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>ている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>美国長期金利持续高位。中東情勢混乱令通胀懸念再燃，美联储「年内无利下げ」成为市场主要預期。市場関係者认为米長期金利开始面临上昇圧力。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>のニューヨーク<ruby>債券<rp>(</rp><rt>さいけん</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で、<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>金利<rp>(</rp><rt>きんり</rt><rp>)</rp></ruby>の<ruby>指標<rp>(</rp><rt>しひょう</rt><rp>)</rp></ruby>となる<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby><ruby>利率<rp>(</rp><rt>りりつ</rt><rp>)</rp></ruby>4.125%の10<ruby>年物<rp>(</rp><rt>ねんもの</rt><rp>)</rp></ruby><ruby>国債<rp>(</rp><rt>こくさい</rt><rp>)</rp></ruby><ruby>利回<rp>(</rp><rt>りまわ</rt><rp>)</rp></ruby>りは<ruby>前日比<rp>(</rp><rt>ぜんじつひ</rt><rp>)</rp></ruby>0.04%<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>い（<ruby>価格<rp>(</rp><rt>かかく</rt><rp>)</rp></ruby>は<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い）4.25%で<ruby>終<rp>(</rp><rt>お</rt><rp>)</rp></ruby>えた。3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>17<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>以来<rp>(</rp><rt>いらい</rt><rp>)</rp></ruby>の<ruby>低<rp>(</rp><rt>てい</rt><rp>)</rp></ruby>水準とな...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>14日纽约债券市場，長期金利指標的表面利率4.125%的10年国債利回り较前日下降0.04%（價格上涨）至4.25%收尾。为3月17日以来的低水准...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB139DW0T10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="finance">
+  <div class="section-head" style="border-bottom-color:#6B7DB3">
+    <span class="emoji">🏦</span>
+    <h2>金融</h2>
+  </div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">01</span><h3>千葉銀・米本頭取、ROE向上なら「県外再編も選択肢」　首都圏市場を重視</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>県境<rp>(</rp><rt>けんきょう</rt><rp>)</rp></ruby>から<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わる<ruby>地銀<rp>(</rp><rt>ちぎん</rt><rp>)</rp></ruby>　インタビュー<ruby>編<rp>(</rp><rt>へん</rt><rp>)</rp></ruby>㊦</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>県境から変わる地銀 インタビュー編㊦</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>千葉銀行<rp>(</rp><rt>ちばぎんこう</rt><rp>)</rp></ruby>は2027<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>、<ruby>同<rp>(</rp><rt>おな</rt><rp>)</rp></ruby>じ<ruby>県内<rp>(</rp><rt>けんない</rt><rp>)</rp></ruby>の<ruby>千葉興業銀行<rp>(</rp><rt>ちばこうぎょうぎんこう</rt><rp>)</rp></ruby>と<ruby>経営統合<rp>(</rp><rt>けいえいとうごう</rt><rp>)</rp></ruby>に<ruby>踏<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>み<ruby>切<rp>(</rp><rt>き</rt><rp>)</rp></ruby>る。<ruby>単独路線<rp>(</rp><rt>たんどくろせん</rt><rp>)</rp></ruby>を<ruby>貫<rp>(</rp><rt>つらぬ</rt><rp>)</rp></ruby>いてきた<ruby>千葉銀<rp>(</rp><rt>ちばぎん</rt><rp>)</rp></ruby>にとって<ruby>初<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>の<ruby>再編<rp>(</rp><rt>さいへん</rt><rp>)</rp></ruby>となる。<ruby>県境<rp>(</rp><rt>けんきょう</rt><rp>)</rp></ruby>を<ruby>越<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>えた<ruby>再編<rp>(</rp><rt>さいへん</rt><rp>)</rp></ruby>も<ruby>考<rp>(</rp><rt>かんが</rt><rp>)</rp></ruby>えているのか<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まる。<ruby>米本努頭取<rp>(</rp><rt>よねもとつとむとうどり</rp>)</rp></ruby>に<ruby>聞<rp>(</rp><rt>き</rt><rp>)</rp></ruby>いた。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>千葉銀行は2027年4月，与同一县内的千葉興業銀行进行経営統合。对于一直坚持単独路線的千葉銀来说是首次再編。県境を越えた再編是否也在考虑范围内备受注目。采访了米本努頭取。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>――<ruby>千葉銀<rp>(</rp><rt>ちばぎん</rt><rp>)</rp></ruby>が25<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>に<ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby>ファンド<ruby>会社<rp>(</rp><rt>がいしゃ</rt><rp>)</rp></ruby>から<ruby>千葉興銀株<rp>(</rp><rt>ちばこうぎんかぶ</rt><rp>)</rp></ruby>を<ruby>取得<rp>(</rp><rt>しゅとく</rt><rp>)</rp></ruby>した<ruby>経緯<rp>(</rp><rt>けいい</rt><rp>)</rp></ruby>で、<ruby>統合<rp>(</rp><rt>とうごう</rt><rp>)</rp></ruby>が<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>しました。いつから<ruby>再編<rp>(</rp><rt>さいへん</rt><rp>)</rp></ruby>を<ruby>考<rp>(</rp><rt>かんが</rt><rp>)</rp></ruby>えていましたか。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>——千葉銀在25年从投資基金会社取得千葉興銀株的経緯中，統合得以実現。什么时候开始考虑再編的？</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>私<rp>(</rp><rt>わたし</rt><rp>)</rp></ruby>が21<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>に<ruby>頭取<rp>(</rp><rt>とうどり</rt><rp>)</rp></ruby>に<ruby>就任<rp>(</rp><rt>しゅうにん</rt><rp>)</rp></ruby>する<ruby>前<rp>(</rp><rt>まえ</rt><rp>)</rp></ruby>から、<ruby>千葉興銀<rp>(</rp><rt>ちばこうぎん</rt><rp>)</rp></ruby>へ『そのうち<ruby>一緒<rp>(</rp><rt>いっしょ</rt><rp>)</rp></ruby>に』という<ruby>秋波<rp>(</rp><rt>しゅうは</rt><rp>)</rp></ruby>を<ruby>送<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>っていた。...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>"我在21年就任頭取之前，就一直向千葉興銀发送'将来一緒に'这样的秋波...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB140MD0U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">02</span><h3>3メガバンク、外貨調達へ海外決済網競う　三菱UFJはアジアで即時送金</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>3メガバンクで<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby><ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けの<ruby>海外<rp>(</rp><rt>かいがい</rt><rp>)</rp></ruby><ruby>決済<rp>(</rp><rt>けっさい</rt><rp>)</rp></ruby>サービスを<ruby>競<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>う<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>きが<ruby>活発<rp>(</rp><rt>かっぱつ</rt><rp>)</rp></ruby>になってきた。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>3大银行在企业向け海外決済サービス方面的竞争动きが活発になってきた。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>三菱<rp>(</rp><rt>みつびし</rt><rp>)</rp></ruby>UFJ<ruby>銀行<rp>(</rp><rt>ぎんこう</rt><rp>)</rp></ruby>がアジアで<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby><ruby>代金<rp>(</rp><rt>だいきん</rt><rp>)</rp></ruby>などの<ruby>即時<rp>(</rp><rt>そくじ</rt><rp>)</rp></ruby><ruby>送金<rp>(</rp><rt>そうきん</rt><rp>)</rp></ruby>を<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>め、<ruby>三井住友<rp>(</rp><rt>みついすみとも</rt><rp>)</rp></ruby><ruby>銀行<rp>(</rp><rt>ぎんこう</rt><rp>)</rp></ruby>は<ruby>年内<rp>(</rp><rt>ねんない</rt><rp>)</rp></ruby>にも<ruby>新<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>ブランドを<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>ち<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>三菱UFJ銀行在亚洲开始了贸易代金等即时送金服务，三井住友銀行年内也将推出新品牌。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>利便性<rp>(</rp><rt>りべんせい</rt><rp>)</rp></ruby>を<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>めて<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>の<ruby>円滑<rp>(</rp><rt>えんかつ</rt><rp>)</rp></ruby>な<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>いを<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>えると<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に、ドルなどの<ruby>外貨<rp>(</rp><rt>がいか</rt><rp>)</rp></ruby><ruby>預金<rp>(</rp><rt>よきん</rt><rp>)</rp></ruby>の<ruby>安定<rp>(</rp><rt>あんてい</rt><rp>)</rp></ruby><ruby>調達<rp>(</rp><rt>ちょうたつ</rt><rp>)</rp></ruby>につなげる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>通过提高利便性支える企業的円滑支払い，同时も为美元等外貨預金的安定調達做贡献。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>足元<rp>(</rp><rt>あしもと</rt><rp>)</rp></ruby>でイラン<ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>の<ruby>緊迫<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>が<ruby>長引<rp>(</rp><rt>ながび</rt><rp>)</rp></ruby>くなか、<ruby>外貨<rp>(</rp><rt>がいか</rt><rp>)</rp></ruby>の<ruby>調達<rp>(</rp><rt>ちょうたつ</rt><rp>)</rp></ruby>が<ruby>不安定<rp>(</rp><rt>ふあんてい</rt><rp>)</rp></ruby>になる<ruby>事態<rp>(</rp><rt>じたい</rt><rp>)</rp></ruby>にどう<ruby>備<rp>(</rp><rt>そな</rt><rp>)</rp></ruby>えるかは<ruby>邦銀<rp>(</rp><rt>ほうぎん</rt><rp>)</rp></ruby>の<ruby>長期的<rp>(</rp><rt>ちょうきてき</rt><rp>)</rp></ruby>な<ruby>経営<rp>(</rp><rt>けいえい</rt><rp>)</rp></ruby><ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>の<ruby>一<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>つになる。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>当下伊朗情勢の緊迫が長引く中，如何应对外貨調達が不安定になる事態，是邦銀の長期的な経営課題之一。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby><ruby>決済<rp>(</rp><rt>けっさい</rt><rp>)</rp></ruby>サービスなど...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>貿易決済サービス等...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUB120Z90S6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #6B7DB3">
+  <div class="article-head"><span class="num">03</span><h3>東北銀行とSBI系が共同ファンド設立　地域企業の事業承継など支援</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>東北銀行<rp>(</rp><rt>とうほくぎんこう</rt><rp>)</rp></ruby>は15<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>、SBIホールディングス（HD）<ruby>傘下<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>のSBI<ruby>地域活性化支援<rp>(</rp><rt>ちいきかっせいかしえん</rt><rp>)</rp></ruby>（<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>港<rp>(</rp><rt>みなと</rt><rp>)</rp></ruby>）との<ruby>共同<rp>(</rp><rt>きょうどう</rt><rp>)</rp></ruby>ファンド「とうぎんSBI<ruby>地域力向上<rp>(</rp><rt>ちいきりょくこうじょう</rt><rp>)</rp></ruby>ファンド」を<ruby>設立<rp>(</rp><rt>せつりつ</rt><rp>)</rp></ruby>したと<ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>した。<ruby>後継者不在<rp>(</rp><rt>こうけいしゃふざい</rt><rp>)</rp></ruby>に<ruby>悩<rp>(</rp><rt>なや</rt><rp>)</rp></ruby>む<ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby>の<ruby>事業承継<rp>(</rp><rt>じぎょうしょうけい</rt><rp>)</rp></ruby>やM&A（<ruby>合併<rp>(</rp><rt>がっぺい</rt><rp>)</rp></ruby>・<ruby>買収<rp>(</rp><rt>ばいしゅう</rt><rp>)</rp></ruby>）、スタートアップの<ruby>支援<rp>(</rp><rt>しえん</rt><rp>)</rp></ruby>などに<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>組<rp>(</rp><rt>く</rt><rp>)</rp></ruby>む。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>東北銀行は15日、SBIホールディングス傘下のSBI地域活性化支援との共同ファンド「とうぎんSBI地域力向上ファンド」を設立したと発表した。後継者不在に悩む中小企業の事業承継やM&A、创业公司の支援などに取り組む。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>同<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>ファンドの<ruby>総額<rp>(</rp><rt>そうがく</rt><rp>)</rp></ruby>は5<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>で<ruby>運営期間<rp>(</rp><rt>うんえいきかん</rt><rp>)</rp></ruby>は10<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>。<ruby>東北銀<rp>(</rp><rt>とうほくぎん</rt><rp>)</rp></ruby>とSBIHDは2025<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>8<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>に<ruby>資本業務提携<rp>(</rp><rt>しほんぎょうむていけい</rt><rp>)</rp></ruby>しており、<ruby>共同<rp>(</rp><rt>きょうどう</rt><rp>)</rp></ruby>ファンドもこの<ruby>一環<rp>(</rp><rt>いっかん</rt><rp>)</rp></ruby>。<ruby>東北銀<rp>(</rp><rt>とうほくぎん</rt><rp>)</rp></ruby>の<ruby>担当者<rp>(</rp><rt>たんとうしゃ</rt><rp>)</rp></ruby>は「<ruby>我<rp>(</rp><rt>われ</rt><rp>)</rp></ruby>々にとって<ruby>初<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>の<ruby>事業承継<rp>(</rp><rt>じぎょうしょうけい</rt><rp>)</rp></ruby>を<ruby>対象<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby>にしたファンドで、SBIの<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>つ<ruby>知見<rp>(</rp><rt>ちけん</rt><rp>)</rp></ruby>を<ruby>生<rp>(</rp><rt>い</rt><rp>)</rp></ruby>かして<ruby>地域<rp>(</rp><rt>ちいき</rt><rp>)</rp></ruby>に<ruby>貢献<rp>(</rp><rt>こうけん</rt><rp>)</rp></ruby>したい」と<ruby>話<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>した。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>同ファンドの総額は5億円で運営期間は10年。東北銀とSBIHDは2025年8月に資本業務提携しており、共同ファンドもこの一環。東北銀の担当者は「我々にとって初の事業承継を対象にしたファンドで、SBIの持つ知見を生かして地域に貢献したい」と話した。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOCC158PK0V10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="fx">
+  <div class="section-head" style="border-bottom-color:#D4A843">
+    <span class="emoji">💱</span>
+    <h2>為替</h2>
+  </div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">01</span><h3>NY債券、長期債反落　10年債利回り4.28%　インフレ懸念や景気指標改善受け</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>【NQN<ruby>ニューヨーク<rp>(</rp><rt>にゅーよーく</rt><rp>)</rp></ruby>=<ruby>横内<rp>(</rp><rt>よこうち</rt><rp>)</rp></ruby><ruby>理恵<rp>(</rp><rt>りえ</rt><rp>)</rp></ruby>】15<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>の<ruby>ニューヨーク<rp>(</rp><rt>にゅーよーく</rt><rp>)</rp></ruby><ruby>債券<rp>(</rp><rt>さいけん</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>で<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>債<rp>(</rp><rt>さい</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は2<ruby>営業<rp>(</rp><rt>えいぎょう</rt><rp>)</rp></ruby><ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>ぶりに<ruby>反落<rp>(</rp><rt>はんらく</rt><rp>)</rp></ruby>した。<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby><ruby>金利<rp>(</rp><rt>きんり</rt><rp>)</rp></ruby>の<ruby>指標<rp>(</rp><rt>しひょう</rt><rp>)</rp></ruby>となる<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby><ruby>利率<rp>(</rp><rt>りりつ</rt><rp>)</rp></ruby>4.125%の10<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>物<rp>(</rp><rt>もの</rt><rp>)</rp></ruby><ruby>国債<rp>(</rp><rt>こくさい</rt><rp>)</rp></ruby><ruby>利回<rp>(</rp><rt>りまわ</rt><rp>)</rp></ruby>りは<ruby>前日<rp>(</rp><rt>ぜんじつ</rt><rp>)</rp></ruby><ruby>比<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>0.03%<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い（<ruby>価格<rp>(</rp><rt>かかく</rt><rp>)</rp></ruby>は<ruby>安<rp>(</rp><rt>やす</rt><rp>)</rp></ruby>い）4.28%で<ruby>終<rp>(</rp><rt>お</rt><rp>)</rp></ruby>えた。<ruby>インフレ<rp>(</rp><rt>いんふれ</rt><rp>)</rp></ruby><ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>や<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>景気<rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>の<ruby>底堅<rp>(</rp><rt>そこがた</rt><rp>)</rp></ruby>さなどを<ruby>背景<rp>(</rp><rt>はいけい</rt><rp>)</rp></ruby>に<ruby>債券<rp>(</rp><rt>さいけん</rt><rp>)</rp></ruby><ruby>売<rp>(</rp><rt>う</rt><rp>)</rp></ruby>りが<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>た。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>と<ruby>イラン<rp>(</rp><rt>いらん</rt><rp>)</rp></ruby>の<ruby>戦闘<rp>(</rp><rt>せんとう</rt><rp>)</rp></ruby><ruby>終結<rp>(</rp><rt>しゅうけつ</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けた<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby>を<ruby>見極<rp>(</rp><rt>みきわ</rt><rp>)</rp></ruby>めたい<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby><ruby>参加<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby><ruby>者<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>が<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>く、<ruby>債券<rp>(</rp><rt>さいけん</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>は<ruby>方向<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby><ruby>感<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>を<ruby>欠<rp>(</rp><rt>か</rt><rp>)</rp></ruby>いた。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>15日NY債券市場で长期债相场2营业日来首次反落。10年期国債利回り（表面利率4.125%）収盤上升0.03个百分点至4.28%（価格下跌）。通胀懸念和美国景気底堅等因素推动债券売出。由于市場参加者多数希望見極美伊战闘終結交渉，債券相場缺乏方向感。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>原油<rp>(</rp><rt>げんゆ</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby>でWTI（<ruby>ウエスト<rp>(</rp><rt>うえすと</rt><rp>)</rp></ruby>・...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>美原油先物市場WTI（西...</div>
+    </div>
+    <div class="pair">
+      <div class="note">注：您提供的文本似乎在这里被截断了。如果还有剩余内容，请继续提供，我会继续按照相同格式逐段翻译。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL15C730V10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">02</span><h3>拡大するFX投資　3月の建玉残高は過去最高、中東緊迫で取引活発</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>外国<rp>(</rp><rt>がいこく</rt><rp>)</rp></ruby><ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>証拠金<rp>(</rp><rt>しょうこきん</rt><rp>)</rp></ruby>（FX）<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>を<ruby>手掛<rp>(</rp><rt>てが</rt><rp>)</rp></ruby>ける<ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby><ruby>投資家<rp>(</rp><rt>とうしか</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>が<ruby>活発化<rp>(</rp><rt>かっぱつか</rt><rp>)</rp></ruby>している。<ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby><ruby>業協会<rp>(</rp><rt>ぎょうきょうかい</rt><rp>)</rp></ruby>が14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby><ruby>発表<rp>(</rp><rt>はっぴょう</rt><rp>)</rp></ruby>した3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>のFX<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>の<ruby>建玉<rp>(</rp><rt>たてぎょく</rt><rp>)</rp></ruby><ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby>は10<ruby>兆<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>4000<ruby>億円<rp>(</rp><rt>おくえん</rt><rp>)</rp></ruby>を<ruby>超<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>え、<ruby>過去<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby><ruby>最高<rp>(</rp><rt>さいこう</rt><rp>)</rp></ruby>となった。<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby><ruby>情勢<rp>(</rp><rt>じょうせい</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>けた<ruby>為替<rp>(</rp><rt>かわせ</rt><rp>)</rp></ruby><ruby>相場<rp>(</rp><rt>そうば</rt><rp>)</rp></ruby>の<ruby>混乱<rp>(</rp><rt>こんらん</rt><rp>)</rp></ruby>を<ruby>収益<rp>(</rp><rt>しゅうえき</rt><rp>)</rp></ruby><ruby>機会<rp>(</rp><rt>きかい</rt><rp>)</rp></ruby>と<ruby>捉<rp>(</rp><rt>とら</rt><rp>)</rp></ruby>えたとみられる。<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>・イランの<ruby>停戦<rp>(</rp><rt>ていせん</rt><rp>)</rp></ruby><ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby>を<ruby>見据<rp>(</rp><rt>みす</rt><rp>)</rp></ruby>えて<ruby>市場<rp>(</rp><rt>しじょう</rt><rp>)</rp></ruby><ruby>参加者<rp>(</rp><rt>さんかしゃ</rt><rp>)</rp></ruby>の<ruby>様子見<rp>(</rp><rt>ようすみ</rt><rp>)</rp></ruby><ruby>姿勢<rp>(</rp><rt>しせい</rt><rp>)</rp></ruby>が<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>まるなか、4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>の<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>は<ruby>下火<rp>(</rp><rt>したび</rt><rp>)</rp></ruby>になりつつある。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>个人投资家的外汇保证金（FX）取引正在活跃化。金融先物取引業協会14日発表的3月FX取引的建玉残高超过10兆4000亿円，创过去最高纪录。被认为是将中东情勢导致的为替相场混乱视为收益机会。在预期美・伊朗停战交渉的背景下，市场参加者様子見姿勢增强，4月取引正趋于下火。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>金融<rp>(</rp><rt>きんゆう</rt><rp>)</rp></ruby><ruby>先物<rp>(</rp><rt>さきもの</rt><rp>)</rp></ruby><ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby><ruby>業協会<rp>(</rp><rt>ぎょうきょうかい</rt><rp>)</rp></ruby>が14<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>公表<rp>(</rp><rt>こうひょう</rt><rp>)</rp></ruby>した3<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>のFX<ruby>取引<rp>(</rp><rt>とりひき</rt><rp>)</rp></ruby>の<ruby>建玉<rp>(</rp><rt>たてぎょく</rt><rp>)</rp></ruby><ruby>残高<rp>(</rp><rt>ざんだか</rt><rp>)</rp></ruby>は、...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>金融先物取引業協会14日公表的3月FX取引建玉残高是...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL1454BTU6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4A843">
+  <div class="article-head"><span class="num">03</span><h3>中国の国有銀行、個人ローンに火種　「消費拡大」政策にジレンマ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>【NQN<ruby>香港<rp>(</rp><rt>ホンコン</rt><rp>)</rp></ruby>=<ruby>戸田<rp>(</rp><rt>とだ</rt><rp>)</rp></ruby><ruby>敬久<rp>(</rp><rt>よしひさ</rt><rp>)</rp></ruby>】<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby><ruby>国有銀行<rp>(</rp><rt>こくゆうぎんこう</rt><rp>)</rp></ruby>の<ruby>不良債権<rp>(</rp><rt>ふりょうさいけん</rt><rp>)</rp></ruby><ruby>問題<rp>(</rp><rt>もんだい</rt><rp>)</rp></ruby>に<ruby>新<rp>(</rp><rt>あら</rt><rp>)</rp></ruby>たな<ruby>火種<rp>(</rp><rt>ひだね</rt><rp>)</rp></ruby>が<ruby>生<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>じている。<ruby>大手行<rp>(</rp><rt>おおてこう</rt><rp>)</rp></ruby>では2025<ruby>年末<rp>(</rp><rt>ねんまつ</rt><rp>)</rp></ruby>の<ruby>不良債権<rp>(</rp><rt>ふりょうさいけん</rt><rp>)</rp></ruby><ruby>比率<rp>(</rp><rt>ひりつ</rt><rp>)</rp></ruby>がそろって<ruby>低下<rp>(</rp><rt>ていか</rt><rp>)</rp></ruby>した<ruby>半面<rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby>、<ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby>ローンの<ruby>不良債権化<rp>(</rp><rt>ふりょうさいけんか</rt><rp>)</rp></ruby>が<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>んだ。<ruby>習近平<rp>(</rp><rt>しゅうきんぺい</rt><rp>)</rp></ruby>（シー・ジンピン）<ruby>指導部<rp>(</rp><rt>しどうぶ</rt><rp>)</rp></ruby>が<ruby>国内<rp>(</rp><rt>こくない</rt><rp>)</rp></ruby><ruby>消費<rp>(</rp><rt>しょうひ</rt><rp>)</rp></ruby>の<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けて<ruby>号令<rp>(</rp><rt>ごうれい</rt><rp>)</rp></ruby>をかける<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>、ローンという「テコ」を<ruby>活用<rp>(</rp><rt>かつよう</rt><rp>)</rp></ruby>した<ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby>はリスクになりかねないジレンマを<ruby>露呈<rp>(</rp><rt>ろてい</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>【NQN香港=戸田敬久】中国国有銀行の不良債権問題に新たな火種が生じている。大手行では2025年末の不良債権比率がそろって低下した半面、個人ローンの不良債権化が進んだ。習近平指導部が国内消費の拡大に向けて号令をかける中、ローンという「杠杆」を活用した政策は风险になりかねないジレンマを露呈している。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>の<ruby>不良債権<rp>(</rp><rt>ふりょうさいけん</rt><rp>)</rp></ruby><ruby>問題<rp>(</rp><rt>もんだい</rt><rp>)</rp></ruby>は<ruby>下火<rp>(</rp><rt>したび</rt><rp>)</rp></ruby>になったのか――。<ruby>国有銀<rp>(</rp><rt>こくゆうぎん</rt><rp>)</rp></ruby><ruby>大手<rp>(</rp><rt>おおて</rt><rp>)</rp></ruby>4<ruby>行<rp>(</rp><rt>こう</rt><rp>)</rp></ruby>の25<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>12<ruby>月期<rp>(</rp><rt>がつき</rt><rp>)</rp></ruby><ruby>決算<rp>(</rp><rt>けっさん</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>中国的不良債権問題是否已經降溫？国有銀大手4行的25年12月期決算...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOFL142B10U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="economy">
+  <div class="section-head" style="border-bottom-color:#4A5A8A">
+    <span class="emoji">🌏</span>
+    <h2>経済</h2>
+  </div>
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">01</span><h3>42年ぶり税制改正で社食特需　非課税2倍、専用クレカでランチ補助も</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>社員<rp>(</rp><rt>しゃいん</rt><rp>)</rp></ruby><ruby>食堂<rp>(</rp><rt>しょくどう</rt><rp>)</rp></ruby>など<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>による<ruby>食事<rp>(</rp><rt>しょくじ</rt><rp>)</rp></ruby><ruby>代<rp>(</rp><rt>だい</rt><rp>)</rp></ruby><ruby>補助<rp>(</rp><rt>ほじょ</rt><rp>)</rp></ruby>が「<ruby>第<rp>(</rp><rt>だい</rt><rp>)</rp></ruby>3の<ruby>賃上<rp>(</rp><rt>ちんあ</rt><rp>)</rp></ruby>げ」として<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>され<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>めた。<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>の<ruby>税制<rp>(</rp><rt>ぜいせい</rt><rp>)</rp></ruby><ruby>改正<rp>(</rp><rt>かいせい</rt><rp>)</rp></ruby>で4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>から<ruby>補助<rp>(</rp><rt>ほじょ</rt><rp>)</rp></ruby>の<ruby>非課税<rp>(</rp><rt>ひかぜい</rt><rp>)</rp></ruby><ruby>枠<rp>(</rp><rt>わく</rt><rp>)</rp></ruby>が2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby><ruby>超<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby>の<ruby>月<rp>(</rp><rt>つき</rt><rp>)</rp></ruby>7500<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>になった。インフレによって<ruby>実質<rp>(</rp><rt>じっしつ</rt><rp>)</rp></ruby><ruby>賃金<rp>(</rp><rt>ちんぎん</rt><rp>)</rp></ruby>が<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>び<ruby>悩<rp>(</rp><rt>なや</rt><rp>)</rp></ruby>む<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>、<ruby>税<rp>(</rp><rt>ぜい</rt><rp>)</rp></ruby><ruby>負担<rp>(</rp><rt>ふたん</rt><rp>)</rp></ruby>を<ruby>抑<rp>(</rp><rt>おさ</rt><rp>)</rp></ruby>えつつ<ruby>家計<rp>(</rp><rt>かけい</rt><rp>)</rp></ruby>を<ruby>支援<rp>(</rp><rt>しえん</rt><rp>)</rp></ruby>できる<ruby>利点<rp>(</rp><rt>りてん</rt><rp>)</rp></ruby>がある。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>企业社员食堂等食事代補助正开始被重视为"第三种賃上げ"。政府税制改正从4月起将補助的非課税枠提高到月7500円，超过2倍。在通胀导致実質賃金增长乏力的情况下，这有抑制税負担的同时支援家計的利点。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>の<ruby>食事<rp>(</rp><rt>しょくじ</rt><rp>)</rp></ruby><ruby>補助<rp>(</rp><rt>ほじょ</rt><rp>)</rp></ruby>は<ruby>従業員<rp>(</rp><rt>じゅうぎょういん</rt><rp>)</rp></ruby>が<ruby>費用<rp>(</rp><rt>ひよう</rt><rp>)</rp></ruby>の<ruby>半分<rp>(</rp><rt>はんぶん</rt><rp>)</rp></ruby><ruby>以上<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby>を<ruby>負担<rp>(</rp><rt>ふたん</rt><rp>)</rp></ruby>するといった<ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>を<ruby>満<rp>(</rp><rt>み</rt><rp>)</rp></ruby>たせば<ruby>給与<rp>(</rp><rt>きゅうよ</rt><rp>)</rp></ruby>とみなされず、<ruby>所得税<rp>(</rp><rt>しょとくぜい</rt><rp>)</rp></ruby>が<ruby>非課税<rp>(</rp><rt>ひかぜい</rt><rp>)</rp></ruby>となる。2026<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>の<ruby>税制<rp>(</rp><rt>ぜいせい</rt><rp>)</rp></ruby><ruby>改正<rp>(</rp><rt>かいせい</rt><rp>)</rp></ruby>で<ruby>非課税<rp>(</rp><rt>ひかぜい</rt><rp>)</rp></ruby><ruby>枠<rp>(</rp><rt>わく</rt><rp>)</rp></ruby>が<ruby>月<rp>(</rp><rt>つき</rt><rp>)</rp></ruby>3500<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>から<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げられ...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>企业食事補助如果満足従業員負担費用半分以上等要件，就不会被认定为給与，所得税可以非課税。2026年度税制改正将非課税枠从月3500円提高...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA107RZ0Q6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">02</span><h3>ガス火力発電タービンへの投資を支援　経産省、5年で数百億円規模</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby><ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby><ruby>省<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>は<ruby>高<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>効率<rp>(</rp><rt>こうりつ</rt><rp>)</rp></ruby>のガス<ruby>火力<rp>(</rp><rt>かりょく</rt><rp>)</rp></ruby><ruby>発電<rp>(</rp><rt>はつでん</rt><rp>)</rp></ruby><ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けのガスタービンに<ruby>支援<rp>(</rp><rt>しえん</rt><rp>)</rp></ruby>する<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>だ。<ruby>最大<rp>(</rp><rt>さいだい</rt><rp>)</rp></ruby>5<ruby>年間<rp>(</rp><rt>ねんかん</rt><rp>)</rp></ruby>で<ruby>数百<rp>(</rp><rt>すうひゃく</rt><rp>)</rp></ruby><ruby>億<rp>(</rp><rt>おく</rt><rp>)</rp></ruby><ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby><ruby>規模<rp>(</rp><rt>きぼ</rt><rp>)</rp></ruby>を<ruby>補助<rp>(</rp><rt>ほじょ</rt><rp>)</rp></ruby>し、<ruby>脱<rp>(</rp><rt>だつ</rt><rp>)</rp></ruby><ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>への<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>とエネルギーの<ruby>安定<rp>(</rp><rt>あんてい</rt><rp>)</rp></ruby><ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby>の<ruby>両立<rp>(</rp><rt>りょうりつ</rt><rp>)</rp></ruby>を<ruby>図<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>る。<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>が<ruby>夏<rp>(</rp><rt>なつ</rt><rp>)</rp></ruby>にまとめる<ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby><ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby>に<ruby>盛<rp>(</rp><rt>も</rt><rp>)</rp></ruby>り<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>む。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>経産省打算对高效率ガス火力発電用燃气轮机进行支援。最大5年投入数百億円规模的補助，目标是脱炭素転換和能源安定供給的両立。政府將在夏季制定的成長戦略中納入此項措施。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>16<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>内閣<rp>(</rp><rt>ないかく</rt><rp>)</rp></ruby><ruby>官房<rp>(</rp><rt>かんぼう</rt><rp>)</rp></ruby>が<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>く17<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>の<ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby><ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby>の<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けた<ruby>会議<rp>(</rp><rt>かいぎ</rt><rp>)</rp></ruby>で<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。<ruby>液化<rp>(</rp><rt>えきか</rt><rp>)</rp></ruby><ruby>天然<rp>(</rp><rt>てんねん</rt><rp>)</rp></ruby>ガス（LNG）の<ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>に<ruby>二酸化<rp>(</rp><rt>にさんか</rt><rp>)</rp></ruby><ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>（CO2）を<ruby>排出<rp>(</rp><rt>はいしゅつ</rt><rp>)</rp></ruby>しない<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>を<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜて<ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby>させるガスタービンが<ruby>対象<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby>になる。2026<ruby>年度<rp>(</rp><rt>ねんど</rt><rp>)</rp></ruby>から<ruby>支援<rp>(</rp><rt>しえん</rt><rp>)</rp></ruby>する。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>16日内閣官房召開的17分野成長戦略実現会議上將提出此方案。対象是在液化天然气（LNG）燃焼時混合不排出二酸化炭素（CO2）的水素進行燃焼的ガスタービン。从2026年度開始支援。</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA157WV0V10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #4A5A8A">
+  <div class="article-head"><span class="num">03</span><h3>備蓄米2年ぶり買い入れ　初回落札6%どまり、緊急時の備えに懸念残る</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>備蓄米2年ぶり買い入れ　初回落札6%どまり、緊急時の備えに懸念残る</div>
+      <div class="note">（正文未能抓取）</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA100JL0Q6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="politics">
+  <div class="section-head" style="border-bottom-color:#8B7DAA">
+    <span class="emoji">🏛️</span>
+    <h2>政治</h2>
+  </div>
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">01</span><h3>「名乗れば何でも保守」か、慣習軽視は勘違い　中島東京科学大教授</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>」と「リベラル」は<ruby>本来<rp>(</rp><rt>ほんらい</rt><rp>)</rp></ruby>は<ruby>対立<rp>(</rp><rt>たいりつ</rt><rp>)</rp></ruby>する<ruby>概念<rp>(</rp><rt>がいねん</rt><rp>)</rp></ruby>ではないとされる。「リベラル<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>」という<ruby>言葉<rp>(</rp><rt>ことば</rt><rp>)</rp></ruby>を<ruby>掲<rp>(</rp><rt>かか</rt><rp>)</rp></ruby>げてきたのが<ruby>中島<rp>(</rp><rt>なかじま</rt><rp>)</rp></ruby><ruby>岳志<rp>(</rp><rt>たけし</rt><rp>)</rp></ruby>・<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>科学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby><ruby>大<rp>(</rp><rt>だい</rt><rp>)</rp></ruby><ruby>教授<rp>(</rp><rt>きょうじゅ</rt><rp>)</rp></ruby>だ。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>「保守」と「自由主義」は本来は対立する概念ではないとされる。「リベラル保守」という言葉を掲げてきたのが中島岳志・東京科学大教授だ。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>――「<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>」という<ruby>言葉<rp>(</rp><rt>ことば</rt><rp>)</rp></ruby>のインフレが<ruby>生<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>じていると<ruby>指摘<rp>(</rp><rt>してき</rt><rp>)</rp></ruby>してきました。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>――「保守」という言葉の通胀が生じていると指摘してきました。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>「<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>という<ruby>言葉<rp>(</rp><rt>ことば</rt><rp>)</rp></ruby>が<ruby>乱立<rp>(</rp><rt>らんりつ</rt><rp>)</rp></ruby>し、<ruby>名乗<rp>(</rp><rt>なの</rt><rp>)</rp></ruby>れば<ruby>何<rp>(</rp><rt>なん</rt><rp>)</rp></ruby>でも<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>となってしまう<ruby>恐<rp>(</rp><rt>おそ</rt><rp>)</rp></ruby>れがある。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>政治<rp>(</rp><rt>せいじ</rt><rp>)</rp></ruby>ではリベラルと<ruby>対立<rp>(</rp><rt>たいりつ</rt><rp>)</rp></ruby>すると<ruby>語<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>られることが<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>いが、<ruby>本来<rp>(</rp><rt>ほんらい</rt><rp>)</rp></ruby>は<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>う。<ruby>冷戦<rp>(</rp><rt>れいせん</rt><rp>)</rp></ruby><ruby>時代<rp>(</rp><rt>じだい</rt><rp>)</rp></ruby>の<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>はリベラルを<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>した。<ruby>自民党<rp>(</rp><rt>じみんとう</rt><rp>)</rp></ruby><ruby>内<rp>(</rp><rt>ない</rt><rp>)</rp></ruby>で<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby><ruby>本流<rp>(</rp><rt>ほんりゅう</rt><rp>)</rp></ruby>とも<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>ばれ...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>「保守という言葉が乱立し、名乗れば何でも保守となってしまう恐れがある。日本政治では自由主義と対立すると語られることが多いが、本来は違う。冷戦時代の保守は自由主義を重視した。自民党内で保守本流とも呼ばれ...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA253T70V21C25A2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">02</span><h3>銀行の出資「10年超可」に　先端企業に資金、規制改革会議で検討へ</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>は<ruby>銀行<rp>(</rp><rt>ぎんこう</rt><rp>)</rp></ruby>の<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>に<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>する<ruby>出資<rp>(</rp><rt>しゅっし</rt><rp>)</rp></ruby><ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>の<ruby>緩和<rp>(</rp><rt>かんわ</rt><rp>)</rp></ruby>を<ruby>検討<rp>(</rp><rt>けんとう</rt><rp>)</rp></ruby>する。ファンドを<ruby>通<rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて<ruby>企業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>に<ruby>出資<rp>(</rp><rt>しゅっし</rt><rp>)</rp></ruby>する<ruby>期間<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>の<ruby>上限<rp>(</rp><rt>じょうげん</rt><rp>)</rp></ruby>を<ruby>延<rp>(</rp><rt>の</rt><rp>)</rp></ruby>ばす<ruby>方向<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby>だ。<ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby><ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>、<ruby>育成<rp>(</rp><rt>いくせい</rt><rp>)</rp></ruby>に<ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>がかかるディープテック（<ruby>先端<rp>(</rp><rt>せんたん</rt><rp>)</rp></ruby><ruby>技術<rp>(</rp><rt>ぎじゅつ</rt><rp>)</rp></ruby>）<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>のスタートアップに<ruby>資金<rp>(</rp><rt>しきん</rt><rp>)</rp></ruby>を<ruby>十分<rp>(</rp><rt>じゅうぶん</rt><rp>)</rp></ruby><ruby>回<rp>(</rp><rt>まわ</rt><rp>)</rp></ruby>す<ruby>狙<rp>(</rp><rt>ねら</rt><rp>)</rp></ruby>いがある。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>政府検討銀行企業出資規制緩和。準備延長基金出資企業期間上限。成長期待高的一方，育成需時間的深度科技（先端技術）分野創業公司，目標充分投入資金。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>バイオや<ruby>創薬<rp>(</rp><rt>そうやく</rt><rp>)</rp></ruby>などのディープテックと<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>ばれる<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>は、<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby><ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>までの<ruby>期間<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>が10<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>以上<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby>の<ruby>長期<rp>(</rp><rt>ちょうき</rt><rp>)</rp></ruby>におよぶ<ruby>例<rp>(</rp><rt>れい</rt><rp>)</rp></ruby>が<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い。<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>や<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>などと<ruby>比<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>べ、<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>は<ruby>先端<rp>(</rp><rt>せんたん</rt><rp>)</rp></ruby><ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>の<ruby>起業<rp>(</rp><rt>きぎょう</rt><rp>)</rp></ruby>が<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>んでいないという<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>がある。<ruby>理<rp>(</rp><rt>り</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>生物科技和创薬等被称为深度科技的分野，事業化期间多达10年以上长期的例子很多。与美国、中国等相比，日本在先端分野起業进展不足是个課題。理...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA271AM0X20C26A2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #8B7DAA">
+  <div class="article-head"><span class="num">03</span><h3>自動運転車、2030年代に世界シェア3割　政府の成長戦略目標</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>は16<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>に<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>く<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby><ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby><ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby><ruby>会議<rp>(</rp><rt>かいぎ</rt><rp>)</rp></ruby>の<ruby>会合<rp>(</rp><rt>かいごう</rt><rp>)</rp></ruby>で、<ruby>優先<rp>(</rp><rt>ゆうせん</rt><rp>)</rp></ruby><ruby>支援<rp>(</rp><rt>しえん</rt><rp>)</rp></ruby>する34<ruby>製品<rp>(</rp><rt>せいひん</rt><rp>)</rp></ruby>・<ruby>技術<rp>(</rp><rt>ぎじゅつ</rt><rp>)</rp></ruby>の<ruby>官民<rp>(</rp><rt>かんみん</rt><rp>)</rp></ruby><ruby>投資<rp>(</rp><rt>とうし</rt><rp>)</rp></ruby>ロードマップ（<ruby>行程<rp>(</rp><rt>こうてい</rt><rp>)</rp></ruby><ruby>表<rp>(</rp><rt>ひょう</rt><rp>)</rp></ruby>）の<ruby>素案<rp>(</rp><rt>そあん</rt><rp>)</rp></ruby>を<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>に<ruby>関<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>する<ruby>人工<rp>(</rp><rt>じんこう</rt><rp>)</rp></ruby><ruby>知能<rp>(</rp><rt>ちのう</rt><rp>)</rp></ruby>（AI）<ruby>開発<rp>(</rp><rt>かいはつ</rt><rp>)</rp></ruby>を<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>め、2030<ruby>年代<rp>(</rp><rt>ねんだい</rt><rp>)</rp></ruby>に<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby><ruby>車両<rp>(</rp><rt>しゃりょう</rt><rp>)</rp></ruby>の<ruby>販売<rp>(</rp><rt>はんばい</rt><rp>)</rp></ruby><ruby>台数<rp>(</rp><rt>だいすう</rt><rp>)</rp></ruby>で<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>シェア3<ruby>割<rp>(</rp><rt>わり</rt><rp>)</rp></ruby>の<ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby>を<ruby>盛<rp>(</rp><rt>も</rt><rp>)</rp></ruby>り<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>む。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>政府16日召开日本成长戦略会议，将提出优先支援34种製品・技術的官民投資路线图（行程表）素案。推进自动運転相关人工智能（AI）開発，设定2030年代自动運転車両販売台数世界份额3成的目標。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>尾崎<rp>(</rp><rt>おざき</rt><rp>)</rp></ruby><ruby>正直<rp>(</rp><rt>まさなお</rt><rp>)</rp></ruby><ruby>官房<rp>(</rp><rt>かんぼう</rt><rp>)</rp></ruby><ruby>副<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby><ruby>長官<rp>(</rp><rt>ちょうかん</rt><rp>)</rp></ruby>をトップに<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby><ruby>省庁<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の<ruby>局長<rp>(</rp><rt>きょくちょう</rt><rp>)</rp></ruby><ruby>級<rp>(</rp><rt>きゅう</rt><rp>)</rp></ruby>が<ruby>参加<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>する「<ruby>戦略<rp>(</rp><rt>せんりゃく</rt><rp>)</rp></ruby><ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby><ruby>分科会<rp>(</rp><rt>ぶんかかい</rt><rp>)</rp></ruby>」の<ruby>会合<rp>(</rp><rt>かいごう</rt><rp>)</rp></ruby>で<ruby>提示<rp>(</rp><rt>ていじ</rt><rp>)</rp></ruby>する。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>現在<rp>(</rp><rt>げんざい</rt><rp>)</rp></ruby>の<ruby>自動車<rp>(</rp><rt>じどうしゃ</rt><rp>)</rp></ruby><ruby>販売<rp>(</rp><rt>はんばい</rt><rp>)</rp></ruby><ruby>台数<rp>(</rp><rt>だいすう</rt><rp>)</rp></ruby>は<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>シェア26%<ruby>程度<rp>(</rp><rt>ていど</rt><rp>)</rp></ruby>で、<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby><ruby>車両<rp>(</rp><rt>しゃりょう</rt><rp>)</rp></ruby>でも30<ruby>年代<rp>(</rp><rt>ねんだい</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>由尾崎正直官房副長官领头、関係省庁局長級参加的「戦略分野分科会」会合上提示。日本現在的自動車販売台数世界份额约26%，自动運転車両到30年代...</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>この<ruby>投稿<rp>(</rp><rt>とうこう</rt><rp>)</rp></ruby>は<ruby>現在<rp>(</rp><rt>げんざい</rt><rp>)</rp></ruby><ruby>非表示<rp>(</rp><rt>ひひょうじ</rt><rp>)</rp></ruby>に<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>されています</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>这个投稿現在被设定为非表示</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>・<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>は<ruby>既<rp>(</rp><rt>すで</rt><rp>)</rp></ruby>にレベル4（<ruby>地域<rp>(</rp><rt>ちいき</rt><rp>)</rp></ruby><ruby>限定<rp>(</rp><rt>げんてい</rt><rp>)</rp></ruby>で<ruby>完全<rp>(</rp><rt>かんぜん</rt><rp>)</rp></ruby><ruby>無人<rp>(</rp><rt>むじん</rt><rp>)</rp></ruby>）の<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>を<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>しているが、<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>はまだレベル3（<ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby><ruby>席<rp>(</rp><rt>せき</rt><rp>)</rp></ruby>にドライバーがいて<ruby>緊急<rp>(</rp><rt>きんきゅう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>に<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>する<ruby>義務<rp>(</rp><rt>ぎむ</rt><rp>)</rp></ruby>がある<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>）までしかできていない。レベル4の<ruby>早期<rp>(</rp><rt>そうき</rt><rp>)</rp></ruby><ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>が、<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>の<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>シェア30％<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>に<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby>である。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>米国・中国已经実現了等级4（地域限定完全無人）自動運転，但日本还只能做到等级3（運転席有司机、緊急時负有対応義務的自動運転）。等级4的早期実現是自動運転世界份额30%実現的必須条件。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>区間<rp>(</rp><rt>くかん</rt><rp>)</rp></ruby><ruby>限定<rp>(</rp><rt>げんてい</rt><rp>)</rp></ruby>の<ruby>高速<rp>(</rp><rt>こうそく</rt><rp>)</rp></ruby><ruby>道路<rp>(</rp><rt>どうろ</rt><rp>)</rp></ruby>での<ruby>卡車<rp>(</rp><rt>トラック</rt><rp>)</rp></ruby><ruby>無人<rp>(</rp><rt>むじん</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>が<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>すれば、ドライバー<ruby>不足<rp>(</rp><rt>ぶそく</rt><rp>)</rp></ruby><ruby>緩和<rp>(</rp><rt>かんわ</rt><rp>)</rp></ruby>に<ruby>寄与<rp>(</rp><rt>きよ</rt><rp>)</rp></ruby>する。<ruby>長<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby><ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby>トラックドライバーは<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>したら<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby><ruby>休眠<rp>(</rp><rt>きゅうみん</rt><rp>)</rp></ruby>する<ruby>義務<rp>(</rp><rt>ぎむ</rt><rp>)</rp></ruby>がある。レベル4の<ruby>高速<rp>(</rp><rt>こうそく</rt><rp>)</rp></ruby><ruby>道路<rp>(</rp><rt>どうろ</rt><rp>)</rp></ruby><ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>を<ruby>休眠<rp>(</rp><rt>きゅうみん</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>に<ruby>充<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>てられれば<ruby>理想<rp>(</rp><rt>りそう</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>だが、<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>にはかなり<ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>がかかるかもしれない。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>区間限定高速道路卡车無人運転如果実現，将有助缓解司机不足。长距離卡车司机有義務運転一定時間后休眠一定時間。如果能将等级4高速道路自動運転用于休眠時間会很理想，但実現可能需要相当時間。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>地域<rp>(</rp><rt>ちいき</rt><rp>)</rp></ruby><ruby>限定<rp>(</rp><rt>げんてい</rt><rp>)</rp></ruby>の<ruby>完全<rp>(</rp><rt>かんぜん</rt><rp>)</rp></ruby><ruby>無人<rp>(</rp><rt>むじん</rt><rp>)</rp></ruby>タクシーも、<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>なレベル5（<ruby>地域<rp>(</rp><rt>ちいき</rt><rp>)</rp></ruby>を<ruby>限定<rp>(</rp><rt>げんてい</rt><rp>)</rp></ruby>しない<ruby>無人<rp>(</rp><rt>むじん</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>）<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>に<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>けて<ruby>重要<rp>(</rp><rt>じゅうよう</rt><rp>)</rp></ruby>である。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>地域限定的完全無人出租车，对将来的等级5（不限定地域的無人運転）実現也很重要。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>この<ruby>投稿<rp>(</rp><rt>とうこう</rt><rp>)</rp></ruby>は<ruby>現在<rp>(</rp><rt>げんざい</rt><rp>)</rp></ruby><ruby>非表示<rp>(</rp><rt>ひひょうじ</rt><rp>)</rp></ruby>に<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>されています</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>这个投稿現在被设定为非表示</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>は、<ruby>製造<rp>(</rp><rt>せいぞう</rt><rp>)</rp></ruby>と<ruby>運行<rp>(</rp><rt>うんこう</rt><rp>)</rp></ruby>がセットになり、ロボタクシーのようにビジネスモデルが<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わる。<ruby>実際<rp>(</rp><rt>じっさい</rt><rp>)</rp></ruby>に<ruby>運行<rp>(</rp><rt>うんこう</rt><rp>)</rp></ruby>をしながら<ruby>開発<rp>(</rp><rt>かいはつ</rt><rp>)</rp></ruby>を<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>める<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>があるが、<ruby>現在<rp>(</rp><rt>げんざい</rt><rp>)</rp></ruby>、<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>では<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>が<ruby>日常<rp>(</rp><rt>にちじょう</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>に<ruby>運行<rp>(</rp><rt>うんこう</rt><rp>)</rp></ruby>されておらず、<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby><ruby>中<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>に<ruby>比<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>べ<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きく<ruby>遅<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>れている。その<ruby>背景<rp>(</rp><rt>はいけい</rt><rp>)</rp></ruby>には、<ruby>事故<rp>(</rp><rt>じこ</rt><rp>)</rp></ruby>が<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こった<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>の<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>などが<ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>され、<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>に<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>する<ruby>社会<rp>(</rp><rt>しゃかい</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby><ruby>受容<rp>(</rp><rt>じゅよう</rt><rp>)</rp></ruby><ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>が<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>まっていないことがある。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>、Waymoの<ruby>無人<rp>(</rp><rt>むじん</rt><rp>)</rp></ruby>タクシーが<ruby>走<rp>(</rp><rt>はし</rt><rp>)</rp></ruby>るサンフランシスコでは、<ruby>乗客<rp>(</rp><rt>じょうきゃく</rt><rp>)</rp></ruby>も<ruby>周<rp>(</rp><rt>まわ</rt><rp>)</rp></ruby>りのドライバーも、<ruby>人<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>の<ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>より<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>のほうが<ruby>安心<rp>(</rp><rt>あんしん</rt><rp>)</rp></ruby>という<ruby>認識<rp>(</rp><rt>にんしき</rt><rp>)</rp></ruby>が<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>まっている。このままでは、<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>のメーカーが<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby><ruby>車<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>を<ruby>開発<rp>(</rp><rt>かいはつ</rt><rp>)</rp></ruby>しても<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>で<ruby>運行<rp>(</rp><rt>うんこう</rt><rp>)</rp></ruby>できない<ruby>事態<rp>(</rp><rt>じたい</rt><rp>)</rp></ruby>になりかねず、<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>の<ruby>取組<rp>(</rp><rt>とりくみ</rt><rp>)</rp></ruby>みで<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby><ruby>運転<rp>(</rp><rt>うんてん</rt><rp>)</rp></ruby>が<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>むことを<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>したい。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>自動運転是製造和運行成套的，像机器人出租车那样商业模式会大幅改变。需要在実際運行中推进開発，但現在日本没有自動運転日常運行，相比美中大幅落后。背景是对事故発生時対応等的懸念，自動運転的社会接受性没有提高。另一方面，在Waymo無人出租车行驶的旧金山，乘客和周围司机都认为自動運転比人的運転更安心的認識在扩散。照这样下去，日本厂商開発出自動運転車却无法在日本運行的事態也不是不可能，期待通过政府措施推进自動運転。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>この<ruby>投稿<rp>(</rp><rt>とうこう</rt><rp>)</rp></ruby>は<ruby>現在<rp>(</rp><rt>げんざい</rt><rp>)</rp></ruby><ruby>非表示<rp>(</rp><rt>ひひょうじ</rt><rp>)</rp></ruby>に<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>されています</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>这个投稿現在被设定为非表示</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUA156WA0V10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="tech">
+  <div class="section-head" style="border-bottom-color:#D4854A">
+    <span class="emoji">💻</span>
+    <h2>テクノロジー</h2>
+  </div>
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">01</span><h3>三菱電機、中国勢台頭に危機感　ローム・東芝と挑む生産コスト削減</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>パワー<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby><ruby>再編<rp>(</rp><rt>さいへん</rt><rp>)</rp></ruby>　4<ruby>社<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>の<ruby>思惑<rp>(</rp><rt>おもわく</rt><rp>)</rp></ruby>④</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>功率半导体再编 4社的盘算④</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>三菱電機<rp>(</rp><rt>みつびしでんき</rt><rp>)</rp></ruby>のパワー<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby><ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby>において<ruby>他社<rp>(</rp><rt>たしゃ</rt><rp>)</rp></ruby><ruby>連携<rp>(</rp><rt>れんけい</rt><rp>)</rp></ruby>が<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>き<ruby>出<rp>(</rp><rt>だ</rt><rp>)</rp></ruby>した。<ruby>漆間啓<rp>(</rp><rt>うるしまけい</rt><rp>)</rp></ruby><ruby>社長<rp>(</rp><rt>しゃちょう</rt><rp>)</rp></ruby>は<ruby>中国企業<rp>(</rp><rt>ちゅうごくきぎょう</rt><rp>)</rp></ruby>による<ruby>安価<rp>(</rp><rt>あんか</rt><rp>)</rp></ruby>で<ruby>高品質<rp>(</rp><rt>こうひんしつ</rt><rp>)</rp></ruby>な<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby>の<ruby>拡販<rp>(</rp><rt>かくはん</rt><rp>)</rp></ruby>に<ruby>危機感<rp>(</rp><rt>ききかん</rt><rp>)</rp></ruby>を<ruby>抱<rp>(</rp><rt>いだ</rt><rp>)</rp></ruby>いてきた。ロームと<ruby>東芝<rp>(</rp><rt>とうしば</rt><rp>)</rp></ruby>との<ruby>統合<rp>(</rp><rt>とうごう</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>に<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>わり、<ruby>生産<rp>(</rp><rt>せいさん</rt><rp>)</rp></ruby>コスト<ruby>削減<rp>(</rp><rt>さくげん</rt><rp>)</rp></ruby>や<ruby>開発力<rp>(</rp><rt>かいはつりょく</rt><rp>)</rp></ruby>の<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>を<ruby>目指<rp>(</rp><rt>めざ</rt><rp>)</rp></ruby>す。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>三菱電機的功率半导体事業中，他社連携開始启动。漆间啓社長对中国企业推广便宜且高品質的半导体感到危機感。加入与罗姆和東芝的統合協議，目标是生産成本削減和开発力向上。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>漆間氏<rp>(</rp><rt>うるしまし</rt><rp>)</rp></ruby>はこれまでも<ruby>国内<rp>(</rp><rt>こくない</rt><rp>)</rp></ruby>のパワー<ruby>半導体<rp>(</rp><rt>はんどうたい</rt><rp>)</rp></ruby>メーカー<ruby>各社<rp>(</rp><rt>かくしゃ</rt><rp>)</rp></ruby>に<ruby>事業<rp>(</rp><rt>じぎょう</rt><rp>)</rp></ruby><ruby>統合<rp>(</rp><rt>とうごう</rt><rp>)</rp></ruby>を<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>びかけてきた。<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>の<ruby>競合企業<rp>(</rp><rt>きょうごうきぎょう</rt><rp>)</rp></ruby>が<ruby>徐々<rp>(</rp><rt>じょじょ</rt><rp>)</rp></ruby>に<ruby>実力<rp>(</rp><rt>じつりょく</rt><rp>)</rp></ruby>をつけて<ruby>上位<rp>(</rp><rt>じょうい</rt><rp>)</rp></ruby>に<ruby>食<rp>(</rp><rt>く</rt><rp>)</rp></ruby>い<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>み<ruby>始<rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>めたためだ。「<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>に<ruby>負<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>けない<ruby>低<rp>(</rp><rt>てい</rt><rp>)</rp></ruby>コストの<ruby>芯片<rp>(</rp><rt>チップ</rt><rp>)</rp></ruby><ruby>開発<rp>(</rp><rt>かいはつ</rt><rp>)</rp></ruby>を<ruby>急<rp>(</rp><rt>いそ</rt><rp>)</rp></ruby>ぐ<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>がある」と...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>漆间一直向国内功率半导体制造商各社呼吁事業統合。因为中国竞合企业逐渐提升実力，开始打入上位。"必要急于开发不输给中国的低成本芯片"...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC082EL0Y6A400C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">02</span><h3>シャボン玉石けん、「釜炊き10年」AIで短縮　熟練の感覚を形式知化</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>シャボン<rp>(</rp><rt>しゃぼん</rt><rp>)</rp></ruby><ruby>玉<rp>(</rp><rt>だま</rt><rp>)</rp></ruby><ruby>石<rp>(</rp><rt>せっ</rt><rp>)</rp></ruby>けん（<ruby>北<rp>(</rp><rt>きた</rt><rp>)</rp></ruby><ruby>九<rp>(</rp><rt>きゅう</rt><rp>)</rp></ruby><ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby><ruby>市<rp>(</rp><rt>し</rt><rp>)</rp></ruby>）は、50<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby><ruby>以<rp>(</rp><rt>い</rt><rp>)</rp></ruby><ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby>にわたり<ruby>無<rp>(</rp><rt>む</rt><rp>)</rp></ruby><ruby>添<rp>(</rp><rt>てん</rt><rp>)</rp></ruby><ruby>加<rp>(</rp><rt>か</rt><rp>)</rp></ruby>にこだわり<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>けてきた。その<ruby>石<rp>(</rp><rt>せっ</rt><rp>)</rp></ruby>けんは<ruby>伝<rp>(</rp><rt>でん</rt><rp>)</rp></ruby><ruby>統<rp>(</rp><rt>とう</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>な「<ruby>釜<rp>(</rp><rt>かま</rt><rp>)</rp></ruby><ruby>炊<rp>(</rp><rt>た</rt><rp>)</rp></ruby>き<ruby>製<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>」を<ruby>用<rp>(</rp><rt>もち</rt><rp>)</rp></ruby>いて<ruby>自<rp>(</rp><rt>じ</rt><rp>)</rp></ruby><ruby>社<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby><ruby>工<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>場<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby>で<ruby>製<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>造<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>している。<ruby>職<rp>(</rp><rt>しょく</rt><rp>)</rp></ruby><ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>が<ruby>釜<rp>(</rp><rt>かま</rt><rp>)</rp></ruby>の<ruby>状<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>態<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>を<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>ながら<ruby>反<rp>(</rp><rt>はん</rt><rp>)</rp></ruby><ruby>応<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>を<ruby>調<rp>(</rp><rt>ちょう</rt><rp>)</rp></ruby><ruby>整<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>するため、<ruby>技<rp>(</rp><rt>ぎ</rt><rp>)</rp></ruby><ruby>能<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>の<ruby>習<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby><ruby>得<rp>(</rp><rt>とく</rt><rp>)</rp></ruby>が<ruby>難<rp>(</rp><rt>むずか</rt><rp>)</rp></ruby>しい。<ruby>同<rp>(</rp><rt>どう</rt><rp>)</rp></ruby><ruby>社<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby><ruby>内<rp>(</rp><rt>ない</rt><rp>)</rp></ruby>では「<ruby>釜<rp>(</rp><rt>かま</rt><rp>)</rp></ruby><ruby>炊<rp>(</rp><rt>た</rt><rp>)</rp></ruby>き10<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>」と<ruby>言<rp>(</rp><rt>い</rt><rp>)</rp></ruby>われるほどだ。この<ruby>技<rp>(</rp><rt>ぎ</rt><rp>)</rp></ruby><ruby>能<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>の<ruby>習<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby><ruby>得<rp>(</rp><rt>とく</rt><rp>)</rp></ruby>を、<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby><ruby>工<rp>(</rp><rt>こう</rt><rp>)</rp></ruby><ruby>知<rp>(</rp><rt>ち</rt><rp>)</rp></ruby><ruby>能<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>（AI）を<ruby>活<rp>(</rp><rt>かつ</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby>して<ruby>短<rp>(</rp><rt>たん</rt><rp>)</rp></ruby><ruby>縮<rp>(</rp><rt>しゅく</rt><rp>)</rp></ruby>しようとしている。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>シャボン玉石けん（北九州市）50年以上坚持无添加。他们的石けん使用传统的「釜炊き製法」在自社工場制造。职人需要看着釜的状态来調整反应，所以技能习得很困难。社内有「釜炊き10年」的说法。该公司正试图通过AI来短縮这个技能习得过程。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>釜<rp>(</rp><rt>かま</rt><rp>)</rp></ruby><ruby>炊<rp>(</rp><rt>た</rt><rp>)</rp></ruby>き<ruby>製<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>はケン<ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby>とも<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>ばれる。<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby><ruby>釜<rp>(</rp><rt>がま</rt><rp>)</rp></ruby>の<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>で<ruby>油<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby><ruby>脂<rp>(</rp><rt>し</rt><rp>)</rp></ruby>とアルカリ<ruby>成<rp>(</rp><rt>せい</rt><rp>)</rp></ruby><ruby>分<rp>(</rp><rt>ぶん</rt><rp>)</rp></ruby>（カセイソーダ...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>釜炊き製法也叫皂化法。在大釜中将油脂和碱性成分（氢氧化钠...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC315CY0R30C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #D4854A">
+  <div class="article-head"><span class="num">03</span><h3>業界再編の新モデル「東北アライアンス建設」、専門工事の組合設立</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>6<ruby>県<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>の<ruby>元請<rp>(</rp><rt>もとう</rt><rp>)</rp></ruby>け<ruby>建設会社<rp>(</rp><rt>けんせつがいしゃ</rt><rp>)</rp></ruby>7<ruby>社<rp>(</rp><rt>しゃ</rt><rp>)</rp></ruby>とみずほ<ruby>銀行<rp>(</rp><rt>ぎんこう</rt><rp>)</rp></ruby>が<ruby>共同出資<rp>(</rp><rt>きょうどうしゅっし</rt><rp>)</rp></ruby>する<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>アライアンス<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>（<ruby>福島県<rp>(</rp><rt>ふくしまけん</rt><rp>)</rp></ruby><ruby>郡山市<rp>(</rp><rt>こおりやまし</rt><rp>)</rp></ruby>）の<ruby>主導<rp>(</rp><rt>しゅどう</rt><rp>)</rp></ruby>で、<ruby>地域<rp>(</rp><rt>ちいき</rt><rp>)</rp></ruby>の<ruby>専門工事会社<rp>(</rp><rt>せんもんこうじがいしゃ</rt><rp>)</rp></ruby>で<ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>する<ruby>事業協同組合<rp>(</rp><rt>じぎょうきょうどうくみあい</rt><rp>)</rp></ruby>が<ruby>誕生<rp>(</rp><rt>たんじょう</rt><rp>)</rp></ruby>する。<ruby>法人格<rp>(</rp><rt>ほうじんかく</rt><rp>)</rp></ruby>を<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>つ<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>とし、<ruby>将来的<rp>(</rp><rt>しょうらいてき</rt><rp>)</rp></ruby>には<ruby>数百社規模<rp>(</rp><rt>すうひゃくしゃきぼ</rt><rp>)</rp></ruby>の<ruby>加盟<rp>(</rp><rt>かめい</rt><rp>)</rp></ruby>を<ruby>見込<rp>(</rp><rt>みこ</rt><rp>)</rp></ruby>む。<ruby>組合<rp>(</rp><rt>くみあい</rt><rp>)</rp></ruby>の<ruby>名称<rp>(</rp><rt>めいしょう</rt><rp>)</rp></ruby>は「<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>トラスティア<ruby>事業協同組合<rp>(</rp><rt>じぎょうきょうどうくみあい</rt><rp>)</rp></ruby>」。2026<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>4<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>に<ruby>設立<rp>(</rp><rt>せつりつ</rt><rp>)</rp></ruby>を<ruby>予定<rp>(</rp><rt>よてい</rt><rp>)</rp></ruby>している。</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>東北6県の元請け建設会社7社とみずほ銀行が共同出資する東北アライアンス建設（福島県郡山市）主導で、地域の専門工事会社で構成する事業協同組合が誕生。法人格を持つ組織として、将来的に数百社規模の加盟を見込む。組合名称は「東北トラスティア事業協同組合」。2026年4月設立予定。</div>
+    </div>
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span><ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>アライアンス<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>は26<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby>2<ruby>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby>にも、<ruby>建設機械<rp>(</rp><rt>けんせつきかい</rt><rp>)</rp></ruby><ruby>大手<rp>(</rp><rt>おおて</rt><rp>)</rp></ruby>コマツや<ruby>建築内装事業<rp>(</rp><rt>けんちくないそうじぎょう</rt><rp>)</rp></ruby>を<ruby>手掛<rp>(</rp><rt>てが</rt><rp>)</rp></ruby>けるアイリスオーヤマ（<ruby>仙台市<rp>(</rp><rt>せんだいし</rt><rp>)</rp></ruby>...</div>
+      <div class="zh-text"><span class="lang-tag cn-tag">CN</span>東北アライアンス建設は26年2月にも、建設機械大手コマツや建築内装事業を手掛けるアイリスオーヤマ（仙台市...</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOUC014600R00C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="intl">
+  <div class="section-head" style="border-bottom-color:#38A5B8">
+    <span class="emoji">🌐</span>
+    <h2>国際</h2>
+  </div>
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">01</span><h3>中南米の左派首脳、バルセロナに集結へ　「対トランプ」分断が深刻に</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>中南米の左派首脳、バルセロナに集結へ　「対トランプ」分断が深刻に</div>
+      <div class="note">（正文未能抓取）</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOGN14CD90U6A410C2000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">02</span><h3>ホルムズ海峡の通過船、行き先欄「中国籍」強調　攻撃回避へ知恵絞る</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>ホルムズ海峡の通過船、行き先欄「中国籍」強調　攻撃回避へ知恵絞る</div>
+      <div class="note">（正文未能抓取）</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOCB277JV0X20C26A3000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+<div class="article" style="border-top:2px solid #38A5B8">
+  <div class="article-head"><span class="num">03</span><h3>米イラン、パキスタンで再交渉調整　｢バンス氏やり取り、合意近い｣</h3></div>
+  <div class="article-body">
+    <div class="pair">
+      <div class="jp-quote"><span class="lang-tag jp-tag">JP</span>米イラン、パキスタンで再交渉調整　｢バンス氏やり取り、合意近い｣</div>
+      <div class="note">（正文未能抓取）</div>
+    </div>
+  </div>
+  <div class="article-foot"><a href="https://www.nikkei.com/article/DGXZQOGR15CFN0V10C26A4000000/" target="_blank" rel="noopener">原文を読む &rarr;</a></div>
+</div>
+</div>
+<div class="section" id="intl-news">
+  <div class="section-head" style="border-bottom-color:#C4616A">
+    <span class="emoji">🌍</span>
+    <h2>国際経済ニュース</h2>
+  </div>
+<div class="intl-grid">
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">Beige Book shows increasing price pressures</div>
+    <div class="zh">联储褐皮书显示价格压力上升</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">US crude exports hit record as Iran war disrupts Middle East supplies</div>
+    <div class="zh">伊朗战争扰乱中东供应，美国原油出口创纪录</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ft">Financial Times</span>
+    <div class="en">Trump warns he could rip up trade deal with UK</div>
+    <div class="zh">Trump警告可能撕毁与英国的贸易协议</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">Pakistani delegation arrives in Tehran in move to ease tensions and arrange more US-Iran talks</div>
+    <div class="zh">巴基斯坦代表团抵达德黑兰，试图缓解紧张局势并安排更多美伊谈判</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">Seoul court sentences US YouTuber to 6 months in jail over offensive stunts</div>
+    <div class="zh">首尔法院因冒犯性恶作剧判处美国YouTuber 6个月监禁</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag ap">AP News</span>
+    <div class="en">Jury finds that Ticketmaster and Live Nation had an anticompetitive monopoly over big concert venues</div>
+    <div class="zh">陪审团裁定Ticketmaster和Live Nation对大型演出场所构成反竞争垄断</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">Bank boss tells BBC he won't rush interest rate rises — Bank of England governor says the Iran war energy shock makes the next rate decision "very very difficult"</div>
+    <div class="zh">英国央行行长告诉BBC不会匆忙加息——称伊朗战争能源冲击让下次利率决定"非常非常困难"</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">US war on Iran was a 'mistake', says Reeves — The chancellor's criticism follows a report that the conflict will hit the UK harder than other big economies</div>
+    <div class="zh">财政大臣Reeves称美国对伊朗战争是"错误"——此前报告显示冲突对英国经济影响超过其他主要经济体</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag bbc">BBC</span>
+    <div class="en">Social media leaders called to Downing Street over children's safety — Top executives from firms such as Meta and YouTube will be asked what they are doing to protect children</div>
+    <div class="zh">社交媒体领导人因儿童安全问题被召至唐宁街——Meta和YouTube等公司高管将被询问如何保护儿童</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Cattle prices soar to record highs as grilling season heats up — Cattle futures contracts have jumped more than 25% over the past 12 months as ranchers face rising costs and cut the size of herds</div>
+    <div class="zh">烧烤季来临牛肉价格飙升至纪录高位——过去12个月牛肉期货合约上涨超25%，牧场主面临成本上升并缩减牛群规模</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Here are all the ways the Iran war has affected the U.S. economy so far — The Iran war is starting to show up in the U.S. economy in ways both obvious and not so much</div>
+    <div class="zh">伊朗战争迄今对美国经济的各种影响——伊朗战争开始以明显和不太明显的方式冲击美国经济</div>
+  </div>
+  <div class="intl-card">
+    <span class="src-tag cnbc">CNBC</span>
+    <div class="en">Cleveland Fed President Hammack expects interest rates to stay on hold 'for a good while' — The central bank official advocated a patient approach as officials watch incoming data for clues about where the U.S. economy is heading</div>
+    <div class="zh">克利夫兰联储主席Hammack预计利率将"在相当长时间内"保持不变——这位央行官员主张采取耐心态度，观察最新数据以了解美国经济走向</div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <p>編集長 CC &middot; 副編集長 MAKKU（外国人実習生）</p>
+</footer>
+</div>
+</body>
+</html>
