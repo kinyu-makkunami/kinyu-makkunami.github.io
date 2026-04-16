@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>プライベートクレジット危機 — 横縦分析法 深度研究レポート</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&display=swap');
 
   :root {
     --color-primary: #1a3a5c;
@@ -60,9 +60,9 @@
   }
 
   .cover h1 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 2.8em;
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: 0.1em;
     margin-bottom: 16px;
     position: relative;
@@ -71,9 +71,10 @@
   }
 
   .cover .subtitle {
+    font-family: 'Noto Serif JP', serif;
     font-size: 1.2em;
     font-weight: 300;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.15em;
     margin-bottom: 40px;
     position: relative;
     z-index: 1;
@@ -90,12 +91,31 @@
   }
 
   .cover .meta {
-    font-size: 0.95em;
-    font-weight: 300;
-    line-height: 2;
+    text-align: center;
     position: relative;
     z-index: 1;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  .hero-meta span {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95em;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    line-height: 2.2;
+    margin-bottom: 0.6em;
     opacity: 0.85;
+  }
+
+  .hero-meta span:last-child {
+    margin-bottom: 0;
   }
 
   .content {
@@ -328,11 +348,11 @@
   <div class="subtitle">イラン戦争の陰で進行する信用不安の実態</div>
   <div class="divider"></div>
   <div class="meta">
-    研究日：2026年4月16日<br>
-    外国人首席アナリスト：マック（通称：麦大酱）<br>
-    副アナリスト：Claude Code<br>
-    対象タイプ：金融テーマ（システミックリスク分析）<br>
-    分析フレームワーク：横縦分析法（数字生命カズック提唱）
+    <div class="hero-meta">
+      <span>研究日：2026年4月16日</span>
+      <span>外国人首席アナリスト：マック（通称：麦大酱）</span>
+      <span>副アナリスト：Claude Code</span>
+    </div>
   </div>
 </div>
 
