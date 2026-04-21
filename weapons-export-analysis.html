@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本が「武器を売る国」になった日 — 横縦分析法 深度研究レポート</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&display=swap');
+  :root {
+    --color-primary: #2c2c2c;
+    --color-secondary: #5a3a2a;
+    --color-accent: #4a4a6a;
+    --color-purple: #4a235a;
+    --color-text: #2c3e50;
+    --color-light-bg: #f8f9fa;
+    --color-border: #dee2e6;
+    --color-gold: #b8860b;
+    --color-danger: #922b21;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: var(--color-text); line-height: 1.85; font-size: 16px; background: #fff; }
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2c2c4a 40%, #3a3a3a 100%);
+    color: white; text-align: center; padding: 60px 40px; position: relative; overflow: hidden;
+  }
+  .cover::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%); animation: pulse 8s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
+  .cover h1 { font-family: 'Noto Serif JP', serif; font-size: 2.2em; font-weight: 700; letter-spacing: 0.08em; line-height: 1.4; margin-bottom: 16px; position: relative; z-index: 1; text-shadow: 2px 4px 8px rgba(0,0,0,0.4); }
+  .cover .subtitle { font-family: 'Noto Serif JP', serif; font-size: 1.1em; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; position: relative; z-index: 1; opacity: 0.85; }
+  .cover .divider { width: 120px; height: 2px; background: rgba(255,255,255,0.4); margin: 0 auto 40px; position: relative; z-index: 1; }
+  .cover .meta { text-align: center; position: relative; z-index: 1; }
+  .hero-meta { display: inline-flex; flex-direction: column; align-items: flex-start; text-align: left; margin: 0 auto; }
+  .hero-meta span { font-family: 'Noto Serif JP', serif; font-size: 0.9em; font-weight: 300; letter-spacing: 0.15em; line-height: 2.2; margin-bottom: 0.5em; opacity: 0.8; }
+  .hero-meta span:last-child { margin-bottom: 0; }
+  .content { max-width: 820px; margin: 0 auto; padding: 60px 40px; }
+  .toc { background: var(--color-light-bg); border-left: 4px solid var(--color-primary); padding: 30px 35px; margin: 0 0 60px 0; border-radius: 0 8px 8px 0; }
+  .toc h2 { font-size: 1.3em; color: var(--color-primary); margin-bottom: 15px; font-weight: 700; border-bottom: none; }
+  .toc ol { padding-left: 20px; } .toc li { margin-bottom: 8px; font-size: 0.95em; }
+  .toc a { color: var(--color-text); text-decoration: none; border-bottom: 1px dotted var(--color-accent); }
+  .toc a:hover { color: var(--color-accent); border-bottom-style: solid; }
+  h2 { font-family: 'Noto Serif JP', serif; font-size: 1.8em; color: var(--color-primary); margin: 70px 0 25px; padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); font-weight: 700; letter-spacing: 0.05em; }
+  h3 { font-size: 1.35em; color: var(--color-secondary); margin: 45px 0 18px; font-weight: 700; padding-left: 15px; border-left: 4px solid var(--color-secondary); }
+  h4 { font-size: 1.1em; color: var(--color-purple); margin: 30px 0 12px; font-weight: 700; }
+  p { margin-bottom: 18px; text-align: justify; }
+  blockquote { border-left: 3px solid var(--color-primary); background: #f0f2f4; padding: 18px 25px; margin: 25px 0; border-radius: 0 6px 6px 0; font-style: normal; color: #34495e; }
+  blockquote p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.92em; }
+  thead { background: var(--color-primary); color: white; } th { padding: 12px 16px; text-align: left; font-weight: 500; }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--color-border); }
+  tbody tr:nth-child(even) { background: #f8f9fa; } tbody tr:hover { background: #edf2f7; }
+  strong { font-weight: 700; color: #1a1a2e; }
+  .highlight-box { background: linear-gradient(135deg, #fef9e7, #fdf2e9); border: 1px solid #f0c27f; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .highlight-box p:last-child { margin-bottom: 0; }
+  .danger-box { background: linear-gradient(135deg, #fdedec, #fdf2f2); border: 1px solid #e6b0aa; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .danger-box p:last-child { margin-bottom: 0; }
+  .insight { background: linear-gradient(135deg, #eaecf0, #f0f2f6); border-left: 4px solid var(--color-accent); border-radius: 0 8px 8px 0; padding: 20px 25px; margin: 30px 0; font-size: 1.02em; }
+  .timeline-marker { display: inline-block; background: var(--color-primary); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .danger-marker { display: inline-block; background: var(--color-danger); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .definition { font-family: 'Noto Serif JP', serif; font-size: 1.12em; text-align: center; padding: 30px 40px; margin: 0 0 50px; color: var(--color-primary); border: 1px solid #d5dbdb; border-radius: 8px; background: #fafbfc; line-height: 2; }
+  .sources { margin-top: 80px; padding-top: 30px; border-top: 2px solid var(--color-border); }
+  .sources h2 { border-bottom: none; font-size: 1.4em; } .sources ul { list-style: none; padding: 0; }
+  .sources li { padding: 6px 0; font-size: 0.88em; color: #666; border-bottom: 1px dotted #eee; }
+  .sources a { color: var(--color-accent); text-decoration: none; } .sources a:hover { text-decoration: underline; }
+  .methodology { margin-top: 40px; padding: 20px 25px; background: var(--color-light-bg); border-radius: 8px; font-size: 0.9em; color: #777; }
+  @media (max-width: 768px) { .content { padding: 30px 20px; } .cover h1 { font-size: 1.6em; } h2 { font-size: 1.5em; } h3 { font-size: 1.2em; } table { font-size: 0.85em; } }
+  @media print { .cover { min-height: auto; padding: 40px; page-break-after: always; } .content { max-width: 100%; padding: 20px; } h2 { page-break-before: always; } table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>日本が「武器を売る国」になった日</h1>
+  <div class="subtitle">条文を変えずに9条を変えた、静かな解釈改憲</div>
+  <div class="divider"></div>
+  <div class="meta">
+    <div class="hero-meta">
+      <span>研究日：2026年4月21日</span>
+      <span>首席アナリスト：Claude &amp; Claude Code</span>
+      <span>副アナリスト：マック（通称：麦大酱）</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<nav class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#definition">一言で言えば</a></li>
+    <li><a href="#vertical">縦軸分析：武器輸出禁止60年史</a></li>
+    <li><a href="#horizontal">横軸分析：メディア報道の温度差</a></li>
+    <li><a href="#blind">報じられなかった本質</a></li>
+    <li><a href="#cross">横縦交差の洞察</a></li>
+    <li><a href="#sources">情報ソース</a></li>
+  </ol>
+</nav>
+
+<div class="definition" id="definition">
+  2026年4月21日——佐藤栄作首相が武器輸出三原則を国会で表明した日から、ちょうど59年。<br>
+  高市早苗政権はこの日、「5類型」を撤廃し殺傷兵器の輸出を原則解禁した。<br>
+  3日前にはオーストラリアとの護衛艦契約（最大2.3兆円）に署名済み。<br>
+  憲法9条の条文は一字も変わっていない。変わったのは「解釈」だけだ。
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="vertical">縦軸分析：武器輸出禁止60年史——三原則の誕生と死</h2>
+
+<h3>第一章　三原則の誕生（1967年）</h3>
+
+<p><span class="timeline-marker">1967年4月21日</span>佐藤栄作首相が衆議院決算委員会で、共産圏諸国、国連決議で禁止された国、国際紛争当事国への武器輸出を認めないことを表明した。これが「武器輸出三原則」の原点だ。</p>
+
+<p>ベトナム戦争の最中、日本製の武器が紛争地に流れることを防ぐという、戦後日本の平和主義を具現化した方針だった。法律ではなく国会答弁という形式だったが、以後の政権はこれを国是として遵守した。</p>
+
+<h3>第二章　全面禁輸の確立（1976年）</h3>
+
+<p><span class="timeline-marker">1976年</span>三木武夫首相が三原則をさらに強化。三原則対象地域以外へも武器輸出を「慎む」と表明し、<strong>事実上の全面禁輸</strong>が確立された。憲法9条の「武力による威嚇又は武力の行使は、国際紛争を解決する手段としては、永久にこれを放棄する」という理念を、通商政策に落とし込んだものだった。</p>
+
+<p>この全面禁輸は、日本の防衛産業を「国内専用」に閉じ込めた。自衛隊向けの少量生産しかできないため、調達コストは高騰し、海外からの輸入に依存する構造が固定化された。皮肉なことに、「武器を売らない」という理念が、「武器を買うしかない」という従属構造を生んだのだ。</p>
+
+<h3>第三章　安倍政権の転換点（2014年）</h3>
+
+<p><span class="timeline-marker">2014年4月</span>安倍晋三内閣は武器輸出三原則を撤廃し、「防衛装備移転三原則」に改称した。名称変更の本質は、「原則禁止」から「条件付き容認」への180度の転換だ。ただし、運用指針で輸出を救難・輸送・警戒・監視・掃海の<strong>「5類型」</strong>に限定し、殺傷能力のある兵器の輸出は引き続き制限された。</p>
+
+<p>同年7月、安倍内閣は集団的自衛権の行使を容認する閣議決定も行った。これも憲法9条の条文を変えずに「解釈」を変えたものだった。条文を変えず、閣議決定で国の根幹を変える——この手法が、2026年の今日まで継承されている。</p>
+
+<h3>第四章　段階的緩和の加速（2023-2025年）</h3>
+
+<p><span class="timeline-marker">2023年12月</span>岸田文雄内閣が運用指針を改定。ライセンス生産品の完成品輸出を解禁し、パトリオットミサイルの部品を米国に輸出する道を開いた。ただし、日本が独自に開発した殺傷兵器の輸出には踏み込まなかった。</p>
+
+<p><span class="timeline-marker">2024年3月</span>GCAP（日英伊共同開発の次期戦闘機）について、第三国への完成品輸出を閣議決定で容認。「共同開発品」という枠組みで、殺傷兵器の輸出に初めて道を開いた。</p>
+
+<p><span class="timeline-marker">2025年8月</span>オーストラリアが次期護衛艦に「もがみ型」ベースの新型FFMを選定。ドイツとの競合を制した背景には、日豪の安全保障協力の深化がある。</p>
+
+<h3>第五章　5類型撤廃——静かな「解禁の日」（2026年4月21日）</h3>
+
+<p><span class="danger-marker">2026年4月21日</span>高市早苗内閣は閣議と国家安全保障会議（NSC）で、防衛装備移転三原則の運用指針を改定。2014年以来の「5類型」制限を撤廃し、<strong>殺傷能力のある兵器を含む全ての装備品の輸出を原則解禁</strong>した。</p>
+
+<p>護衛艦、戦闘機、ミサイル、戦車——これらの輸出が、NSCの個別審査を経れば可能になる。輸出先は防衛装備品・技術移転協定の締結国17カ国に限定されるが、今後の協定拡大で対象国は広がる。</p>
+
+<p>この決定の背景には、日本維新の会の存在がある。2025年10月の自民党との連立協議で、維新は5類型撤廃を主張し、政権合意に明記された。国会での本格的な審議は行われていない。</p>
+
+<div class="danger-box">
+<p><strong>59年目の皮肉</strong>：1967年4月21日に佐藤栄作が武器輸出三原則を表明した。2026年4月21日、高市早苗がその原則の実質を解体した。59年前のちょうどこの日に。偶然かもしれない。しかし、歴史とは時にこのような対称を描く。「武器を作れるが売らない国」が「武器を作って売る国」に変わった日付が、原則が生まれた日付と同じであるという事実は、記録されるべきだ。</p>
+</div>
+
+<h3>第六章　もがみ型護衛艦——既成事実が先行した</h3>
+
+<p><span class="timeline-marker">2026年4月18日</span>——5類型撤廃のわずか3日前、小泉進次郎防衛相とオーストラリアのリチャード・マールズ副首相が、もがみ型護衛艦能力向上型（新型FFM）11隻の共同開発・建造契約に署名した。契約規模は<strong>150億〜200億豪ドル（1.7兆〜2.3兆円）</strong>、戦後日本最大の防衛輸出案件だ。最初の3隻は日本国内で建造される。</p>
+
+<p>時系列を注視すべきだ。ルールが変わる前に契約が締結されている。「ルールを変える前に、既成事実を作る」——この順序は偶然ではない。もがみ型の契約がなければ、5類型撤廃の必要性を正当化する材料が弱くなる。逆に、契約が先に存在することで、撤廃は「既に約束した契約を履行するために必要」という論理になる。</p>
+
+<table>
+<thead>
+<tr><th>年</th><th>出来事</th><th>本質</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1967</strong></td><td>武器輸出三原則の表明</td><td>原則禁止の誕生</td></tr>
+<tr><td><strong>1976</strong></td><td>三木内閣の全面禁輸</td><td>禁止の強化</td></tr>
+<tr><td><strong>2014</strong></td><td>防衛装備移転三原則（5類型限定）</td><td>条件付き容認への転換</td></tr>
+<tr><td><strong>2023</strong></td><td>ライセンス品の完成品輸出解禁</td><td>部品→完成品への拡大</td></tr>
+<tr><td><strong>2024</strong></td><td>GCAP第三国移転の閣議決定</td><td>共同開発品の殺傷兵器解禁</td></tr>
+<tr><td><strong>2026.4.18</strong></td><td>もがみ型護衛艦11隻の豪契約</td><td>既成事実の創出</td></tr>
+<tr><td><strong>2026.4.21</strong></td><td>5類型撤廃＝殺傷兵器の全面解禁</td><td>原則禁止の消滅</td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="horizontal">横軸分析：メディア報道の温度差</h2>
+
+<h3>各社の見出しが語ること</h3>
+
+<table>
+<thead>
+<tr><th>メディア</th><th>見出し・論調</th><th>批判度</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>東京新聞</strong></td><td>「日本は殺傷武器を売る国になる」「歯止めなき新ルール」</td><td>★★★★★</td></tr>
+<tr><td><strong>毎日新聞</strong></td><td>「護衛艦やミサイルの輸出可能に」</td><td>★★★☆☆</td></tr>
+<tr><td><strong>朝日新聞</strong></td><td>歴史的転換として批判的報道</td><td>★★★★☆</td></tr>
+<tr><td><strong>日本経済新聞</strong></td><td>「事実上の全面解禁へ」「防衛産業拡大への転換点」</td><td>★★☆☆☆</td></tr>
+<tr><td><strong>NHK</strong></td><td>「安全保障政策の転換」</td><td>★☆☆☆☆</td></tr>
+<tr><td><strong>読売新聞</strong></td><td>安全保障上の必要性を強調</td><td>★☆☆☆☆</td></tr>
+<tr><td><strong>CNN</strong></td><td>"biggest export rule change in decades"</td><td>★★★☆☆</td></tr>
+<tr><td><strong>Al Jazeera</strong></td><td>"major shift of pacifist policy"</td><td>★★★★☆</td></tr>
+<tr><td><strong>NPR</strong></td><td>"Japan approves scrapping a ban on lethal weapons exports"</td><td>★★★☆☆</td></tr>
+<tr><td><strong>日弁連</strong></td><td>3月18日に反対声明「殺傷兵器の輸出拡大に反対」</td><td>★★★★★</td></tr>
+</tbody>
+</table>
+
+<h3>東京新聞 — 最も直截的な批判</h3>
+
+<blockquote>
+<p>「日本は『殺傷武器を売る国』になる　週明け正式決定へ、政策大転換なのにブレーキ外れた与党でスピード決着」</p>
+</blockquote>
+
+<p>東京新聞は国会での本格審議を経ずに与党合意で決着した過程を痛烈に批判。「歯止めなき新ルール」と断じ、NSCの個別審査が実質的な歯止めになるのか疑問を呈した。「殺傷」という語を見出しに使うことで、事態の本質を読者に突きつけた。</p>
+
+<h3>日本経済新聞 — 産業政策として肯定的</h3>
+
+<blockquote>
+<p>「防衛装備品の輸出を全面解禁へ——国内産業拡大へ転換点」</p>
+</blockquote>
+
+<p>日経は防衛産業の競争力強化という経済的側面を前面に出す。「殺傷兵器」ではなく「防衛装備品」という語を一貫して使用。三菱重工、川崎重工など防衛プライム企業への恩恵を具体的に論じ、もがみ型護衛艦の輸出を「転換点」と積極的に評価した。</p>
+
+<h3>NHK — 「政策の転換」という中性的フレーミング</h3>
+
+<p>NHKは「安全保障政策の転換」という中性的な見出しで事実を報道。「殺傷兵器」「武器」という語を避け、「防衛装備品」を使用。政府発表の枠内にとどまり、批判的分析は行わなかった。</p>
+
+<h3>海外メディア — 日本メディアより率直</h3>
+
+<p>注目すべきは海外メディアの報道姿勢だ。CNNは「数十年で最大の輸出ルール変更」、Al Jazeeraは「平和主義政策の大転換」、NPRは「殺傷兵器輸出禁止の撤廃を承認」と報じた。いずれも「武器」「殺傷」「平和主義」というキーワードを見出しに使用し、事態の歴史的重大性を率直に伝えている。日本の読売・NHKがこれらの語を避けているのとは対照的だ。</p>
+
+<h3>日弁連 — 1ヶ月前の警告</h3>
+
+<blockquote>
+<p>日本弁護士連合会は2026年3月18日、「防衛装備移転の『5類型』による制限の撤廃等による殺傷兵器の輸出の拡大に反対する会長声明」を発表。国会での十分な審議なく閣議決定で進められる手続きへの懸念を表明した。</p>
+</blockquote>
+
+<p>この声明は主要メディアでの扱いが極めて小さかった。法律の専門家集団が1ヶ月前に発した警告が、事実上黙殺されたまま閣議決定に至ったことは、メディアの監視機能の不全を示唆している。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="blind">報じられなかった本質</h2>
+
+<h3>本質①：条文を変えずに9条を変えた「解釈改憲」の系譜</h3>
+
+<p>今回の5類型撤廃は、日本国憲法第9条に一切の修正を加えていない。閣議決定と運用指針の改定——それだけで、戦後59年間にわたって維持されてきた「武器を売らない国」のアイデンティティが書き換えられた。</p>
+
+<p>この手法には先例がある：</p>
+
+<table>
+<thead>
+<tr><th>年</th><th>閣議決定</th><th>変えたこと</th><th>変えなかったもの</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>2014年7月</strong></td><td>集団的自衛権の行使容認</td><td>「自衛のための必要最小限度」の解釈</td><td>憲法9条の条文</td></tr>
+<tr><td><strong>2014年4月</strong></td><td>防衛装備移転三原則</td><td>「原則禁止」→「条件付き容認」</td><td>憲法9条の条文</td></tr>
+<tr><td><strong>2022年12月</strong></td><td>反撃能力の保有</td><td>「専守防衛」の範囲</td><td>憲法9条の条文</td></tr>
+<tr><td><strong>2026年4月</strong></td><td>5類型撤廃</td><td>殺傷兵器の輸出禁止</td><td>憲法9条の条文</td></tr>
+</tbody>
+</table>
+
+<p>4回の閣議決定で、9条は全く別の意味を持つ条文になった。条文は変わっていないが、条文が許容する行為の範囲は劇的に拡大した。これを「解釈改憲」と呼ぶかどうかは立場によるが、<strong>条文の意味が変わったという事実</strong>は否定しようがない。</p>
+
+<div class="highlight-box">
+<p><strong>「静かな改憲」のメカニズム</strong>：憲法改正には国会の2/3の発議と国民投票が必要だ。しかし閣議決定なら、与党の合意だけで足りる。国会審議も国民投票も不要。5類型撤廃は、維新との連立合意→自民党部会了承→閣議決定というプロセスを経たが、国会の本格審議は行われていない。「武器を売る国になる」という歴史的決断が、国民的議論なしに成立した。</p>
+</div>
+
+<h3>本質②：「ルール変更前の既成事実」という手法</h3>
+
+<p>もがみ型護衛艦の豪契約（4月18日）→ 5類型撤廃（4月21日）。この3日間のタイムラグは、政策決定の構造を物語る。</p>
+
+<p>契約が先に存在することで、ルール変更は「既存の約束を履行するために必要」という受動的な論理で正当化できる。もし順序が逆——つまりルール変更が先、契約が後——であれば、「ルールを変えてまで武器を売りたいのか」という批判を正面から受けることになる。</p>
+
+<p>このパターンは2015年の安保法制（集団的自衛権の法制化）でも見られた。日米ガイドライン改定（2015年4月）が先行し、安保法制（同年9月）がそれを追認する形で成立した。既成事実が法的整備に先行する——これは安全保障政策における日本政府の定型的な手法だ。</p>
+
+<h3>本質③：17カ国への限定は「歯止め」か</h3>
+
+<p>政府は「輸出先は防衛装備品・技術移転協定の締結国17カ国に限定」と説明する。しかし、協定は政府間の合意で締結できる。国会の承認は条約としての形式を取らない限り不要だ。つまり、「17カ国限定」は固定された枠ではなく、政府の判断で拡大可能な枠だ。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="cross">横縦交差の洞察</h2>
+
+<h3>縦軸と横軸が交わる場所</h3>
+
+<p>縦軸（60年の歴史）は、段階的かつ不可逆的な規制緩和の軌跡を描く。1967年の三原則→1976年の全面禁輸→2014年の5類型限定→2026年の全面解禁。一度開いた扉は閉じない。</p>
+
+<p>横軸（メディア比較）は、この不可逆的転換に対するメディアの反応の非対称性を映し出す。海外メディアが「pacifist policyの終焉」と率直に報じる一方、国内メディアの多くは「防衛装備品移転」という官庁用語を使い、事態の本質を曖昧にしている。</p>
+
+<p>両軸の交差点に浮かぶのは、<strong>「静かな改憲」という統治手法の完成形</strong>だ。2014年の集団的自衛権、2022年の反撃能力保有、2026年の殺傷兵器輸出解禁——いずれも憲法9条を一字も変えずに、閣議決定だけで実現した。そしてメディアの報道は毎回、事後的な事実報道にとどまり、プロセスへの批判は限定的だった。</p>
+
+<div class="insight">
+<h4>投資家・市民が持つべき視点</h4>
+
+<p><strong>1. 防衛関連株の構造的変化</strong><br>
+三菱重工（もがみ型建造主体）、川崎重工、IHI、三菱電機——これらの企業は「輸出できない防衛企業」から「輸出できる防衛企業」に変わった。株価への短期的影響よりも、10年単位の事業構造の転換として評価すべきだ。</p>
+
+<p><strong>2. もがみ型契約の為替影響</strong><br>
+1.7〜2.3兆円の豪ドル建て収入は、日本にとって珍しい「防衛関連の外貨獲得」だ。従来の防衛費は円流出一辺倒だったが、武器輸出が本格化すれば為替需給に新たな変数が加わる。ただし、FMSによる対米輸入がはるかに大きいため、ネットでは依然として円売り圧力が優勢。</p>
+
+<p><strong>3. 地政学リスクの「当事者化」</strong><br>
+武器を売るということは、その武器が使われる紛争の利害関係者になるということだ。これまで日本は紛争に対して「第三者」としての距離を保てたが、武器輸出国としてその距離は縮まる。これは投資判断においても、日本のカントリーリスクの再評価を要する変化だ。</p>
+
+<p><strong>4. 「報じられ方」を監視する習慣</strong><br>
+「防衛装備品」か「殺傷兵器」か——どちらの語を使うかで、報道の立ち位置は透けて見える。メディアが選ぶ言葉は、メディア自身がどの「側」にいるかを示す指標だ。ニュースの内容だけでなく、ニュースの「語り方」を読む力が、今後ますます重要になる。</p>
+</div>
+
+<h3>結論</h3>
+
+<p>2026年4月21日は、日本が「武器を作れるが売らない国」から「武器を作って売る国」に変わった日として記録されるだろう。</p>
+
+<p>憲法9条は一字も変わっていない。変わったのは9条の「意味」だ。条文を変えずに国の形を変える——これを「静かな解釈改憲」と呼ぶ。その是非は立場によって分かれる。安全保障上の合理性を認める見方もあれば、戦後の平和主義の放棄と見る立場もある。</p>
+
+<p>しかし、いずれの立場に立つにせよ、これだけの歴史的転換が国会審議なしに閣議決定で実現し、多くのメディアが「防衛装備品の移転ルール改定」という官庁用語で報じたという事実は、問われるべきだ。</p>
+
+<p>報道の言葉に流されず、何が変わったのかを自分の目で見る。それが、この静かな改憲の時代を生きる者に求められる最低限のリテラシーだ。</p>
+
+<!-- ═══════════════════════════════ -->
+<div class="sources" id="sources">
+  <h2>情報ソース</h2>
+  <ul>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUA175HO0X10C26A4000000/">日本経済新聞「防衛装備品の輸出拡大へ、5類型撤廃を決定」（2026/4/21）</a></li>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUA1403R0U6A410C2000000/">日本経済新聞「自民党、装備品輸出『5類型』撤廃案を了承」</a></li>
+    <li><a href="https://www.tokyo-np.co.jp/article/482264">東京新聞「日本は殺傷武器を売る国になる」（2026/4/20）</a></li>
+    <li><a href="https://www.tokyo-np.co.jp/article/483186">東京新聞「殺傷武器の輸出制限を撤廃…歯止めなき新ルール」</a></li>
+    <li><a href="https://www.nichibenren.or.jp/document/statement/year/2026/260318.html">日弁連「殺傷兵器の輸出拡大に反対する会長声明」（2026/3/18）</a></li>
+    <li><a href="https://www.cnn.com/2026/04/20/asia/japan-defense-export-arms-sales-intl-hnk">CNN「Japan opens door to global arms market」（2026/4/20）</a></li>
+    <li><a href="https://www.aljazeera.com/news/2026/4/21/japan-lifts-ban-on-lethal-weapons-exports-in-major-shift-of-pacifist-policy">Al Jazeera「Japan lifts ban on lethal weapons exports」</a></li>
+    <li><a href="https://www.japantimes.co.jp/news/2026/04/21/japan/politics/japan-lethal-weapons-export-rules-eased/">Japan Times「Japan scraps limits on lethal arms exports」</a></li>
+    <li><a href="https://www.bloomberg.com/jp/news/articles/2026-04-17/TDMMFBT96OTO00">Bloomberg「オーストラリア、日本から護衛艦購入契約へ」</a></li>
+    <li>衆議院決算委員会議事録（1967年4月21日）佐藤栄作首相答弁</li>
+    <li><a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-international-arms-transfers-2025">SIPRI Fact Sheet — International Arms Transfers 2025</a></li>
+    <li><a href="https://www.mofa.go.jp/mofaj/fp/nsp/page1w_000097.html">外務省「防衛装備移転三原則」</a></li>
+  </ul>
+
+  <div class="methodology">
+    <p>本レポートは「横縦分析法」に基づき作成。縦軸では1967年の三原則表明から2026年の5類型撤廃までの60年史を追い、横軸では国内外メディアの報道姿勢を比較分析した。引用は全て公開情報に基づく。</p>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:0.78em;color:#b0b8c4;margin-top:60px;letter-spacing:0.05em;line-height:1.8;">
+  分析フレームワーク：横縦分析法（数字生命カズック提唱）
+</p>
+
+</div>
+</body>
+</html>
