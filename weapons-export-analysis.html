@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>日本が「武器を売る国」になった日 — 横縦分析法 深度研究レポート</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&display=swap');
   :root {
     --color-primary: #2c2c2c;
     --color-secondary: #5a3a2a;
@@ -18,7 +18,11 @@
     --color-danger: #922b21;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Noto Sans JP', sans-serif; color: var(--color-text); line-height: 1.85; font-size: 16px; background: #fff; }
+  body {
+    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', serif;
+    color: var(--color-text); line-height: 1.8; font-size: 16px; background: #fff;
+    letter-spacing: 0.03em;
+  }
   .cover {
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
     background: linear-gradient(135deg, #1a1a2e 0%, #2c2c4a 40%, #3a3a3a 100%);
@@ -43,13 +47,22 @@
   h3 { font-size: 1.35em; color: var(--color-secondary); margin: 45px 0 18px; font-weight: 700; padding-left: 15px; border-left: 4px solid var(--color-secondary); }
   h4 { font-size: 1.1em; color: var(--color-purple); margin: 30px 0 12px; font-weight: 700; }
   p { margin-bottom: 18px; text-align: justify; }
-  blockquote { border-left: 3px solid var(--color-primary); background: #f0f2f4; padding: 18px 25px; margin: 25px 0; border-radius: 0 6px 6px 0; font-style: normal; color: #34495e; }
+  blockquote {
+    border-left: 3px solid var(--color-primary); background: #f0f2f4; padding: 18px 25px; margin: 25px 0; border-radius: 0 6px 6px 0; font-style: normal; color: #34495e;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', '游ゴシック', sans-serif;
+    line-height: 1.85; letter-spacing: 0.05em;
+  }
   blockquote p:last-child { margin-bottom: 0; }
   table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.92em; }
   thead { background: var(--color-primary); color: white; } th { padding: 12px 16px; text-align: left; font-weight: 500; }
   td { padding: 10px 16px; border-bottom: 1px solid var(--color-border); }
   tbody tr:nth-child(even) { background: #f8f9fa; } tbody tr:hover { background: #edf2f7; }
   strong { font-weight: 700; color: #1a1a2e; }
+  .numeric { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-feature-settings: 'tnum'; }
+  .highlight-box, .danger-box, .insight {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', '游ゴシック', sans-serif;
+    line-height: 1.85; letter-spacing: 0.05em;
+  }
   .highlight-box { background: linear-gradient(135deg, #fef9e7, #fdf2e9); border: 1px solid #f0c27f; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
   .highlight-box p:last-child { margin-bottom: 0; }
   .danger-box { background: linear-gradient(135deg, #fdedec, #fdf2f2); border: 1px solid #e6b0aa; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
