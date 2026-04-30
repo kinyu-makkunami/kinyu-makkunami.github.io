@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「秩序」の名の下に——高市政権の外国人政策を解剖する — 横縦分析法 深度研究レポート</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&display=swap');
+  :root {
+    --color-primary: #2c2c2c;
+    --color-secondary: #5a3a2a;
+    --color-accent: #4a4a6a;
+    --color-purple: #4a235a;
+    --color-text: #2c3e50;
+    --color-light-bg: #f8f9fa;
+    --color-border: #dee2e6;
+    --color-gold: #b8860b;
+    --color-danger: #922b21;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    color: var(--color-text); line-height: 1.8; font-size: 16px; background: #fff;
+    letter-spacing: 0.03em;
+  }
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: #ffffff;
+    color: #1a1a1a; text-align: center; padding: 80px 40px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: #1a3a6a;
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 80%; height: 1px; background: #e0e0e0;
+  }
+  .cover-label {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.7em; font-weight: 500;
+    letter-spacing: 0.25em; color: #1a3a6a; text-transform: uppercase;
+    margin-bottom: 32px; position: relative; z-index: 1;
+    border: 1px solid #1a3a6a; display: inline-block; padding: 4px 16px;
+  }
+  .cover h1 {
+    font-family: 'Noto Serif JP', serif; font-size: 2em; font-weight: 700;
+    letter-spacing: 0.08em; line-height: 1.7; margin-bottom: 18px;
+    position: relative; z-index: 1; color: #1a1a1a;
+  }
+  .cover .subtitle {
+    font-family: 'Noto Serif JP', serif; font-size: 0.92em; font-weight: 400;
+    letter-spacing: 0.12em; margin-bottom: 52px; position: relative; z-index: 1;
+    color: #1a3a5c; line-height: 1.8;
+  }
+  .cover .divider {
+    width: 40px; height: 1px; background: #ccc;
+    margin: 0 auto 40px; position: relative; z-index: 1;
+  }
+  .cover .meta { text-align: center; position: relative; z-index: 1; }
+  .hero-meta {
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    text-align: left; margin: 0 auto;
+  }
+  .hero-meta span {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.8em; font-weight: 400;
+    letter-spacing: 0.08em; line-height: 2.2; margin-bottom: 0.2em;
+    color: #999;
+  }
+  .content { max-width: 820px; margin: 0 auto; padding: 60px 40px; }
+  .toc { background: var(--color-light-bg); border-left: 4px solid var(--color-primary); padding: 30px 35px; margin: 0 0 60px 0; border-radius: 0 8px 8px 0; }
+  .toc h2 { font-size: 1.3em; color: var(--color-primary); margin-bottom: 15px; font-weight: 700; border-bottom: none; }
+  .toc ol { padding-left: 20px; } .toc li { margin-bottom: 8px; font-size: 0.95em; }
+  .toc a { color: var(--color-text); text-decoration: none; border-bottom: 1px dotted var(--color-accent); }
+  .toc a:hover { color: var(--color-accent); border-bottom-style: solid; }
+  h2 { font-family: 'Noto Serif JP', serif; font-size: 1.8em; color: var(--color-primary); margin: 70px 0 25px; padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); font-weight: 700; letter-spacing: 0.05em; }
+  h3 { font-size: 1.35em; color: var(--color-secondary); margin: 45px 0 18px; font-weight: 700; padding-left: 15px; border-left: 4px solid var(--color-secondary); }
+  h4 { font-size: 1.1em; color: var(--color-purple); margin: 30px 0 12px; font-weight: 700; }
+  p { margin-bottom: 18px; text-align: justify; }
+  blockquote {
+    border-left: 3px solid var(--color-primary); background: #f0f2f4; padding: 18px 25px; margin: 25px 0; border-radius: 0 6px 6px 0; font-style: normal; color: #34495e;
+    font-family: 'Noto Sans JP', sans-serif; line-height: 1.85; letter-spacing: 0.05em;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.92em; }
+  thead { background: var(--color-primary); color: white; } th { padding: 12px 16px; text-align: left; font-weight: 500; }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--color-border); }
+  tbody tr:nth-child(even) { background: #f8f9fa; } tbody tr:hover { background: #edf2f7; }
+  strong { font-weight: 700; color: #1a1a2e; }
+  .numeric { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-feature-settings: 'tnum'; }
+  .highlight-box, .danger-box, .insight {
+    font-family: 'Noto Sans JP', sans-serif; line-height: 1.85; letter-spacing: 0.05em;
+  }
+  .highlight-box { background: linear-gradient(135deg, #fef9e7, #fdf2e9); border: 1px solid #f0c27f; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .highlight-box p:last-child { margin-bottom: 0; }
+  .danger-box { background: linear-gradient(135deg, #fdedec, #fdf2f2); border: 1px solid #e6b0aa; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .danger-box p:last-child { margin-bottom: 0; }
+  .insight { background: linear-gradient(135deg, #eaecf0, #f0f2f6); border-left: 4px solid var(--color-accent); border-radius: 0 8px 8px 0; padding: 20px 25px; margin: 30px 0; font-size: 1.02em; }
+  .timeline-marker { display: inline-block; background: var(--color-primary); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .danger-marker { display: inline-block; background: var(--color-danger); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .definition { font-family: 'Noto Serif JP', serif; font-size: 1.12em; text-align: center; padding: 30px 40px; margin: 0 0 50px; color: var(--color-primary); border: 1px solid #d5dbdb; border-radius: 8px; background: #fafbfc; line-height: 2; }
+  .sources { margin-top: 80px; padding-top: 30px; border-top: 2px solid var(--color-border); }
+  .sources h2 { border-bottom: none; font-size: 1.4em; } .sources ul { list-style: none; padding: 0; }
+  .sources li { padding: 6px 0; font-size: 0.88em; color: #666; border-bottom: 1px dotted #eee; }
+  .sources a { color: var(--color-accent); text-decoration: none; } .sources a:hover { text-decoration: underline; }
+  .methodology { margin-top: 40px; padding: 20px 25px; background: var(--color-light-bg); border-radius: 8px; font-size: 0.9em; color: #777; }
+  @media (max-width: 768px) { .content { padding: 30px 20px; } .cover h1 { font-size: 1.6em; } h2 { font-size: 1.5em; } h3 { font-size: 1.2em; } table { font-size: 0.85em; } }
+  @media print { .cover { min-height: auto; padding: 40px; page-break-after: always; } .content { max-width: 100%; padding: 20px; } h2 { page-break-before: always; } table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">横縦分析法 深度研究レポート</div>
+  <h1>「秩序」の名の下に</h1>
+  <div class="subtitle">高市政権の外国人政策を解剖する<br>——9つの施策、7カ国比較、そして語られなかった数字</div>
+  <div class="divider"></div>
+  <div class="meta">
+    <div class="hero-meta">
+      <span>研究日：2026年4月30日</span>
+      <span>首席アナリスト：Claude &amp; Claude Code</span>
+      <span>副アナリスト：マック（通称：麦大酱）</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<nav class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#summary">一言で言えば</a></li>
+    <li><a href="#what-happened">4月29日、何が語られたのか</a></li>
+    <li><a href="#vertical">縦軸分析：「単一民族」から「秩序ある共生」への70年</a></li>
+    <li><a href="#horizontal">横軸分析：9つの施策の国際比較</a></li>
+    <li><a href="#cross">横縦交差の洞察：声明の修辞戦略と構造的矛盾</a></li>
+    <li><a href="#scenarios">三つのシナリオ</a></li>
+    <li><a href="#sources">情報ソース</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════════ -->
+<div class="definition" id="summary">
+  2026年4月29日・昭和の日——高市早苗首相が「外国人の受入れ・秩序ある共生のための総合的対応策」の進捗を公表。<br>
+  9つの施策のうち7つは管理強化、支援施策は1つだけ——しかもまだ「検討中」。<br>
+  永住権の税金不払いによる取消は<strong>世界初</strong>、帰化の居住要件10年は先進国最厳格水準、<br>
+  経営管理ビザ申請96%減は世界に前例がない。<br>
+  「秩序ある共生」の実態は「秩序＞共生」だった。
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="what-happened">4月29日、何が語られたのか</h2>
+
+<p>高市首相の声明は、小野田紀美・外国人との秩序ある共生社会推進担当大臣から進捗報告を受けたという形式で公表された。9つの施策が列挙されている。</p>
+
+<table>
+<thead>
+<tr><th>#</th><th>施策</th><th>性質</th><th>段階</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>電子渡航認証制度（JESTA）法案提出</td><td>管理</td><td>法案提出済</td></tr>
+<tr><td>2</td><td>不法残留者 前年比6,375人減</td><td>管理</td><td>実行中</td></tr>
+<tr><td>3</td><td>経営・管理ビザ審査厳格化（申請96%減）</td><td>管理</td><td>施行済</td></tr>
+<tr><td>4</td><td>永住者の税金不払いによる資格取消</td><td>管理</td><td>令和9年4月施行</td></tr>
+<tr><td>5</td><td>帰化の居住要件を10年に引上げ</td><td>管理</td><td>施行済</td></tr>
+<tr><td>6</td><td>日本語・制度学習プログラム創設</td><td><strong>支援</strong></td><td><strong>検討開始</strong></td></tr>
+<tr><td>7</td><td>訪日外国人の医療費不払い対策</td><td>管理</td><td>施行済</td></tr>
+<tr><td>8</td><td>不動産所有者の国籍把握開始</td><td>管理</td><td>実行中</td></tr>
+<tr><td>9</td><td>土地取得規制の有識者会議</td><td>管理</td><td>議論中</td></tr>
+</tbody>
+</table>
+
+<div class="danger-box">
+<h4>管理7：支援1——この速度差が全てを語る</h4>
+<p>管理強化施策はすべて「施行済み」「実行中」「法案提出済み」。唯一の支援施策——日本語学習プログラム——だけが「検討開始」。タイトルに「共生」を掲げながら、共生に向けた実質的な施策はゼロに等しい。</p>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="vertical">縦軸分析：「単一民族」から「秩序ある共生」への70年</h2>
+
+<h3>決して「単一」ではなかった国の自画像</h3>
+
+<p>日本の外国人政策を理解するには、「単一民族国家」という自己イメージの歴史を知る必要がある。スタンフォード大学の研究によれば、「民族的同質性の神話」は二戦後に人為的に構築されたものであり、古くからの伝統ではない。2005年、麻生太郎外相（当時）は「一つの民族、一つの文明、一つの言語、一つの文化」と公言していた。</p>
+
+<p>この自画像が、外国人政策の「起点」を決定づけてきた。外国人は「外」の存在であり、「対応」すべき対象。政策文書が「移民政策」ではなく「総合的<strong>対応策</strong>」と名づけられているのは偶然ではない。</p>
+
+<h3>70年間の政策変遷</h3>
+
+<table>
+<thead>
+<tr><th>年</th><th>出来事</th><th>本質</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="timeline-marker">1951</span></td><td>出入国管理令公布</td><td>管理の骨格（16類の在留資格）</td></tr>
+<tr><td><span class="timeline-marker">1989</span></td><td>入管法全面改正・「定住者」新設</td><td>バブル期の労働力不足→日系人で穴埋め</td></tr>
+<tr><td><span class="timeline-marker">1993</span></td><td>技能実習制度創設</td><td>「国際貢献」の名の廉価労働力パイプライン</td></tr>
+<tr><td><span class="timeline-marker">2015</span></td><td>経営管理ビザ改称（外国資本要件撤廃）</td><td>門戸拡大→ペーパーカンパニー温床に</td></tr>
+<tr><td><span class="timeline-marker">2018</span></td><td>特定技能ビザ創設（安倍政権）</td><td>「移民政策ではない」と言いながら移民受入れ</td></tr>
+<tr><td><span class="timeline-marker">2019</span></td><td>初代「総合的対応策」決定</td><td>「対応策」——移民政策と呼ばない政治的選択</td></tr>
+<tr><td><span class="timeline-marker">2024.6</span></td><td>改正入管法成立（永住取消条項含む）</td><td>永住権を「付与された特権」から「取消可能な許可」へ</td></tr>
+<tr><td><span class="timeline-marker">2025.7</span></td><td>参政党14議席獲得・「日本人ファースト」</td><td>自民党の右傾化を加速させた外部圧力</td></tr>
+<tr><td><span class="timeline-marker">2025.10</span></td><td>高市早苗就任・小野田紀美担当大臣に</td><td>「秩序ある共生」体制の本格始動</td></tr>
+<tr><td><span class="timeline-marker">2025.10</span></td><td>経営管理ビザ資本金6倍引上げ施行</td><td>96%の断崖</td></tr>
+<tr><td><span class="timeline-marker">2026.1</span></td><td>新「総合的対応策」決定</td><td>「外国人材」→「外国人」、「共生」→「秩序ある共生」</td></tr>
+<tr><td><span class="timeline-marker">2026.4</span></td><td>帰化居住要件10年施行</td><td>行政命令で国籍法の実質改正</td></tr>
+</tbody>
+</table>
+
+<h3>命名の政治学——「秩序ある共生」とは何か</h3>
+
+<p>2006年以来、日本の外国人融合政策のキーワードは<strong>「多文化共生」</strong>だった。総務省が定義した「国籍や民族が異なる人々が、互いの文化的違いを認め合い、地域社会の構成員として共に生きていくこと」という概念。立憲民主党は今もこの用語を使い続けている。</p>
+
+<p>石破政権が導入し、高市政権が全面化した<strong>「秩序ある共生」</strong>は、「共生」の前に「秩序」という前提条件を付け加えた。共生は無条件の権利ではなく、国家が定めたルールに従うことが条件——この3文字の追加が、政策の重心を根本的に変えた。</p>
+
+<div class="insight">
+<p>ある学術分析は、「秩序ある共生」を<strong>「外国人を必要としているが、完全には信頼していない国の統治形態」</strong>と評した。Nippon.comの評論はより端的に述べている：「移民計画なくして、真の『秩序ある共生』はありえない」。</p>
+</div>
+
+<h3>小野田紀美——政策の「顔」が持つ二重性</h3>
+
+<p>小野田紀美大臣は1982年にシカゴで生まれた。父はアメリカ人、母は日本人。1歳で岡山に帰国、父は失踪、母子家庭で育った。幼少期に「外国人は帰れ」と苛められた経験を持つ。</p>
+
+<p>この経歴が、外国人政策の強硬路線を推進する人物としての「合法性」を付与している。混血であり、排外的いじめの被害者である人物が「不法外国人ゼロ容認」を掲げるとき、「排外主義」という批判は投げにくくなる。</p>
+
+<p>だが彼女自身も保守派の反動に晒されている。SNSでは「移民推進派」だという捏造情報が拡散された。日本の外国人政策をめぐる政治空間が、どちら側に立っても攻撃される戦場であることの証左だ。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="horizontal">横軸分析：9つの施策の国際比較</h2>
+
+<h3>JESTA——G7最後の提出者</h3>
+
+<p>JESTAは電子渡航認証制度——免許国旅客の入国前審査をオンラインで行う仕組みだ。声明では筆頭に掲げられ、あたかも先進的な取り組みかのように見える。</p>
+
+<table>
+<thead>
+<tr><th>制度</th><th>開始年</th><th>費用</th><th>対象国数</th></tr>
+</thead>
+<tbody>
+<tr><td>🇺🇸 ESTA</td><td>2009年</td><td>$40</td><td>42カ国</td></tr>
+<tr><td>🇨🇦 eTA</td><td>2016年</td><td>$5</td><td>免除国+13</td></tr>
+<tr><td>🇦🇺 ETA</td><td>2008年</td><td>$13</td><td>特定国</td></tr>
+<tr><td>🇬🇧 ETA</td><td>2023年</td><td>£20</td><td>85カ国</td></tr>
+<tr><td>🇪🇺 ETIAS</td><td>2026年Q4</td><td>€20</td><td>59カ国</td></tr>
+<tr><td><strong>🇯🇵 JESTA</strong></td><td><strong>2028-29年</strong></td><td><strong>¥3,000</strong></td><td><strong>74カ国</strong></td></tr>
+</tbody>
+</table>
+
+<p>米国ESTAから<strong>20年遅れ</strong>。追いつく作業を先進的取り組みとして提示する——修辞の技術だ。</p>
+
+<h3>不法残留者6,375人減——分母のない分子</h3>
+
+<p>この数字は三つの文脈を欠いている。</p>
+
+<div class="highlight-box">
+<h4>文脈①：基数</h4>
+<p>2026年1月1日時点の不法残留者総数は<strong>約68,488人</strong>。6,375人は約9.3%に過ぎない。声明は分母を示さない。</p>
+<h4>文脈②：国際比較</h4>
+<table>
+<thead><tr><th>国</th><th>不法残留/非正規滞在者数</th><th>対人口比</th></tr></thead>
+<tbody>
+<tr><td>🇺🇸 米国</td><td>約1,400万人</td><td>4.2%</td></tr>
+<tr><td>🇰🇷 韓国</td><td>約39.2万人</td><td>0.76%</td></tr>
+<tr><td><strong>🇯🇵 日本</strong></td><td><strong>約6.8万人</strong></td><td><strong>0.055%</strong></td></tr>
+</tbody>
+</table>
+<p>日本の不法残留者問題は先進国で<strong>最も軽微</strong>。1993年のピーク約30万人から77%減少——30年間の構造的トレンドだ。</p>
+<h4>文脈③：減少の理由</h4>
+<p>能動的摘発か、ビザ期限切れの自然出国か、自主帰国プログラムの成果か。韓国はこれらを区別して公表している。日本の声明は全てを「ゼロプランの推進」に帰結させる。</p>
+</div>
+
+<h3>経営・管理ビザ「96%減」——最も危険な数字</h3>
+
+<p>2025年10月の改革で、資本金要件が500万円から3,000万円（6倍）に引き上げられ、従業員雇用が「または」から「かつ」に変わり、日本語要件・学歴要件・専門家による事業計画評価が追加された。</p>
+
+<table>
+<thead>
+<tr><th>項目</th><th>改正前</th><th>改正後</th></tr>
+</thead>
+<tbody>
+<tr><td>資本金</td><td>500万円以上 <strong>または</strong> 2人雇用</td><td>3,000万円以上 <strong>かつ</strong> 1人雇用</td></tr>
+<tr><td>事務所</td><td>自宅兼用可</td><td>原則独立事務所</td></tr>
+<tr><td>事業計画書</td><td>自己提出</td><td>公認会計士等の評価必須</td></tr>
+<tr><td>日本語</td><td>不問</td><td>申請者または従業員に日本語能力</td></tr>
+<tr><td>学歴/経験</td><td>不問</td><td>経営3年以上 or 経営系修士</td></tr>
+</tbody>
+</table>
+
+<p>東京商工リサーチが299社を対象に行った調査（2026年3-4月）：<strong>45.2%が影響あり</strong>、<strong>5.3%が廃業検討</strong>、情報通信業では<strong>16.6%が廃業検討</strong>。</p>
+
+<div class="danger-box">
+<h4>二つの読み方</h4>
+<p><strong>政府の読み方</strong>：96%は不正なペーパーカンパニーだった。排除は制度の正常化。</p>
+<p><strong>もう一つの読み方</strong>：800万円でラーメン店を開きたいベトナム人も、1,200万円でIT外注を始めたいインド人も、一緒に排除された。弁護士・杉田昌平氏は警告する——「厳しくし過ぎて、日本での創業や投資が減っては<strong>本末転倒</strong>」。</p>
+<p>英国のInnovator Founderビザは約50%減、カナダのSUVは廃止後に即座に新計画を導入。日本だけが<strong>「代替なき排除」</strong>。96%という断崖は世界に前例がない。</p>
+</div>
+
+<h3>永住権の税金不払いによる取消——世界初</h3>
+
+<p>2024年6月の改正入管法で新設された取消事由。2027年4月施行。主要先進国の永住権取消条件を全て調査した結果、<strong>「税金不払い」を独立した取消事由とした国は日本が世界で初めて</strong>であることを確認した。</p>
+
+<table>
+<thead>
+<tr><th>国</th><th>永住権取消条件</th><th>税金不払いで取消</th></tr>
+</thead>
+<tbody>
+<tr><td>🇺🇸 米国（グリーンカード）</td><td>犯罪・詐欺・居住放棄</td><td>税務<strong>詐欺</strong>のみ（刑事立件が必要）</td></tr>
+<tr><td>🇨🇦 カナダ（PR）</td><td>犯罪・5年中730日の居住義務不履行</td><td>なし</td></tr>
+<tr><td>🇬🇧 英国（ILR）</td><td>犯罪・詐欺・2年以上出国</td><td>なし</td></tr>
+<tr><td>🇩🇪 ドイツ</td><td>犯罪・詐欺・6ヶ月以上出国</td><td>なし</td></tr>
+<tr><td>🇦🇺 豪州（PR）</td><td>品格テスト不合格・12ヶ月以上禁固</td><td>なし</td></tr>
+<tr><td><strong>🇯🇵 日本</strong></td><td><strong>故意の税・社保不払い、在留カード未更新等</strong></td><td><strong>あり——世界唯一</strong></td></tr>
+</tbody>
+</table>
+
+<div class="danger-box">
+<h4>「差別でなくて何か」——李琴峰氏の指摘</h4>
+<p>作家・李琴峰氏：「納税と社会保険料は日本人も外国人も同じ義務。<strong>日本人が滞納しても国籍を失わない。外国人だけが永住権を失う</strong>。これが差別でなくて何か？」</p>
+<p>日弁連（2026年4月16日意見書）は取消制度を「永住者の生活基盤に対する<strong>重大な制裁的措置</strong>」と位置づけ、厳格なガイドラインと比例原則の適用を求めた。国連人権委員会は2024年6月に早期警告書簡を送付済み。</p>
+<p>さらに深刻なのは条文のグレーゾーン：「<strong>義務を知りつつ支払い能力がなく未納</strong>」の場合も取消可能性が残されている。脱税だけでなく、<strong>貧困も取消理由になり得る</strong>。</p>
+</div>
+
+<h3>帰化要件——5年→10年、国会審議なしの倍増</h3>
+
+<table>
+<thead>
+<tr><th>居住年数</th><th>国</th></tr>
+</thead>
+<tbody>
+<tr><td>2年</td><td>🇦🇷 アルゼンチン</td></tr>
+<tr><td>3年</td><td>🇨🇦 カナダ</td></tr>
+<tr><td>4年</td><td>🇦🇺 オーストラリア</td></tr>
+<tr><td>5年</td><td>🇺🇸 米国、🇬🇧 英国、🇫🇷 フランス、🇰🇷 韓国、🇩🇪 ドイツ（2025年〜、従来8年）</td></tr>
+<tr><td><strong>10年</strong></td><td>🇨🇭 スイス、🇦🇹 オーストリア、🇮🇹 イタリア、🇪🇸 スペイン、<strong>🇯🇵 日本（2026年4月〜）</strong></td></tr>
+</tbody>
+</table>
+
+<p>ドイツは8年から5年に<strong>短縮</strong>。日本だけが<strong>逆走</strong>。しかも最も重要な点——<strong>国籍法は改正されていない</strong>。国籍法第5条は依然として「5年以上」と規定している。法務省の行政運用基準の変更のみで実質的な法改正が行われた。国会審議を経ていない。</p>
+
+<h3>医療費不払い——63ドルで入国拒否</h3>
+
+<p>未払い医療費の入国拒否閾値が20万円から<strong>1万円（約63ドル）</strong>に引き下げられた。</p>
+
+<p>他国は<strong>事前予防</strong>方式：英国は移民健康附加金（IHS）年£1,035を事前徴収、申根ビザは3万ユーロの医療保険を義務化、UAEやタンザニアは旅行保険を強制。日本だけが<strong>事後の遡及処罰</strong>。背景データ：外国人の医療費未払い率はわずか<strong>0.8%</strong>。</p>
+
+<h3>不動産の国籍登記——先例なきデータベース</h3>
+
+<p>他国は外国人の不動産購入を「制限」する（豪FIRB審査、加購入禁止、新加坡60%追加印紙税、NZ住宅禁止）。日本は購入自体を制限しないが、<strong>全ての所有者の国籍を追跡するデータベース</strong>を構築する。「まず登記、後で規制」の二段階戦略——先進国に直接の先例がない。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="cross">横縦交差の洞察：声明の修辞戦略と構造的矛盾</h2>
+
+<h3>声明の修辞を解剖する</h3>
+
+<h4>①「国民の皆様が感じておられる不安や不公平感」</h4>
+<p>政策の正当性根拠を「客観的問題」ではなく「主観的感情」に置く。感情は反証不可能であり、データで覆すことができない。「不法残留者は先進国最少レベル」という事実があっても、「国民が不安を感じている」と言えば政策は正当化される。</p>
+
+<h4>②「ルールを守り滞在しておられる大部分の外国人の皆様のためにも」</h4>
+<p>管理強化を「善良な外国人のため」と読み替えるフレーミング。しかし帰化10年化も、経営ビザ96%排除も、「ルールを守って滞在している」外国人を直撃している。</p>
+
+<h4>③ 分母のない分子</h4>
+<p>6,375人と96%——いずれも分母と文脈を省略することで効果を最大化。基数を示さず、国際比較を置かず、原因を分析しない。数字が自明の「成果」として一人歩きする。</p>
+
+<h3>構造的矛盾：必要としながら信頼しない</h3>
+
+<div class="danger-box">
+<h4>データが示す矛盾</h4>
+<p>・2040年までに<strong>1,100万人</strong>の労働力不足（AMRO Asia推計）</p>
+<p>・外国人労働者<strong>257万人</strong>は就業者増加の<strong>55%以上</strong>を占める（厚労省2025年）</p>
+<p>・経団連は「<strong>秩序ある誘致</strong>」を提言（2025年12月）</p>
+<p>・経済同友会は「<strong>外国人口1割時代</strong>」を展望</p>
+<p>・育成就労制度（2027年4月開始）と特定技能の合計受入上限は<strong>123万人</strong></p>
+<p>しかし政治の現場では、外国人は「誘致」の対象ではなく「管理」の対象として語られる。産業界は「もっと来てくれ」と言い、政治は「秩序を守れ」と言い、外国人は「……行き先を変えます」と判断する。<strong>96%の消失は、この矛盾の最初の帰結</strong>だ。</p>
+</div>
+
+<p>この矛盾は高市政権に固有のものではない。1989年に「日系人」で労働力を包装し、1993年に「技能実習」で低賃金労働を包装し、2018年に安倍が「移民政策ではない」と否定し、2026年に高市が「秩序ある共生」と名づける——<strong>措辞は変わるが構造は同じ</strong>だ。日本経済は外国人を必要としているが、日本政治は外国人が「この社会の一員」であることを認めたがらない。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="scenarios">三つのシナリオ</h2>
+
+<h3>最も可能性の高いシナリオ：管理加速、矛盾深化</h3>
+<p>高市政権は2026年2月総選挙で316/465議席の大勝。政権基盤は強固。経営管理ビザ移行期間（2028年10月まで）終了後に淘汰が加速、永住取消の本格運用が2027年4月に開始、土地国籍データベース完成後に実質的な購入制限へ。同時に「育成就労」による大量受入れも進む——管理と誘致の同時加速で、政策内部の緊張が蓄積し続ける。</p>
+
+<h3>最も危険なシナリオ：悪循環</h3>
+<p>管理強化のシグナルが外国人労働者を他国（韓国、台湾等）に向かわせる。経営ビザの断崖が真の創業者・投資家を遠ざける。永住取消の不確実性が長期的コミットメント（住宅購入、地域参加）を阻害する。結果：「ルールを守る優良な外国人」こそが離れていく。労働力不足が悪化→国民の不安が増大→さらなる管理強化→さらなる離脱——<strong>悪循環が回り始める</strong>。96%の消失は、その最初の証拠だ。</p>
+
+<h3>最も楽観的なシナリオ：振り子の反転</h3>
+<p>労働力危機がある臨界点に達したとき——地方病院が介護職不足で機能不全に陥る、製造業大手が生産拠点を東南アジアに移転する——政治的言説の転換が起きる。2027年の育成就労制度で43万人の受入目標が大幅未達となれば、「秩序」フレームの限界が誰の目にも明らかになる。</p>
+
+<div class="insight">
+<p>「秩序」が「共生」の前提条件になった瞬間、共生は対等な関係ではなくなる。ホスト国がルールを定め、外国人がそれに従う——それは共生ではなく、<strong>「管理された滞在」</strong>だ。</p>
+<p>413万の在住外国人はゲストではない。257万の外国人労働者は道具ではない。しかしこの声明の中で、彼らは「秩序によって規律される対象」として描かれている。</p>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<div class="sources" id="sources">
+  <h2>情報ソース</h2>
+
+  <h4>政府・一次資料</h4>
+  <ul>
+    <li><a href="https://www.cas.go.jp/jp/seisaku/symbiotic_society/">内閣官房「外国人との秩序ある共生社会の実現」</a></li>
+    <li><a href="https://www.kantei.go.jp/jp/singi/gaikokujinzai/pdf/kettei_honbun.pdf">首相官邸：総合的対応策本文PDF（2026年1月23日決定）</a></li>
+    <li><a href="https://www.moj.go.jp/isa/publications/press/13_00053.html">出入国在留管理庁：不法残留者数統計（2026年1月1日現在）</a></li>
+    <li><a href="https://www.mhlw.go.jp/stf/newpage_50256.html">厚生労働省：外国人雇用状況の届出（2025年10月末）</a></li>
+    <li><a href="https://www.cao.go.jp/minister/2510_k_onoda/index.html">内閣府：小野田紀美大臣プロフィール</a></li>
+  </ul>
+
+  <h4>法律専門家・意見書</h4>
+  <ul>
+    <li><a href="https://www.nichibenren.or.jp/document/opinion/year/2026/260416.html">日弁連：永住許可取消に関する意見書（2026年4月16日）</a></li>
+    <li><a href="https://niben.jp/news/opinion/2024/202405094135.html">第二東京弁護士会：永住許可取消に関する会長声明</a></li>
+    <li><a href="https://www.ben54.jp/news/2853">弁護士JPニュース：杉田昌平弁護士「経営ビザ厳格化で資本金要件6倍に」コメント</a></li>
+    <li>Baker McKenzie：Japan Revises Business Manager Visa Requirements（2026年2月）</li>
+    <li>Erickson Immigration Group：Japan Permanent Residency Revocation Guidelines</li>
+  </ul>
+
+  <h4>調査・統計</h4>
+  <ul>
+    <li><a href="https://www.tsr-net.co.jp/data/detail/1202771_1527.html">東京商工リサーチ：在留資格厳格化アンケート調査（2026年3-4月、299社）</a>——45.2%影響あり、5.3%廃業検討</li>
+    <li>Pew Research Center：U.S. Unauthorized Immigrant Population（2025年8月）——約1,400万人</li>
+    <li>UK Migration Advisory Committee：Annual Report 2025——Innovator Founder 517件</li>
+    <li>AMRO Asia：Japan Workforce and Foreign Labor（2026年）——2040年1,100万人不足</li>
+  </ul>
+
+  <h4>市民社会・当事者の声</h4>
+  <ul>
+    <li><a href="https://migrants.jp/news/office/20260421_statement.html">移住連：衆院法務委参考人意見陳述（2026年4月21日）</a></li>
+    <li><a href="https://migrants.jp/news/voice/eijyuvoices.html">移住連：永住者の声</a></li>
+    <li>李琴峰（作家）：永住権取消に対する批判</li>
+    <li><a href="https://imadr.org/wordpress/wp-content/uploads/2025/09/ERD-Net-Part-D.pdf">IMADR：国連NGO共同提出書面</a></li>
+  </ul>
+
+  <h4>報道・分析</h4>
+  <ul>
+    <li><a href="https://www.japantimes.co.jp/news/2026/04/09/japan/society/immigration-control-data/">Japan Times：Immigration Control Data（2026年4月9日）</a></li>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUA120140S5A810C2000000/">日本経済新聞：経営管理ビザ資本金引上げ（2025年8月）</a></li>
+    <li><a href="https://www.nippon.com/en/in-depth/d01206/">Nippon.com：「秩序ある共生」分析——"No orderly coexistence without an immigration plan"</a></li>
+    <li><a href="https://www.scmp.com/week-asia/people/article/3349313/japans-deportation-drive-strikes-fear-asylum-seekers-foreign-residents">SCMP：Japan's Deportation Drive Strikes Fear（2026年）</a></li>
+    <li><a href="https://eastasiaforum.org/2025/07/19/ishiba-walks-a-political-tightrope-on-immigration/">East Asia Forum：Ishiba Walks a Political Tightrope on Immigration（2025年7月）</a></li>
+    <li>Stanford FSI：Japan and the Myth of "Ethnic Homogeneity"</li>
+    <li>Tokyo Review：Foreigner Fatigue and Japan's New Populism（2025年11月）</li>
+    <li><a href="https://www.keidanren.or.jp/policy/2025/086_honbun.html">経団連：転換期における外国人政策のあり方（2025年12月16日）</a></li>
+  </ul>
+
+  <div class="methodology">
+    <p>本レポートは「横縦分析法」（数字生命カズック提唱）に基づき作成。縦軸では1951年の出入国管理令から2026年の高市政権までの外国人政策70年史を追い、横軸では各施策を米・加・豪・英・独・仏・韓・星の8カ国と比較分析した。引用は全て公開情報に基づく。</p>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:0.78em;color:#b0b8c4;margin-top:60px;letter-spacing:0.05em;line-height:1.8;">
+  分析フレームワーク：横縦分析法（数字生命カズック提唱）
+</p>
+
+</div>
+</body>
+</html>

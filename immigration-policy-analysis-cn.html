@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>以「秩序」之名——解剖高市政权的外国人政策收紧转向 — 横纵分析法 深度研究报告</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;700&display=swap');
+  :root {
+    --color-primary: #2c2c2c;
+    --color-secondary: #5a3a2a;
+    --color-accent: #4a4a6a;
+    --color-purple: #4a235a;
+    --color-text: #2c3e50;
+    --color-light-bg: #f8f9fa;
+    --color-border: #dee2e6;
+    --color-gold: #b8860b;
+    --color-danger: #922b21;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    color: var(--color-text); line-height: 1.8; font-size: 16px; background: #fff;
+    letter-spacing: 0.03em;
+  }
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: #ffffff;
+    color: #1a1a1a; text-align: center; padding: 80px 40px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: #1a3a6a;
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 80%; height: 1px; background: #e0e0e0;
+  }
+  .cover-label {
+    font-family: 'Noto Sans SC', 'Noto Sans JP', sans-serif; font-size: 0.7em; font-weight: 500;
+    letter-spacing: 0.25em; color: #1a3a6a;
+    margin-bottom: 32px; position: relative; z-index: 1;
+    border: 1px solid #1a3a6a; display: inline-block; padding: 4px 16px;
+  }
+  .cover h1 {
+    font-family: 'Noto Serif SC', 'Noto Serif JP', serif; font-size: 2em; font-weight: 700;
+    letter-spacing: 0.08em; line-height: 1.7; margin-bottom: 18px;
+    position: relative; z-index: 1; color: #1a1a1a;
+  }
+  .cover .subtitle {
+    font-family: 'Noto Serif SC', 'Noto Serif JP', serif; font-size: 0.92em; font-weight: 400;
+    letter-spacing: 0.12em; margin-bottom: 52px; position: relative; z-index: 1;
+    color: #1a3a5c; line-height: 1.8;
+  }
+  .cover .divider {
+    width: 40px; height: 1px; background: #ccc;
+    margin: 0 auto 40px; position: relative; z-index: 1;
+  }
+  .cover .meta { text-align: center; position: relative; z-index: 1; }
+  .hero-meta {
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    text-align: left; margin: 0 auto;
+  }
+  .hero-meta span {
+    font-family: 'Noto Sans SC', 'Noto Sans JP', sans-serif; font-size: 0.8em; font-weight: 400;
+    letter-spacing: 0.08em; line-height: 2.2; margin-bottom: 0.2em;
+    color: #999;
+  }
+  .content { max-width: 820px; margin: 0 auto; padding: 60px 40px; }
+  .toc { background: var(--color-light-bg); border-left: 4px solid var(--color-primary); padding: 30px 35px; margin: 0 0 60px 0; border-radius: 0 8px 8px 0; }
+  .toc h2 { font-size: 1.3em; color: var(--color-primary); margin-bottom: 15px; font-weight: 700; border-bottom: none; }
+  .toc ol { padding-left: 20px; } .toc li { margin-bottom: 8px; font-size: 0.95em; }
+  .toc a { color: var(--color-text); text-decoration: none; border-bottom: 1px dotted var(--color-accent); }
+  .toc a:hover { color: var(--color-accent); border-bottom-style: solid; }
+  h2 { font-family: 'Noto Serif SC', 'Noto Serif JP', serif; font-size: 1.8em; color: var(--color-primary); margin: 70px 0 25px; padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); font-weight: 700; letter-spacing: 0.05em; }
+  h3 { font-size: 1.35em; color: var(--color-secondary); margin: 45px 0 18px; font-weight: 700; padding-left: 15px; border-left: 4px solid var(--color-secondary); }
+  h4 { font-size: 1.1em; color: var(--color-purple); margin: 30px 0 12px; font-weight: 700; }
+  p { margin-bottom: 18px; text-align: justify; }
+  blockquote {
+    border-left: 3px solid var(--color-primary); background: #f0f2f4; padding: 18px 25px; margin: 25px 0; border-radius: 0 6px 6px 0; font-style: normal; color: #34495e;
+    font-family: 'Noto Sans SC', 'Noto Sans JP', sans-serif; line-height: 1.85; letter-spacing: 0.05em;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.92em; }
+  thead { background: var(--color-primary); color: white; } th { padding: 12px 16px; text-align: left; font-weight: 500; }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--color-border); }
+  tbody tr:nth-child(even) { background: #f8f9fa; } tbody tr:hover { background: #edf2f7; }
+  strong { font-weight: 700; color: #1a1a2e; }
+  .highlight-box, .danger-box, .insight {
+    font-family: 'Noto Sans SC', 'Noto Sans JP', sans-serif; line-height: 1.85; letter-spacing: 0.05em;
+  }
+  .highlight-box { background: linear-gradient(135deg, #fef9e7, #fdf2e9); border: 1px solid #f0c27f; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .highlight-box p:last-child { margin-bottom: 0; }
+  .danger-box { background: linear-gradient(135deg, #fdedec, #fdf2f2); border: 1px solid #e6b0aa; border-radius: 8px; padding: 25px 30px; margin: 30px 0; }
+  .danger-box p:last-child { margin-bottom: 0; }
+  .insight { background: linear-gradient(135deg, #eaecf0, #f0f2f6); border-left: 4px solid var(--color-accent); border-radius: 0 8px 8px 0; padding: 20px 25px; margin: 30px 0; font-size: 1.02em; }
+  .timeline-marker { display: inline-block; background: var(--color-primary); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .danger-marker { display: inline-block; background: var(--color-danger); color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500; margin-right: 8px; }
+  .definition { font-family: 'Noto Serif SC', 'Noto Serif JP', serif; font-size: 1.12em; text-align: center; padding: 30px 40px; margin: 0 0 50px; color: var(--color-primary); border: 1px solid #d5dbdb; border-radius: 8px; background: #fafbfc; line-height: 2; }
+  .sources { margin-top: 80px; padding-top: 30px; border-top: 2px solid var(--color-border); }
+  .sources h2 { border-bottom: none; font-size: 1.4em; } .sources ul { list-style: none; padding: 0; }
+  .sources li { padding: 6px 0; font-size: 0.88em; color: #666; border-bottom: 1px dotted #eee; }
+  .sources a { color: var(--color-accent); text-decoration: none; } .sources a:hover { text-decoration: underline; }
+  .methodology { margin-top: 40px; padding: 20px 25px; background: var(--color-light-bg); border-radius: 8px; font-size: 0.9em; color: #777; }
+  @media (max-width: 768px) { .content { padding: 30px 20px; } .cover h1 { font-size: 1.6em; } h2 { font-size: 1.5em; } h3 { font-size: 1.2em; } table { font-size: 0.85em; } }
+  @media print { .cover { min-height: auto; padding: 40px; page-break-after: always; } .content { max-width: 100%; padding: 20px; } h2 { page-break-before: always; } table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">横纵分析法 深度研究报告</div>
+  <h1>以「秩序」之名</h1>
+  <div class="subtitle">解剖高市政权的外国人政策收紧转向<br>——9条政策、7国对比，以及那些没有被说出的数字</div>
+  <div class="divider"></div>
+  <div class="meta">
+    <div class="hero-meta">
+      <span>研究日：2026年4月30日</span>
+      <span>首席分析师：Claude &amp; Claude Code</span>
+      <span>副分析师：麦大酱（マック）</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<nav class="toc">
+  <h2>目录</h2>
+  <ol>
+    <li><a href="#summary">一句话概括</a></li>
+    <li><a href="#what-happened">4月29日，说了什么</a></li>
+    <li><a href="#vertical">纵轴分析：从「单一民族」到「秩序ある共生」的七十年</a></li>
+    <li><a href="#horizontal">横轴分析：9条政策的国际对照</a></li>
+    <li><a href="#cross">横纵交汇：声明的修辞策略与结构性矛盾</a></li>
+    <li><a href="#scenarios">三个剧本</a></li>
+    <li><a href="#sources">信息来源</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════════ -->
+<div class="definition" id="summary">
+  2026年4月29日・昭和の日——高市早苗首相发布「外国人の受入れ・秩序ある共生のための総合的対応策」执行进展。<br>
+  9条政策中7条是管控，支援措施只有1条——而且还在"检讨中"。<br>
+  永住权因欠税取消是<strong>全球首创</strong>，归化居住要求10年跻身最严阵营，<br>
+  经管签证申请暴跌96%在全球没有先例。<br>
+  「秩序ある共生」的实态是「秩序 &gt; 共生」。
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="what-happened">4月29日，说了什么</h2>
+
+<p>高市首相的声明以小野田纪美「外国人との秩序ある共生社会推進担当大臣」汇报进展的形式发布，列出9条政策措施。</p>
+
+<table>
+<thead>
+<tr><th>#</th><th>政策</th><th>性质</th><th>阶段</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>电子渡航认证制度（JESTA）法案提出</td><td>管控</td><td>法案已提出</td></tr>
+<tr><td>2</td><td>不法滞留者 同比减少6,375人</td><td>管控</td><td>执行中</td></tr>
+<tr><td>3</td><td>经营管理签证审查严格化（申请减少96%）</td><td>管控</td><td>已施行</td></tr>
+<tr><td>4</td><td>永住者因欠税取消资格</td><td>管控</td><td>2027年4月施行</td></tr>
+<tr><td>5</td><td>归化居住要求提高至10年</td><td>管控</td><td>已施行</td></tr>
+<tr><td>6</td><td>日语和制度学习计划创设</td><td><strong>支援</strong></td><td><strong>开始检讨</strong></td></tr>
+<tr><td>7</td><td>访日外国人医疗费未付对策</td><td>管控</td><td>已施行</td></tr>
+<tr><td>8</td><td>不动产所有者国籍登记</td><td>管控</td><td>执行中</td></tr>
+<tr><td>9</td><td>土地取得规制有识者会议</td><td>管控</td><td>讨论中</td></tr>
+</tbody>
+</table>
+
+<div class="danger-box">
+<h4>管控7条 vs 支援1条——速度差本身就是信号</h4>
+<p>管控措施全部"已施行""执行中""法案已提出"。唯一的支援措施——日语学习计划——还停在"开始检讨"。标题写着"共生"，共生的实质内容接近于零。</p>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="vertical">纵轴分析：从「单一民族」到「秩序ある共生」的七十年</h2>
+
+<h3>从来不是"单一"的国家</h3>
+
+<p>斯坦福大学的研究指出，"民族同质性神话"是二战后人为构建的产物。2005年，时任外相麻生太郎公开声称日本是"一个种族、一个文明、一个语言、一个文化"的国家。这个自画像决定了外国人政策的起点：外国人是「外」的，需要被「対応」（应对）。政策文件叫"対応策"而不叫"移民政策"，不是偶然。</p>
+
+<h3>七十年政策变迁</h3>
+
+<table>
+<thead>
+<tr><th>年份</th><th>事件</th><th>本质</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="timeline-marker">1951</span></td><td>出入国管理令颁布</td><td>管控的骨架（16类在留资格）</td></tr>
+<tr><td><span class="timeline-marker">1989</span></td><td>入管法全面修订、新设"定住者"</td><td>泡沫经济缺人→用"日系"包装劳动力输入</td></tr>
+<tr><td><span class="timeline-marker">1993</span></td><td>技能实习制度创设</td><td>"国际贡献"之名的廉价劳动力管道</td></tr>
+<tr><td><span class="timeline-marker">2015</span></td><td>经营管理签证改称（取消外国资本要求）</td><td>门槛降低→空壳公司温床</td></tr>
+<tr><td><span class="timeline-marker">2018</span></td><td>特定技能签证创设（安倍政权）</td><td>安倍：「这不是移民政策」</td></tr>
+<tr><td><span class="timeline-marker">2024.6</span></td><td>修正入管法成立（含永住取消条款）</td><td>永住权从"获得的权利"变为"可取消的许可"</td></tr>
+<tr><td><span class="timeline-marker">2025.7</span></td><td>参政党14席、「日本人ファースト」</td><td>倒逼自民党右转的外部压力</td></tr>
+<tr><td><span class="timeline-marker">2025.10</span></td><td>高市早苗就任、小野田纪美任担当大臣</td><td>「秩序ある共生」体制启动</td></tr>
+<tr><td><span class="timeline-marker">2025.10</span></td><td>经管签证资本金6倍提升施行</td><td>96%的断崖</td></tr>
+<tr><td><span class="timeline-marker">2026.1</span></td><td>新「総合的対応策」决定</td><td>"外国人材"→"外国人"，"共生"→"秩序ある共生"</td></tr>
+<tr><td><span class="timeline-marker">2026.4</span></td><td>归化居住要求10年施行</td><td>行政命令实现实质修法，绕过国会</td></tr>
+</tbody>
+</table>
+
+<h3>「秩序ある共生」——三个字改变了什么</h3>
+
+<p>2006年以来日本外国人融合政策的关键词是<strong>「多文化共生」</strong>——强调相互理解、对等关系、文化多样性。立宪民主党至今坚持使用这个表述。</p>
+
+<p>高市政权全面推行的<strong>「秩序ある共生」</strong>在"共生"前加了三个字"秩序ある"（有秩序的）。共生不再是无条件的——你可以共生，前提是守秩序。谁定义秩序？国家。</p>
+
+<div class="insight">
+<p>一位学术分析者评价：「秩序ある共生」代表了一种<strong>「需要外国人但不完全信任外国人的国家治理形态」</strong>。Nippon.com的评论更直接：「没有移民计划，就不可能有真正的'秩序ある共生'」。</p>
+</div>
+
+<h3>小野田纪美——政策"代言人"的双重性</h3>
+
+<p>小野田纪美1982年生于芝加哥，父亲美国人，母亲日本人。1岁回冈山，父亲出走，单亲家庭长大，幼年因混血外貌被欺凌——"外国人は帰れ"。</p>
+
+<p>这个经历使她成为推行外国人强硬政策的完美人选：作为混血儿和霸凌受害者，她的个人"合法性"可以抵消政策的"排外感"。但她自己也遭到极端保守派的反噬——SNS上出现大量捏造她"接受移民"的虚假信息。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="horizontal">横轴分析：9条政策的国际对照</h2>
+
+<h3>JESTA——G7最后一个交作业的</h3>
+
+<table>
+<thead>
+<tr><th>制度</th><th>启动年</th><th>费用</th><th>覆盖国</th></tr>
+</thead>
+<tbody>
+<tr><td>🇺🇸 ESTA</td><td>2009年</td><td>$40</td><td>42国</td></tr>
+<tr><td>🇨🇦 eTA</td><td>2016年</td><td>$5</td><td>免签国+13</td></tr>
+<tr><td>🇦🇺 ETA</td><td>2008年</td><td>$13</td><td>特定国</td></tr>
+<tr><td>🇬🇧 ETA</td><td>2023年</td><td>£20</td><td>85国</td></tr>
+<tr><td>🇪🇺 ETIAS</td><td>2026Q4</td><td>€20</td><td>59国</td></tr>
+<tr><td><strong>🇯🇵 JESTA</strong></td><td><strong>2028-29</strong></td><td><strong>¥3,000</strong></td><td><strong>74国</strong></td></tr>
+</tbody>
+</table>
+
+<p>比美国ESTA<strong>晚了20年</strong>。把补课包装成领先——修辞的艺术。</p>
+
+<h3>不法滞留者减少6,375人——一个没有分母的分子</h3>
+
+<div class="highlight-box">
+<h4>缺失的三个上下文</h4>
+<p><strong>基数</strong>：2026年1月总数约<strong>68,488人</strong>，6,375人仅占9.3%。声明不提基数。</p>
+<table>
+<thead><tr><th>国家</th><th>不法滞留/非法居留</th><th>占人口比</th></tr></thead>
+<tbody>
+<tr><td>🇺🇸 美国</td><td>约1,400万</td><td>4.2%</td></tr>
+<tr><td>🇰🇷 韩国</td><td>约39.2万</td><td>0.76%</td></tr>
+<tr><td><strong>🇯🇵 日本</strong></td><td><strong>约6.8万</strong></td><td><strong>0.055%</strong></td></tr>
+</tbody>
+</table>
+<p>日本的不法滞留问题在发达国家中<strong>几乎是最轻微的</strong>。从1993年峰值约30万到现在，减少了77%——这是30年的结构性趋势。</p>
+<p><strong>减少原因</strong>：主动执法？签证到期自然离境？自愿回国？韩国区分公布这些数据，日本的声明全部归为"ゼロプラン的推进"。</p>
+</div>
+
+<h3>经管签证申请减少96%——最值得警惕的数字</h3>
+
+<table>
+<thead><tr><th>项目</th><th>改革前</th><th>改革后</th></tr></thead>
+<tbody>
+<tr><td>资本金</td><td>500万 <strong>或</strong> 雇2人</td><td>3,000万 <strong>且</strong> 雇1人</td></tr>
+<tr><td>事务所</td><td>自宅兼用可</td><td>需独立事务所</td></tr>
+<tr><td>事业计划</td><td>自行提出</td><td>需会计师等专业评估</td></tr>
+<tr><td>日语</td><td>无要求</td><td>申请人或员工需具备</td></tr>
+<tr><td>学历/经验</td><td>无要求</td><td>经营3年+ 或 商科硕士</td></tr>
+</tbody>
+</table>
+
+<p>东京商工调查（299社，2026年3-4月）：<strong>45.2%受影响</strong>，<strong>5.3%考虑废业</strong>，信息通信业<strong>16.6%考虑废业</strong>。</p>
+
+<div class="danger-box">
+<h4>两种读法</h4>
+<p><strong>政府的读法</strong>：96%本来就是空壳公司，挤掉了，系统运转正常。</p>
+<p><strong>另一种读法</strong>：投800万开拉面店的越南人、投1200万做IT外包的印度工程师——他们不是空壳，只是不够"大"。律师杉田昌平警告：「厳しくし過ぎて、日本での創業や投資が減っては<strong>本末転倒</strong>」。</p>
+<p>英国同类签证下降约50%，加拿大废除旧计划后立刻推出新试点。只有日本是<strong>「无替代的排除」</strong>。96%的断崖在全球没有先例。</p>
+</div>
+
+<h3>永住权因欠税取消——全球首创，无先例</h3>
+
+<table>
+<thead><tr><th>国家</th><th>永久居留取消条件</th><th>因欠税取消</th></tr></thead>
+<tbody>
+<tr><td>🇺🇸 美国</td><td>犯罪、欺诈、放弃居住</td><td>税务<strong>欺诈</strong>需刑事定罪</td></tr>
+<tr><td>🇨🇦 加拿大</td><td>犯罪、5年内居住不满730天</td><td>否</td></tr>
+<tr><td>🇬🇧 英国</td><td>犯罪、欺诈、离境2年以上</td><td>否</td></tr>
+<tr><td>🇩🇪 德国</td><td>犯罪、欺诈、离境6个月</td><td>否</td></tr>
+<tr><td>🇦🇺 澳大利亚</td><td>品格测试、12个月以上监禁</td><td>否</td></tr>
+<tr><td><strong>🇯🇵 日本</strong></td><td><strong>故意不缴税/社保、在留卡未更新等</strong></td><td><strong>是——全球唯一</strong></td></tr>
+</tbody>
+</table>
+
+<div class="danger-box">
+<h4>「这不是歧视是什么？」——李琴峰</h4>
+<p>作家李琴峰一针见血：「纳税和社保是日本人和外国人共同的义务。<strong>日本人欠税不会失去国籍，外国人欠税会失去永住权</strong>。这不是歧视是什么？」</p>
+<p>日弁联（2026.4.16意见书）：取消永住权是"对生活基盘的<strong>重大制裁性措施</strong>"。联合国人权委员会2024年6月已发出早期预警。</p>
+<p>更令人担忧的是条文的灰色地带——<strong>「明知义务但因无力偿还而未缴纳」也可能被取消</strong>。不只是逃税，贫困也可能成为理由。</p>
+</div>
+
+<h3>归化要求5年→10年——行政命令的实质修法</h3>
+
+<table>
+<thead><tr><th>居住年限</th><th>国家</th></tr></thead>
+<tbody>
+<tr><td>2年</td><td>🇦🇷 阿根廷</td></tr>
+<tr><td>3年</td><td>🇨🇦 加拿大</td></tr>
+<tr><td>4年</td><td>🇦🇺 澳大利亚</td></tr>
+<tr><td>5年</td><td>🇺🇸 美国、🇬🇧 英国、🇫🇷 法国、🇰🇷 韩国、🇩🇪 德国（2025年起从8年缩短）</td></tr>
+<tr><td><strong>10年</strong></td><td>🇨🇭 瑞士、🇦🇹 奥地利、🇮🇹 意大利、🇪🇸 西班牙、<strong>🇯🇵 日本（2026.4起）</strong></td></tr>
+</tbody>
+</table>
+
+<p>德国从8年<strong>缩短</strong>到5年。日本反方向走。而且——<strong>《国籍法》第5条至今写着"5年以上"</strong>。改的不是法律，是法务省的行政运用基准。绕过国会，以行政命令实现了实质修法。</p>
+
+<h3>医疗费63美元的入境禁止</h3>
+
+<p>未付医疗费的入境禁止门槛从20万降至<strong>1万日元（约63美元）</strong>。其他国家处理方式是<strong>事前预防</strong>（英国IHS预收£1,035/年、申根要求3万€保险、UAE强制旅游保险），日本是<strong>事后追溯处罚</strong>。背景数据：外国人医疗费未付率仅<strong>0.8%</strong>。</p>
+
+<h3>土地国籍登记——没有先例的数据库</h3>
+
+<p>其他国家限制外国人买地（澳FIRB审批、加拿大购房禁令、新加坡60%附加税、新西兰禁止购买住宅）。日本不限制购买，但建立<strong>全面的国籍追踪数据库</strong>。"先登记、后规制"的两步策略，在发达国家中没有直接先例。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="cross">横纵交汇：声明的修辞策略与结构性矛盾</h2>
+
+<h3>修辞解剖</h3>
+
+<h4>"国民の皆様が感じておられる不安や不公平感"</h4>
+<p>政策正当性来源从"客观问题"变为"主观情绪"。情绪不可证伪。"不法滞留者是发达国家最少"这个事实存在，但"国民感到不安"就够了。</p>
+
+<h4>"ルールを守る外国人のためにも"</h4>
+<p>把管控包装成"保护好外国人"。但归化10年化、经管签证96%排除，恰恰打击的是守规矩的外国人。</p>
+
+<h4>没有分母的分子</h4>
+<p>6,375人和96%——省略基数、省略国际对比、省略原因分析。数字脱离比较框架，变成自我证明的工具。</p>
+
+<h3>核心矛盾：需要你，但不信任你</h3>
+
+<div class="danger-box">
+<h4>数据揭示的矛盾</h4>
+<p>2040年劳动力缺口<strong>1,100万人</strong>。外国劳动者257万已占就业增长的<strong>55%以上</strong>。经团联呼吁"秩序ある誘致"（有秩序的招揽）。经济同友会畅想"外国人口10%时代"。育成就劳+特定技能合计接收上限<strong>123万人</strong>。</p>
+<p>产业界说"多来点"，政治说"守规矩"，外国人说"……去别的国家吧"。</p>
+<p><strong>96%的消失就是这个矛盾的第一个后果</strong>。越收紧→越难吸引→越短缺→越不安→越收紧。恶性循环已经启动。</p>
+</div>
+
+<p>这个矛盾不是高市政权特有的。从1989年用"日系"包装，到1993年用"实习"包装，到2018年安倍说"这不是移民政策"，到2026年高市说"秩序ある共生"——<strong>措辞变了，结构没变</strong>。日本经济需要外国人，日本政治不愿意承认外国人是社会的一部分。</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="scenarios">三个剧本</h2>
+
+<h3>最可能的：管控加速，矛盾深化</h3>
+<p>高市政权2026年2月大选316/465席大胜，执政基盘稳固。经管签证过渡期（至2028.10）后淘汰加速，永住取消2027年4月本格运行，土地国籍数据库建成后推出实质性购地限制。同时育成就劳大量引入——管控和引进同时加速，政策张力持续积累。</p>
+
+<h3>最危险的：恶性循环</h3>
+<p>管控信号使外国劳动者转向韩国、台湾地区。经管签证断崖吓退真正的创业者和投资者。永住取消的不确定性阻碍长期承诺。结果：声明里说要保护的"守规矩的外国人"反而最先离开。劳动力缺口扩大→国民不安增大→进一步管控→进一步离脱。96%的消失就是第一个证据。</p>
+
+<h3>最乐观的：钟摆回摆</h3>
+<p>劳动力危机在某个临界点——某个地方医院因缺少介护人员无法运转，某个制造业巨头将生产线迁往东南亚——迫使政治话语转向。2027年育成就劳43万人接收目标大幅未达时，"秩序"框架的局限性将无法回避。</p>
+
+<div class="insight">
+<p>「秩序」成为「共生」的前提条件时，共生就不再是平等主体间的共同生活，而是主人定规则、客人守规则的等级关系。</p>
+<p>413万在日外国人不是客人。257万外国劳动者不是工具。但在这份声明里，他们被框定为"需要被秩序规训的对象"。</p>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<div class="sources" id="sources">
+  <h2>信息来源</h2>
+
+  <h4>政府・一次资料</h4>
+  <ul>
+    <li><a href="https://www.cas.go.jp/jp/seisaku/symbiotic_society/">内阁官房「外国人との秩序ある共生社会の実現」</a></li>
+    <li><a href="https://www.kantei.go.jp/jp/singi/gaikokujinzai/pdf/kettei_honbun.pdf">首相官邸：総合的対応策本文PDF（2026年1月23日决定）</a></li>
+    <li><a href="https://www.moj.go.jp/isa/publications/press/13_00053.html">出入国在留管理厅：不法残留者数统计（2026.1.1）</a></li>
+    <li><a href="https://www.mhlw.go.jp/stf/newpage_50256.html">厚生劳动省：外国人雇用状况（2025.10末）</a></li>
+  </ul>
+
+  <h4>法律专家・意见书</h4>
+  <ul>
+    <li><a href="https://www.nichibenren.or.jp/document/opinion/year/2026/260416.html">日弁联：永住许可取消意见书（2026.4.16）</a></li>
+    <li><a href="https://niben.jp/news/opinion/2024/202405094135.html">第二东京律师会：会长声明</a></li>
+    <li><a href="https://www.ben54.jp/news/2853">弁護士JPニュース：杉田昌平律师评论</a></li>
+    <li>Baker McKenzie / Erickson Immigration Group</li>
+  </ul>
+
+  <h4>调查・统计</h4>
+  <ul>
+    <li><a href="https://www.tsr-net.co.jp/data/detail/1202771_1527.html">东京商工调查：在留资格严格化问卷（2026年3-4月，299社）</a></li>
+    <li>Pew Research Center：美国非法移民统计（2025.8）——约1,400万人</li>
+    <li>UK Migration Advisory Committee：Annual Report 2025</li>
+    <li>AMRO Asia：日本劳动力与外国劳动者（2026）</li>
+  </ul>
+
+  <h4>市民社会・当事者</h4>
+  <ul>
+    <li><a href="https://migrants.jp/news/office/20260421_statement.html">移住连：众院法务委参考人意见陈述（2026.4.21）</a></li>
+    <li><a href="https://migrants.jp/news/voice/eijyuvoices.html">移住连：永住者之声</a></li>
+    <li>李琴峰（作家）：永住权取消批判</li>
+    <li><a href="https://imadr.org/wordpress/wp-content/uploads/2025/09/ERD-Net-Part-D.pdf">IMADR：联合国NGO共同提交书面</a></li>
+  </ul>
+
+  <h4>报道・分析</h4>
+  <ul>
+    <li><a href="https://www.japantimes.co.jp/news/2026/04/09/japan/society/immigration-control-data/">Japan Times（2026.4.9）</a> / <a href="https://www.nikkei.com/article/DGXZQOUA120140S5A810C2000000/">日本经济新闻</a></li>
+    <li><a href="https://www.nippon.com/en/in-depth/d01206/">Nippon.com：「秩序ある共生」分析</a></li>
+    <li><a href="https://www.scmp.com/week-asia/people/article/3349313/japans-deportation-drive-strikes-fear-asylum-seekers-foreign-residents">SCMP</a> / <a href="https://eastasiaforum.org/2025/07/19/ishiba-walks-a-political-tightrope-on-immigration/">East Asia Forum</a></li>
+    <li>Stanford FSI / Tokyo Review / <a href="https://www.keidanren.or.jp/policy/2025/086_honbun.html">经团联提言（2025.12.16）</a></li>
+  </ul>
+
+  <div class="methodology">
+    <p>本报告采用横纵分析法（数字生命卡兹克提出）。纵轴追踪1951年出入国管理令至2026年高市政权的外国人政策70年史，横轴将各政策与美、加、澳、英、德、法、韩、新8国逐条对比分析。引用均基于公开信息。</p>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:0.78em;color:#b0b8c4;margin-top:60px;letter-spacing:0.05em;line-height:1.8;">
+  分析框架：横纵分析法（数字生命卡兹克提出）
+</p>
+
+</div>
+</body>
+</html>
